@@ -1,5 +1,5 @@
 
-<article{{ attributes.addClass('node') }}>
+<article{{ attributes.addClass('node flex justify-center') }}>
 
   {{ title_prefix }}
   {% if not page %}
@@ -19,7 +19,7 @@
     </footer>
   {% endif %}
 
-  <div{{ content_attributes.addClass('flex flex-col w-full  justify-center items-center') }}>
+  <div{{ content_attributes.addClass('flex flex-col w-full md:w-2/3 justify-center items-center md:grid md:grid-cols-3') }}>
     {{ content }}
   </div>
 

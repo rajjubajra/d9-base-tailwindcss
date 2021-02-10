@@ -7,7 +7,7 @@
 
 {% if label_hidden %}
   {% if multiple %}
-    <div{{ attributes.addClass('flex-wrap flex md:w-1/2 justify-center') }}>
+    <div{{ attributes.addClass('flex-wrap flex justify-center col-span-3') }}>
       {% for item in items %}
         <div{{ item.attributes.addClass('w-40 py-1 m-2 border text-center font-thin') }}>{{ item.content }}</div>
       {% endfor %}
