@@ -14,7 +14,7 @@
     </div>
   {% else %}
     {% for item in items %}
-      <div{{ attributes }}>2{{ item.content }}</div>
+      <div{{ attributes.addClass('text-4xl') }}>{{ item.content }}</div>
     {% endfor %}
   {% endif %}
 {% else %}
