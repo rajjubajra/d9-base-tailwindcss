@@ -1,5 +1,5 @@
 
-
+{{kint(content)}}
 
 <div class="min-h-screen flex flex-col justify-center  items-center">
 
@@ -38,37 +38,3 @@
   </div>
 
 </div>
-
-
-{% for field in fields -%}
-<div>
-  <h1>Wrapper attribute</h1>
-  <{{ field.wrapper_element }}{{ field.wrapper_attributes }}>
-</div>
-    
-<div>
-  <h1>element attribute label label_sufix lebel_element</h1>
-  <{{ field.label_element }}{{ field.label_attributes }}>{{ field.label }}{{ field.label_suffix }}</{{ field.label_element }}>
-</div>  
-      
-
-<div>
-  <h1>label label_suffix</h1>
-  {{ field.label }}{{ field.label_suffix }}
-</div>
-   
-      
-<div>
-  <h1>elemenet_type element_attribute content element_type</h1>
-   <{{ field.element_type }}{{ field.element_attributes }}>{{ field.content }}</{{ field.element_type }}>
-</div>
-    
-<div>
-  <h1>Content</h1>
- {{ field.content }}
-</div>
-   
-{%- endfor %}
-
-   
- 
