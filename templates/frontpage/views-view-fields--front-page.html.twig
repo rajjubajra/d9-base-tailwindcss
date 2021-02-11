@@ -40,7 +40,7 @@
 </div>
 
 
-
+{% for field in fields -%}
 <div>
   <h1>Wrapper attribute</h1>
   <{{ field.wrapper_element }}{{ field.wrapper_attributes }}>
@@ -68,6 +68,7 @@
  {{ field.content }}
 </div>
    
- 
+{%- endfor %}
+
    
  
