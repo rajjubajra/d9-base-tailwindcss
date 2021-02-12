@@ -16,10 +16,23 @@
   <main role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
+    
     <div class="md:flex -mx-4">
       <div class="md:flex-1 p-4">
         {{ page.content }}
+
+        {# SCROLL DOWN INDICATOR #}
+        <div>
+          <div class="animate-bounce w-6 h-6">V</div>
+        </div>
+        
+      
+      
       </div>{# /.layout-content #}
+
+
+
+
 
       {% if page.sidebar_first %}
         <aside class="md:w-1/4 p-4" role="complementary">
@@ -32,6 +45,9 @@
           {{ page.sidebar_second }}
         </aside>
       {% endif %}
+
+
+
     </div>
   </main>
 
