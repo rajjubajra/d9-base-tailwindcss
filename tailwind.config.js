@@ -15,9 +15,7 @@ module.exports = {
     extend: {
 
     },
-    animation: {
-      'ping': 'ping 4s linear infinite',
-    }
+
   },
   variants: {},
   plugins: []
