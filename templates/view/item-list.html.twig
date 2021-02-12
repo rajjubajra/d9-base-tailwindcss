@@ -19,6 +19,9 @@
  * @see template_preprocess_item_list()
  */
 #}
+
+
+{{ vardumber(items) }}
 {% if context.list_style %}
   {%- set attributes = attributes.addClass('item-list__' ~ context.list_style) %}
 {% endif %}
