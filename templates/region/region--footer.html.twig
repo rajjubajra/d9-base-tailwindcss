@@ -15,7 +15,9 @@
  */
 #}
 {% if content %}
-  <div{{ attributes.addClass('flex') }}>
+<div class="absolute bottom-0">
+  <div{{ attributes.addClass('flex justify-around font-thin') }}>
     {{ content }}
   </div>
+</div>
 {% endif %}
