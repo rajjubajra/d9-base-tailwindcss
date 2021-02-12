@@ -1,8 +1,12 @@
 
 
-{{ vardumper(attributes) }}
 
-<form{{ attributes.addClass('w-2/3 p-4 m-4 flex flex-col justify-center bg-gray-300') }}>
+
+{{ vardumper(title_prefix) }}
+{{ vardumper(children) }}
+{{ vardumper(title_suffix) }}
+
+<form{{ attributes.removeClass().addClass('w-2/3 p-4 m-4 flex flex-col justify-center bg-gray-300') }}>
   {{ title_prefix }}
   {{ children }}
   {{ title_suffix }}
