@@ -16,7 +16,7 @@ module.exports = {
 
     },
     animation: {
-      'ping': 'ping 2s linear infinite',
+      'ping': 'ping 4s linear infinite',
     }
   },
   variants: {},
