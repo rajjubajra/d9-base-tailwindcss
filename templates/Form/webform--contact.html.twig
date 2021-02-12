@@ -1,12 +1,12 @@
 
 
 
-{{ vardumper(attributes.storage) }}
+{{ vardumper(attributes.storage.action) }}
 {{ vardumper(title_prefix) }}
 {{ vardumper(children) }}
 {{ vardumper(title_suffix) }}
 
-<form action={attributes.storage.action} >
+<form action={{attributes.storage.action}} >
   {{ title_prefix }}
   {{ children }}
   {{ title_suffix }}
