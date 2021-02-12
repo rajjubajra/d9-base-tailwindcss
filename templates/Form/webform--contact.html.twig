@@ -1,7 +1,7 @@
 
 
 
-{{ vardumper(attributes.storage.action) }}
+{{ vardumper(attributes.storage) }}
 {{ vardumper(title_prefix) }}
 {{ vardumper(children) }}
 {{ vardumper(title_suffix) }}
@@ -9,7 +9,7 @@
 <form 
 action={{attributes.storage.action}} 
 method={{atributes.storage.method}}
-class="w-full md:w-2/3 lg:w-1/3 flex flex-col bg-gray-300 m-4 p-4"
+class={{attribute.addClass('w-full md:w-2/3 lg:w-1/2 flex flex-col m-4 p-4 bg-gray-300')}}
 >
   {{ title_prefix }}
   {{ children }}
