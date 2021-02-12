@@ -12,7 +12,12 @@ module.exports = {
     ]
   },
   theme: {
-    extend: {},
+    extend: {
+
+    },
+    animation: {
+      'ping': 'ping 2s linear infinite',
+    }
   },
   variants: {},
   plugins: []
