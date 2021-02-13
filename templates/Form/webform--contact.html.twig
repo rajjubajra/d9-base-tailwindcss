@@ -48,50 +48,30 @@ My final form template looks like this:
 #}
 
 
+<form{{ attributes }}>
+  {{ title_prefix }}
+  {{ children }}
+  {{ title_suffix }}
+</form>
 
 
 {{ vardumper(element) }}
 
-{{ vardumper(elements.elements.name) }}
+
 
 
 <form{{ attributes }}>
   {{ title_prefix }}
- 
-
-
-
-
-<section class="text-gray-600 body-font relative">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-col text-center w-full mb-12">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.</p>
-    </div>
-    <div class="lg:w-1/2 md:w-2/3 mx-auto">
-      <div class="flex flex-wrap -m-2">
-        <div class="p-2 w-1/2">
-          <div class="relative">
-           {{ element.elements.name }}
-        </div>
-        <div class="p-2 w-1/2">
-          <div class="relative">
-           {{ element.elements.email }}
-        </div>
-        <div class="p-2 w-full">
-          <div class="relative">
-            {{ element.elements.message}}
-        </div>
-        <div class="p-2 w-full">
-          {{ element.form_build_id }}
-          {{ element.form_token }}
-          {{ element.form_id }}
-          {{ element.actions }}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+   <div>
+     <label for="">{{ element.elements.name.title }}</label>
+     <div>
+       <input 
+       type={{ element.elements.name.type }}
+       name={{ element.elements.name.name }}
+       value=""
+       />
+     </div>
+   </div>
 
 
 
