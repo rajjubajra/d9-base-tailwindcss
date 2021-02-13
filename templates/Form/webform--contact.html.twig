@@ -47,11 +47,7 @@ My final form template looks like this:
 </div>
 #}
 
-<form{{ attributes }}>
-  {{ title_prefix }}
-  {{ children }}
-  {{ title_suffix }}
-</form>
+<div>From 1</div>
 
 <form{{ attributes }}>
   {{ title_prefix }}
@@ -60,6 +56,14 @@ My final form template looks like this:
  <div>{{ element.elements.message.title }}</div>
   {{ title_suffix }}
 </form>
+<div>form 2</div>
+<form{{ attributes }}>
+  {{ title_prefix }}
+  {{ children }}
+  {{ title_suffix }}
+</form>
+
+
 
 {{ vardumper(element)}}
 
