@@ -36,7 +36,7 @@ function tailwindcss_get_active_theme()
 
 function tailwindcss_preprocess(&$variables, $hook)
 {
-  var_dump($hook);
+
 
   if ($hook == 'views_view_fields__front_page') {
     var_dump($hook);
