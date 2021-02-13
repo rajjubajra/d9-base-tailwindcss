@@ -36,8 +36,7 @@ function tailwindcss_get_active_theme()
 
 function tailwindcss_preprocess(&$variables, $hook)
 {
-  if ($hook == 'webform_submission_form') {
-
+  if ($hook == 'webform') {
     var_dump($variables);
   }
 }
