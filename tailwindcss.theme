@@ -27,3 +27,9 @@ function tailwindcss_preprocess_block(&$variables) {
 function tailwindcss_get_active_theme() {
   return \Drupal::service('theme.manager')->getActiveTheme()->getName();
 }
+
+
+function hook_preprocess(&$variables, $hook) {
+  var_dump($hook)
+}
+
