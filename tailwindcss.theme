@@ -34,7 +34,7 @@ function tailwindcss_get_active_theme()
  * implementing hook_preprocess().
  */
 
-function hook_preprocess(&$variables, $hook)
+function tailwindcss_preprocess(&$variables, $hook)
 {
   var_dump($hook);
 }
