@@ -37,5 +37,5 @@ function tailwindcss_get_active_theme()
 function tailwindcss_preprocess(&$variables, $hook)
 {
 
-  kint($hook);
+  var_dump($variables);
 }
