@@ -47,25 +47,8 @@ My final form template looks like this:
 </div>
 #}
 
-<div>From 1</div>
 
-<form{{ attributes }}>
-  {{ title_prefix }}
- <div>{{ element.elements.name }}</div>
- <div>{{ element.elements.email }}</div>
- <div>{{ element.elements.message }}</div>
- <div>
-  {{ element.form_build_id }}
-  {{ element.form_token }}
-  {{ element.form_id }}
-  {{ element.actions }}
- </div>
-  {{ title_suffix }}
-</form>
-
-
-<div>form 2</div>
-<form{{ attributes }}>
+<form{{ attributes.removeClass() }}>
   {{ title_prefix }}
   {{ children }}
   {{ title_suffix }}
