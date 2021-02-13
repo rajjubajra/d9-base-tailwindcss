@@ -1,24 +1,67 @@
 
+{#
+
+1 create a tempalte file for your form (ex. webform--newsletter.html.twig)
+2 there is a variable (element) where you can access each field of the form like this:
+{{ element.elements.YOUR_FIELD_NAME }}
+3 you need to output the form action (submit) at the end of the form like this:
+{{ element.actions }}
+4 the trick with this solution is that you need to output a couple of hidden form elements that is required for the form to be submitted:
+{{ element.form_build_id }}
+
+{{ element.form_id }}
+
+Update: you also need to print out the following variable
+
+{{ element.form_token }}
+
+---
+
+My final form template looks like this:
+<div class="request-form">
+  <div class="form-wrap clearfix">
+    <div class="col-md-4 form-desc">
+      {{ element.elements.form_description }}
+    </div>
+    <div class="col-md-8">
+      <form{{ attributes }}>
+        {{ title_prefix }}
+        <div class="row">
+          <div class="col-md-6">
+            {{ element.elements.name }}
+            {{ element.elements.email }}
+            {{ element.elements.phone }}
+          </div>
+          <div class="col-md-6">
+            {{ element.elements.message }}
+            {{ element.form_build_id }}
+            {{ element.form_token }}
+            {{ element.form_id }}
+            {{ element.actions }}
+          </div>
+        </div>
+        {{ title_suffix }}
+      </form>
+    </div>
+  </div>
+</div>
+#}
 
 
-{{ vardumper(attributes.storage) }}
 
 
 {{ vardumper(element) }}
 
-<form 
-action={{attributes.storage.action}} 
-method={{attributes.storage.method}}
-class='w-full md:w-2/3 lg:w-1/2 flex flex-col m-4 p-4 bg-gray-300'
->
-  {{ title_prefix }}
-  {{ children }}
-  {{ title_suffix }}
-</form>
 
+<div>
+  {{ element.elements.name}}
+</div>
+<div>
+  {{ element.elements.email}}
+</div>
 
-
-
+<form{{ attributes }}>
+        {{ title_prefix }}
 <section class="text-gray-600 body-font relative">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
@@ -29,20 +72,30 @@ class='w-full md:w-2/3 lg:w-1/2 flex flex-col m-4 p-4 bg-gray-300'
       <div class="flex flex-wrap -m-2">
         <div class="p-2 w-1/2">
           <div class="relative">
-            <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
-            <input type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <label for="name" class="leading-7 text-sm text-gray-600">
+              {{ element.elements.name.title }}
+            </label>
+            {{ element.elements.name}}
+            <input type="text" id="name" name={{ element.elements.name.name}} class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
           </div>
         </div>
         <div class="p-2 w-1/2">
           <div class="relative">
-            <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
-            <input type="email" id="email" name="email" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <label for="email" class="leading-7 text-sm text-gray-600">
+              {{ element.elements.email.title }}
+            </label>
+            <input type="email" id="email" 
+            name={{ element.elements.email.name}} 
+            class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
           </div>
         </div>
         <div class="p-2 w-full">
           <div class="relative">
-            <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
-            <textarea id="message" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+            <label for="message" class="leading-7 text-sm text-gray-600">
+              {{ element.elements.message.title}}
+            </label>
+            <textarea id="message" 
+            name={{ element.elements.message.name}} class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
           </div>
         </div>
         <div class="p-2 w-full">
@@ -81,3 +134,5 @@ class='w-full md:w-2/3 lg:w-1/2 flex flex-col m-4 p-4 bg-gray-300'
     </div>
   </div>
 </section>
+{{ title_suffix }}
+</form>
