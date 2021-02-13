@@ -37,8 +37,4 @@ function tailwindcss_get_active_theme()
 function tailwindcss_preprocess(&$variables, $hook)
 {
   var_dump($hook);
-
-  if ($hook == 'region') {
-    var_dump($variables);
-  }
 }
