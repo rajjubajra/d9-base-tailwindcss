@@ -47,11 +47,6 @@ My final form template looks like this:
 </div>
 #}
 
-{{ vardumper(element) }}
-
-
-
-
 <form{{ attributes }}>
   {{ title_prefix }}
   {{ children }}
@@ -60,28 +55,6 @@ My final form template looks like this:
 
 
 
-
-
-
-
-
-<form{{ attributes }}>
-  {{ title_prefix }}
-   <div>
-     <label for="">{{ element.elements.name.title }}</label>
-     <div>
-       <input 
-       type={{ element.elements.name.type }}
-       name={{ element.elements.name.name }}
-       value=""
-       />
-     </div>
-   </div>
-
-
-
-  {{ title_suffix }}
-</form>
 
 
 
