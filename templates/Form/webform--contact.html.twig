@@ -52,13 +52,9 @@ My final form template looks like this:
 
 {{ vardumper(element) }}
 
+{{ vardumper(elements.elements.name) }}
 
-<div>
-  {{ element.elements.name}}
-</div>
-<div>
-  {{ element.elements.email}}
-</div>
+
 
 <form{{ attributes }}>
         {{ title_prefix }}
@@ -75,7 +71,6 @@ My final form template looks like this:
             <label for="name" class="leading-7 text-sm text-gray-600">
               {{ element.elements.name.title }}
             </label>
-            {{ element.elements.name}}
             <input type="text" id="name" name={{ element.elements.name.name}} class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
           </div>
         </div>
@@ -84,7 +79,8 @@ My final form template looks like this:
             <label for="email" class="leading-7 text-sm text-gray-600">
               {{ element.elements.email.title }}
             </label>
-            <input type="email" id="email" 
+            <input 
+            type="email" id="email" 
             name={{ element.elements.email.name}} 
             class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
           </div>
@@ -94,7 +90,9 @@ My final form template looks like this:
             <label for="message" class="leading-7 text-sm text-gray-600">
               {{ element.elements.message.title}}
             </label>
-            <textarea id="message" 
+            <textarea 
+            id="message" 
+            type="textarea"
             name={{ element.elements.message.name}} class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
           </div>
         </div>
