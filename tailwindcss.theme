@@ -1,14 +1,7 @@
 <?php
 
 
-/**
- * Implements hook_form_alter().
- */
 
-function tailwindcss_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
-{
-  var_dump($form_state);
-}
 
 /**
  * @file
