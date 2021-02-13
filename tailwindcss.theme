@@ -39,6 +39,6 @@ function tailwindcss_preprocess(&$variables, $hook)
 
 
   if ($hook == 'views_view_fields__front_page') {
-    var_dump($hook);
+    kint($variables);
   }
 }
