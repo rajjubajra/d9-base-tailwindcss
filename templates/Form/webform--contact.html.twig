@@ -62,22 +62,12 @@ My final form template looks like this:
  </div>
   {{ title_suffix }}
 </form>
+
+
 <div>form 2</div>
 <form{{ attributes }}>
   {{ title_prefix }}
   {{ children }}
-  {{ title_suffix }}
-</form>
-
-
-
-{{ vardumper(element)}}
-
-<form{{ attributes }}>
-  {{ title_prefix }}
- <div>{{ element.elements.name.title }}</div>
- <div>{{ element.elements.email.title }}</div>
- <div>{{ element.elements.message.title }}</div>
   {{ title_suffix }}
 </form>
 
