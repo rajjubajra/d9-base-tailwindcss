@@ -55,7 +55,12 @@ My final form template looks like this:
   {{ element.elements.name }}
   {{ element.elements.email }}
   {{ element.elements.message }}
-  {{ element.actions.submit }}
+  <div>
+    <input
+    type={{ element.actions.submit.type }}
+    value={{ element.actions.submit.value }}
+    />
+  </div>
   
 </form>
 

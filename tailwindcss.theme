@@ -32,17 +32,3 @@ function tailwindcss_get_active_theme()
 {
   return \Drupal::service('theme.manager')->getActiveTheme()->getName();
 }
-
-
-/**
- * @param $form
- * @param $form_state
- * @param $form_id
- */
-function tailwindcss_form_alter(&$form, &$form_state, $form_id)
-{
-  if ($form_id == 'webform-submission-contact-add-form') {
-    // add class to tag <form>
-    $form['#attributes']['class'][] = 'my-custom-class-rajjubajra';
-  }
-}
