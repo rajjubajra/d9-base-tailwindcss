@@ -2,15 +2,13 @@
 
 
 /**
- * implementing hook_preprocess().
+ * Implements hook_form_alter().
  */
 
-function tailwindcss_preprocess(&$variables, $hook)
+function tailwindcss_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
 {
-  //  var_dump($hook);
-
+  var_dump($form_state);
 }
-
 
 /**
  * @file
