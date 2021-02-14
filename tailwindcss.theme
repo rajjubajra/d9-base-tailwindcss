@@ -49,7 +49,7 @@ function tailwindcss_preprocess_html(&$variables)
  * Implements hook_form_FORM_ID_alter().
  */
 
-function tailwindcss_form_contact_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+function tailwindcss_form_webform_2_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
 {
 
   // Modification for the form with the given form ID goes here. For example, if
