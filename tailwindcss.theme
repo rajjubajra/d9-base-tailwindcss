@@ -47,8 +47,7 @@ function tailwindcss_preprocess_html(&$variables)
 /**
  * Implements hook_preprocess().
  */
-
-function hook_preprocess(&$variables, $hook)
+function tailwindcss_preprocess(&$variables, $hook)
 {
   var_dump($hook);
 }
