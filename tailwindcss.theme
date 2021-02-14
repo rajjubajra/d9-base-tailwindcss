@@ -19,6 +19,7 @@ function tailwindcss_preprocess_block(&$variables)
       $variables['site_logo'] = str_replace('.svg', '.png', $variables['content']['site_logo']['#uri']);
     }
   }
+  var_dump($variables);
 }
 
 
