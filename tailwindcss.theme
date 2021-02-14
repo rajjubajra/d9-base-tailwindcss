@@ -41,7 +41,6 @@ function tailwindcss_get_active_theme()
  */
 function tailwindcss_form_alter(&$form, $form_state, $form_id)
 {
-  $form['elements']['name']['#class'] = 'bg-gray-500';
   $form['actions']['submit']['#value'] = 'Submit Enquiry';
   $form['actions']['submit']['#class'] = 'font-thin';
 
