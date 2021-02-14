@@ -49,15 +49,16 @@ function tailwindcss_preprocess_html(&$variables)
  * Implements hook_form_FORM_ID_alter().
  */
 
-function tailwindcss_form_contact_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+function tailwindcss_form_contact_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
 {
-
-  dump($form_state);
 
   // Modification for the form with the given form ID goes here. For example, if
   // FORM_ID is "user_register_form" this code would run only on the user
   // registration form.
   // Add a checkbox to registration form about agreeing to terms of use.
+
+  var_dump($variables);
+
   $form['terms_of_use'] = array(
     '#type' => 'checkbox',
     '#title' => t("I agree with the website's terms and conditions."),
