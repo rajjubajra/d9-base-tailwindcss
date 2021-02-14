@@ -41,5 +41,5 @@ function tailwindcss_get_active_theme()
  */
 function hook_form_alter(&$form, $form_state, $form_id)
 {
-  dump($form_state);
+  dump($form_state, $form_id, $form_state);
 }
