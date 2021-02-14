@@ -41,5 +41,6 @@ function tailwindcss_get_active_theme()
  */
 function tailwindcss_form_alter(&$form, $form_state, $form_id)
 {
+  $form['actions']['submit']['#value'][] = 'Submit enquiry';
   dump($form, $form_state, $form_id);
 }
