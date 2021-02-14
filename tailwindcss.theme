@@ -44,10 +44,3 @@ function tailwindcss_preprocess_html(&$variables)
   // add to classes
   $variables['attributes']['class'][] = 'twig';
 }
-
-/**
- * Implements hook_preprocess().
- */
-function tailwindcss_preprocess(&$variables, $hook)
-{
-}
