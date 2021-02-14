@@ -39,7 +39,7 @@ function tailwindcss_get_active_theme()
 /**
  * Implements hook_form_alter().
  */
-function hook_form_alter(&$form, $form_state, $form_id)
+function tailwindcss_form_alter(&$form, $form_state, $form_id)
 {
-  dump($form_state, $form_id, $form_state);
+  dump($form, $form_state, $form_id);
 }
