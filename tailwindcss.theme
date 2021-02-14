@@ -52,6 +52,8 @@ function tailwindcss_preprocess_html(&$variables)
 function tailwindcss_form_contact_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
 {
 
+  var_dump($form_state);
+
   // Modification for the form with the given form ID goes here. For example, if
   // FORM_ID is "user_register_form" this code would run only on the user
   // registration form.
