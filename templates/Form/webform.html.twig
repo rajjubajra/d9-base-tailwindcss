@@ -29,6 +29,24 @@
 
 
 
+<form{{ attributes.addClass('w-full md:w-2/3 lg:1/2 p-8') }}>
+  {{ title_prefix }}
+  {{ element.elements.name }}
+  {{ element.elements.email }}
+  {{ element.elements.message }}
+  
+  <div>
+    {{ element.form_build_id }}
+    {{ element.form_token }}
+    {{ element.form_id }}
+    {{ element.actions }}
+  </div>
+  
+  
+</form>
+
+
+
 
 <div>METHOD</div>
 
