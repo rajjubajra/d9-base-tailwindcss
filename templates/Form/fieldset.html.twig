@@ -29,7 +29,7 @@
     'form-wrapper',
   ]
 %}
-<fieldset{{ attributes }}>
+<div>
   {%
     set legend_span_classes = [
       required ? 'js-form-required',
@@ -57,4 +57,4 @@
       <div{{ description.attributes.addClass('description') }}>{{ description.content }}</div>
     {% endif %}
   </div>
-</fieldset>
+</div>
