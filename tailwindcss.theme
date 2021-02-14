@@ -42,7 +42,5 @@ function tailwindcss_get_active_theme()
 
 function tailwindcss_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
 {
-  if ($form_id == 'contact') {
-    $form['actions']['submit']['#value'] = t('Submit Ya');
-  }
+  var_dump($form_id, "FORM STATE- ", $form_state);
 }
