@@ -42,7 +42,7 @@ function tailwindcss_get_active_theme()
 function tailwindcss_form_alter(&$form, $form_state, $form_id)
 {
   $form['actions']['submit']['#value'] = 'Submit Enquiry';
-  $form['actions']['submit']['#class'] = 'font-thin';
+  $form['actions']['submit']['#class'] = 'cursor-pointer font-thin';
 
   //dump($form);
 }
