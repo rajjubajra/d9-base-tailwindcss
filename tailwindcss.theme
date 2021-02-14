@@ -32,3 +32,17 @@ function tailwindcss_get_active_theme()
 {
   return \Drupal::service('theme.manager')->getActiveTheme()->getName();
 }
+
+
+
+/**
+ * Implementation of hook_form_alter
+ */
+
+
+function tailwindcss_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+{
+  if ($form_id == 'contact') {
+    $form['actions']['submit']['#value'] = t('Submit');
+  }
+}
