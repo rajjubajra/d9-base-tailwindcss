@@ -50,11 +50,4 @@ function tailwindcss_preprocess_html(&$variables)
  */
 function tailwindcss_preprocess(&$variables, $hook)
 {
-
-
-  if ($hook == 'form_element') {
-    var_dump($variables);
-  } else {
-    var_dump($hook);
-  }
 }
