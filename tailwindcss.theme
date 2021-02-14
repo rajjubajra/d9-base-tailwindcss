@@ -54,6 +54,6 @@ function tailwindcss_preprocess(&$variables, $hook)
   if ($hook == 'form_element') {
     var_dump($variables);
   }else(
-    echo "no variabel found";
+    var_dump("nothing happen");
   )
 }
