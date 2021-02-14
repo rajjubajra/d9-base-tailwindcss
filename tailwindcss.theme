@@ -43,3 +43,18 @@ function tailwindcss_preprocess_html(&$variables)
   // add to classes
   $variables['attributes']['class'][] = 'twig';
 }
+
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+
+function tailwindcss_form_contact_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+{
+
+  // Modification for the form with the given BASE_FORM_ID goes here. For
+  // example, if BASE_FORM_ID is "node_form", this code would run on every
+  // node form, regardless of node type.
+  // Add a checkbox to the node form about agreeing to terms of use.
+  var_dump($form_state);
+}
