@@ -28,7 +28,7 @@
 <div{{ attributes.addClass('w-full md:w-2/3 lg:w-1/2') }}>
   {{ title_prefix }}
   {% if label %}
-    <h2{{ title_attributes }}>{{ label }}</h2>
+    <h2{{ title_attributes.addClass('font-thin my-4') }}>{{ label }}</h2>
   {% endif %}
   {{ title_suffix }}
   {% block content %}
