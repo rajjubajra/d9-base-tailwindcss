@@ -14,12 +14,17 @@
  * @ingroup themeable
  */
 #}
+
+
+
 {% if content %}
 
-
-  <div{{ attributes.addClass('flex justify-center font-thin') }}>
+<div class="w-full flex justify-center">
+  <div{{ attributes.addClass('grid grid-flow-col auto-cols-max gap-2 font-thin') }}>
     {{ content }}
   </div>
-
-
+</div>
 {% endif %}
+
+
+{{ vardumper(content) }}
