@@ -1,7 +1,7 @@
 
 
   
-<form{{ attributes }}>
+<form{{ attributes.removeClass().addClass('grid md:grid-cols-4 md:gap-2') }}>
   {{ title_prefix }}
   {{ children }}
   {{ title_suffix }}
