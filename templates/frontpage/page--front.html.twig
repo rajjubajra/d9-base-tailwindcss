@@ -20,20 +20,20 @@
    {# {{ vardumper(page.content) }} #}
     
     
-    <div  id="watch" class="md:flex -mx-4">
+    <div  class="md:flex -mx-4">
       <div class="md:flex-1 p-4">
 
         {{ page.content.tailwindcss_content }}
 
         
         {# SCROLL DOWN INDICATOR #}
-      <div id="arrow">
+      <div>
         <div class="flex w-full items-center justify-center -mt-20">
-          <div class="animate-bounce w-6 h-6">V</div>
+          <div id="arrow" class="animate-bounce w-6 h-6">V</div>
         </div>
       </div>
 
-        <div class="flex justify-center">
+        <div id="watch" class="flex justify-center">
           {{ page.content.webform }}
           {{ page.content.webform_2 }}
         </div>
