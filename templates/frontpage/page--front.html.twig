@@ -13,7 +13,8 @@
 
   {{ page.help }}
 
-  <main  role="main">
+  <main id="top"  role="main">
+
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
 
@@ -59,7 +60,9 @@
       {% endif %}
 
 
-    <div class="fixed right-0 bottom-0"><a class="p-10 border">v</a></div>
+    <div 
+    id="scroll-to-top"
+    class="fixed right-0 bottom-0"><a class="w-8 h-8 border flex justify-center items-center rounded-full m-5 cursor-pointer">v</a></div>
 
     </div>
   </main>
