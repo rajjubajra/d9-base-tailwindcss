@@ -34,7 +34,7 @@
 #}
 {%
   set classes = [
-    dom_id ? 'js-view-dom-id-' ~ dom_id,
+    dom_id ? 'grid grid-flow-cols md:grid-cols-2 lg:grid-cols-3 gap-4 md:px-8 md:py-8 p-2' ~ dom_id,
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
