@@ -20,6 +20,7 @@
 #}
 
 
+{{ vardumper(list.type) }}
 
 
 {% if(attributes.storage.class[0] == "theme-gallery") %}
@@ -42,7 +43,7 @@
   {% endif %}
     
 
-  <{{ list.type }}{{ list.attributes.addClass('this is test class') }}>
+  <{{ list.type }}{{ list.attributes }}>
 
     {% for row in rows %}
       <li{{ row.attributes }}>
