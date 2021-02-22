@@ -22,9 +22,7 @@
 
 {{ vardumper(attributes.storage.class[0]) }}
 
-{% if(attributes.storage.class[0] == "theme-galleryu") %}
- <h1>This is Gallery</h1>
-{% endif %}
+
 
 
 {% if attributes -%}
@@ -35,6 +33,11 @@
   {% endif %}
 
   
+  {% if(attributes.storage.class[0] == "theme-gallery") %}
+  
+  <{{ list.type }}{{ list.attributes.addClass('grid md:grid-cols-2 lg:grid-cols-3 gap-3') }}>
+
+  {% endif %}
 
   <{{ list.type }}{{ list.attributes }}>
 
