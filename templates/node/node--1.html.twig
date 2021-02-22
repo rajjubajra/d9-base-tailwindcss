@@ -94,9 +94,15 @@
 
   <div{{ content_attributes.addClass('grid md:grid-cols-3') }}>
   
-    <div class="flex justify-center md:justify-end p-8">{{ content.field_logo_square }}</div>
-    <div class="md:col-span-2 py-8 px-3 text-2xl text-center md:text-left">{{ content.body }}</div>
-    <div class="md:col-span-3">{{ content.field_links }}</div>
+    <div class="flex justify-center md:justify-end p-8">
+      {{ content.field_logo_square }}
+    </div>
+    <div class="md:col-span-2 h-96 py-8 px-3 text-2xl text-center md:text-left">
+      {{ content.body }}
+    </div>
+    <div class="md:col-span-3">
+      {{ content.field_links }}
+    </div>
 
   </div>
 
