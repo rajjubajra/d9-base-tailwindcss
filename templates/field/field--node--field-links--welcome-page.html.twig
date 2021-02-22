@@ -46,9 +46,9 @@
 
 {% if label_hidden %}
   {% if multiple %}
-    <div{{ attributes }}>
+    <div{{ attributes.addClass('grid grid-cols-2 text-center gap-4') }}>
       {% for item in items %}
-        <div{{ item.attributes.addClass('grid grid-cols-2 text-center gap-4') }}>{{ item.content }}</div>
+        <div{{ item.attributes.addClass('border bg-gray-200 hover:bg-gray-400') }}>{{ item.content }}</div>
       {% endfor %}
     </div>
   {% else %}
