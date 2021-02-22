@@ -22,7 +22,16 @@
 
 
 
-
+{% if(attributes.storage.class[0] == "theme-gallery") %}
+  {%
+    set classes = [
+      'grid',
+      'md:grid-cols-2',
+      'lg:grid-cols-3',
+      'gap-2'
+    ]
+  %}
+{% endif %}
 
 
 {% if attributes -%}
@@ -31,15 +40,9 @@
   {% if title %}
     <h3>{{ title }}</h3>
   {% endif %}
+    
 
-  
-  {% if(attributes.storage.class[0] == "theme-gallery") %}
-  <h1>this is gallery ???</h1>
-  <{{ list.type }}{{ list.attributes.addClass('grid md:grid-cols-2 lg:grid-cols-3 gap-3') }}>
-
-  {% endif %}
-
-  <{{ list.type }}{{ list.attributes }}>
+  <{{ list.type }}{{ list.attributes.addClass(classes) }}>
 
     {% for row in rows %}
       <li{{ row.attributes }}>
