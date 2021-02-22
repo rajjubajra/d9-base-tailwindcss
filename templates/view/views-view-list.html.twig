@@ -41,9 +41,14 @@
   {% endif %}
     
 
-  <{{ list.type }}{{ list.attributes }} class="{{classes}}" >
 
-    {% for row in rows %}
+  {% if(attributes.storage.class[0] == "theme-gallery") %}
+  <ul class="grid md:grid-col-2 lg:gird-cols-3 gap-2" >
+  {% else %}
+  <{{ list.type }}{{ list.attributes }} >
+  {% endif %}
+  
+  {% for row in rows %}
       <li{{ row.attributes }}>
         {{- row.content -}}
       </li>
