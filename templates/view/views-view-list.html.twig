@@ -18,6 +18,10 @@
  * @ingroup themeable
  */
 #}
+
+{{ vardumper(attributes.storage) }}
+{{ vardumper(attributes.storage.class) }}
+
 {% if attributes -%}
   <div{{ attributes }}>
 {% endif %}
@@ -38,5 +42,3 @@
 {% if attributes -%}
   </div>
 {% endif %}
-
-{{ vardumper(attributes.storage.value) }}
