@@ -92,8 +92,12 @@
     </footer>
   {% endif %}
 
-  <div{{ content_attributes.addClass('node-content') }}>
-    {{ content }}
+  <div{{ content_attributes.addClass('grid grid-cols-3') }}>
+  
+    <div>{{ content.field_logo_square }}</div>
+    <div class="col-span-2">{{ content.body }}</div>
+    <div class="col-span-3">{{ content.field_links }}</div>
+
   </div>
 
 </article>
