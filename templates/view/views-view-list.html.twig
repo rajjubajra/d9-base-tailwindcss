@@ -47,7 +47,7 @@
   {% endif %}
   
   {% for row in rows %}
-      <li{{ row.attributes }}>
+      <li{{ row.attributes.addClass(classes) }}>
         {{- row.content -}}
       </li>
     {% endfor %}
