@@ -49,14 +49,15 @@ module.exports = {
   plugins: [
     plugin(function({ addComponents }) {
       const buttons = {
-        '.main-page-link': {
+        '.btn': {
           padding: '.5rem 1rem !important',
           borderRadius: '.25rem !important',
           fontWeight: '600 !important',
           background: '#cccccc !important',
         },
-        // landing page link btn style
+        // ...
       }
+
       addComponents(buttons)
     })
   ]
