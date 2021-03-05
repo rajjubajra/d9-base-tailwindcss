@@ -33,9 +33,7 @@
 #}
 
 <div class="grid grid-col-4">
-    <div>{{ field.content.field_logo_square }}</div>
-    <div>{{ field.content.body }}</div>
-    <div>{{ field.field_links }}</div>
+    <div>{{ fields.field_logo_square.content }}</div>
+    <div>{{ fields.body.content }}</div>
+    <div>{{ fields.field_links.content }}</div>
 </div>
-
-{{ vardumper(fields) }}
