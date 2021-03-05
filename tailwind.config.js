@@ -1,4 +1,5 @@
 
+const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   prefix: '',
@@ -45,5 +46,18 @@ module.exports = {
   variants: {
 
   },
-  plugins: []
+  plugins: [
+    plugin(function({ addComponents }) {
+      const buttons = {
+        '.main-page-link': {
+          padding: '.5rem 1rem !important',
+          borderRadius: '.25rem !important',
+          fontWeight: '600 !important',
+        },
+        // ...
+      }
+
+      addComponents(buttons)
+    })
+  ]
 }
