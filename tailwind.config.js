@@ -49,7 +49,7 @@ module.exports = {
   plugins: [
     plugin(function({ addComponents }) {
       const buttons = {
-        '.btn': {
+        '.btn-main-page ul li a': {
           padding: '.5rem 1rem !important',
           borderRadius: '.25rem !important',
           fontWeight: '600 !important',
