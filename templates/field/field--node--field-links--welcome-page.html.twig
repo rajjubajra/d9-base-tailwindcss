@@ -48,7 +48,7 @@
   {% if multiple %}
     <div{{ attributes.addClass('grid md:grid-cols-2 text-center gap-4  w-2/3 grid-center') }}>
       {% for item in items %}
-        <div{{ item.attributes.addClass('border bg-gray-200 hover:bg-gray-400 font-light py-2') }}>{{ item.content }}</div>
+        <div{{ item.attributes.addClass('border bg-gray-200 hover:bg-gray-400 font-light py-1') }}>{{ item.content }}</div>
       {% endfor %}
     </div>
   {% else %}
