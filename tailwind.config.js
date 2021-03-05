@@ -4,7 +4,7 @@ module.exports = {
   prefix: '',
   important: false,
   purge: {
-    enabled: true, // Remove or change to `true` to enable purging.
+    enabled: false, // Remove or change to `true` to enable purging.
     mode: 'layers',
     content: [
       // Add any paths here that contain classes that need to be kept after
