@@ -51,7 +51,13 @@
     {%- endif %}
   {%- endif %}
   {%- if field.element_type -%}
-    <{{ field.element_type }}{{ field.element_attributes }}>{{ field.content }}</{{ field.element_type }}>
+    <{{ field.element_type }}{{ field.element_attributes }}>
+    {{ field.content }}
+    <div>ELEMENT TYPE --</div>
+    {{ vardumper(field.element_type) }}
+    <div>Content --</div>
+    {{ vardumper(field.content) }}
+    </{{ field.element_type }}>
   {%- else -%}
     {{ field.content }}
     <div>ELEMENT TYPE</div>
