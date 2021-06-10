@@ -573,7 +573,7 @@ video {
   }
 }
 
-ul.js-pager_items{
+ul.js-pager__items{
   display: flex;
   flex-direction: row;
   justify-content: center
