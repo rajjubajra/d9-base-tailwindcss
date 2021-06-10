@@ -580,6 +580,12 @@ ul.js-pager__items{
   margin-top: 2.5rem
 }
 
+ul.js-pager__items li{
+  font-weight: 100;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem
+}
+
 .space-y-0 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0px * calc(1 - var(--tw-space-y-reverse)));
