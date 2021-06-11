@@ -15,6 +15,13 @@ module.exports = {
   },
   theme: {
     colors: {
+      white:{
+        lightest: '#ffffff',
+        light: '#ffffff',
+        DEFAULT: '#ffffff',
+        dark: '#ffffff',
+        darkest: "#ffffff",
+      },
       blue: {
         lightest: '#EFF6FF',
         light: '#60A5FA',
