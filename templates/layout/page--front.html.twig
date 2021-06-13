@@ -13,7 +13,7 @@
 
   {{ page.help }}
 
-  <main id="top"  role="main">
+  <main id="top"  role="main" class="relative w-full max-w-lg">
 
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
@@ -68,6 +68,8 @@
     class="w-8 h-8 border flex justify-center items-center rounded-full m-5 cursor-pointer">v</a></div>
 
     </div>
+
+    <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full"></div>
   </main>
 
   {% if page.footer %}
