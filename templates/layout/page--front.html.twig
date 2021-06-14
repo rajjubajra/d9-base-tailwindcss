@@ -1,4 +1,4 @@
-<div class="container mx-auto p-4">
+<div class="container mx-auto p-4 relative">
 
   <header role="banner">
     {{ page.header }}
@@ -13,7 +13,7 @@
 
   {{ page.help }}
 
-  <main id="top"  role="main" >
+  <main id="top"  role="main" class="relative z-10">
 
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
@@ -79,8 +79,11 @@
   {% endif %}
 
 </div>{# /.layout-container #}
-<div class="relative w-full max-w-lg">
-  <div class="absolute top-0 -left-4 w-72 h-72 bg-red rounded-full"></div>
-  <div class="absolute top-0 -right-4 w-72 h-72 bg-yellow rounded-full"></div>
-  <div class="absolute -bottop-4 left-20 w-72 h-72 bg-gray rounded-full"></div>
+<div class="w-full h-screen flex justify-center items-center absolute z-0">
+  <div class="relative w-full max-w-lg">
+    <div class="absolute top-0 -left-4 w-72 h-72 bg-red rounded-full"></div>
+    <div class="absolute top-0 -right-4 w-72 h-72 bg-yellow rounded-full"></div>
+    <div class="absolute -bottop-4 left-20 w-72 h-72 bg-gray rounded-full"></div>
+  </div>
 </div>
+
