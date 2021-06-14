@@ -587,6 +587,8 @@ ul.js-pager__items li{
 }
 
 .we-mega-menu-ul .we-mega-menu-li a, .we-mega-menu-ul .we-mega-menu-li.active a {
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
   font-weight: 100;
 }
 
