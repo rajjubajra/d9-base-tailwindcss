@@ -52,7 +52,7 @@ module.exports = {
       }
     },
     extend: {
-      mixBlendMode: ['hover', 'focus', 'multiply'],
+      mixBlendMode:  'multiply',
     },
   },
   variants: {
