@@ -1,16 +1,16 @@
 
 {%
   set classes = [
-    'flex',
-    'flex-col',
-    'font-thin',
-    'md:col-span-2'
+    'tw-flex',
+    'tw-flex-col',
+    'tw-font-thin',
+    'md:tw-col-span-2'
   ]
 %}
 {%
   set description_classes = [
     'description',
-    description_display == 'invisible' ? 'visually-hidden',
+    description_display == 'tw-invisible' ? 'tw-visually-hidden',
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
@@ -18,7 +18,7 @@
     {{ label }}
   {% endif %}
   {% if prefix is not empty %}
-    <span class="field-prefix">{{ prefix }}</span>
+    <span class="tw-field-prefix">{{ prefix }}</span>
   {% endif %}
   {% if description_display == 'before' and description.content %}
     <div{{ description.attributes }}>
@@ -33,7 +33,7 @@
     {{ label }}
   {% endif %}
   {% if errors %}
-    <div class="form-item--error-message">
+    <div class="tw-form-item--error-message">
       {{ errors }}
     </div>
   {% endif %}
