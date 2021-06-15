@@ -14,6 +14,10 @@ module.exports = {
     ]
   },
   theme: {
+    blur: {
+      xl: '40px',
+
+    },
     colors: {
       white:{
         lightest: '#ffffff',
