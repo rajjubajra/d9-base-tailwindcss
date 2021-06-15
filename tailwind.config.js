@@ -52,14 +52,7 @@ module.exports = {
       }
     },
     extend: {
-      filter:{
-        blur:{
-        xl: '40px'
-        },
-        mixBlendMultiply:{
-          'mix-blend-mode': 'multiply'
-        }
-      }
+      filter: ['hover', 'focus', 'blur'],
       
     },
   },
