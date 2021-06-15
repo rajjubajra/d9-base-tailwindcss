@@ -1,4 +1,4 @@
-<div class="container mx-auto p-4 relative">
+<div class="tw-container tw-mx-auto tw-p-4 tw-relative">
 
   <header role="banner">
     {{ page.header }}
@@ -13,7 +13,7 @@
 
   {{ page.help }}
 
-  <main id="top"  role="main" class="relative z-10">
+  <main id="top"  role="main" class="tw-relative tw-z-10">
 
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
@@ -21,22 +21,22 @@
   {# {{ vardumper(page.content) }}  #}
     
     
-    <div  class="md:flex -mx-4">
-      <div class="md:flex-1 p-4">
+    <div  class="md:tw-flex -tw-mx-4">
+      <div class="md:tw-flex-1 tw-p-4">
 
         {{ page.content.tailwindcss_content }}
 
         
         {# SCROLL DOWN INDICATOR #}
       <div>
-        <div class="flex w-full items-center justify-center -mt-20">
-          <div id="arrow" class="animate-bounce w-6 h-6">
+        <div class="tw-flex tw-w-full tw-items-center tw-justify-center -tw-mt-20">
+          <div id="arrow" class="tw-animate-bounce tw-w-6 tw-h-6">
           <a href="#watch">V</a>
         </div>
         </div>
       </div>
 
-        <div id="watch" class="flex justify-center">
+        <div id="watch" class="tw-flex tw-justify-center">
           {{ page.content.webform }}
           {{ page.content.webform_2 }}
         </div>
@@ -48,13 +48,13 @@
 
 
       {% if page.sidebar_first %}
-        <aside class="md:w-1/4 p-4" role="complementary">
+        <aside class="md:tw-w-1/4 tw-p-4" role="complementary">
           {{ page.sidebar_first }}
         </aside>
       {% endif %}
 
       {% if page.sidebar_second %}
-        <aside class="md:w-1/4" role="complementary">
+        <aside class="md:tw-w-1/4" role="complementary">
           {{ page.sidebar_second }}
         </aside>
       {% endif %}
@@ -62,10 +62,10 @@
 
     <div 
     id="scroll-to-top"
-    class="fixed right-0 bottom-0">
+    class="tw-fixed tw-right-0 tw-bottom-0">
     <a
     href="#top" 
-    class="w-8 h-8 border flex justify-center items-center rounded-full m-5 cursor-pointer">v</a></div>
+    class="tw-w-8 tw-h-8 tw-border tw-flex tw-justify-center tw-items-center tw-rounded-full tw-m-5 tw-cursor-pointer">v</a></div>
 
     </div>
 
@@ -79,11 +79,11 @@
   {% endif %}
 
 </div>{# /.layout-container #}
-<div class="w-full h-screen flex justify-center items-center absolute top-0 z-0">
-  <div class="relative w-full max-w-lg">
-    <div class="absolute top-0 -left-4 w-72 h-72 bg-red rounded-full tw-mix-blend-multiply filter tw-blur-2xl"></div>
-    <div class="absolute top-0 -right-4 w-72 h-72 bg-yellow rounded-full mix-blend-multiply"></div>
-    <div class="absolute top-4 left-20 w-72 h-72 bg-gray rounded-full tw-mix-blend-multiply filter blur-2xl"></div>
+<div class="tw-w-full tw-h-screen tw-flex tw-justify-center tw-items-center tw-absolute tw-top-0 tw-z-0">
+  <div class="tw-relative tw-w-full tw-max-w-lg">
+    <div class="tw-absolute tw-top-0 -tw-left-4 tw-w-72 tw-h-72 tw-bg-red tw-rounded-full tw-tw-mix-blend-multiply tw-filter tw-blur-2xl"></div>
+    <div class="tw-absolute tw-top-0 -tw-right-4 tw-w-72 tw-h-72 tw-bg-yellow tw-rounded-full tw-mix-blend-multiply"></div>
+    <div class="tw-absolute tw-top-4 tw-left-20 tw-w-72 tw-h-72 tw-bg-gray tw-rounded-full tw-mix-blend-multiply tw-filter tw-blur-2xl"></div>
   </div>
 </div>
 
