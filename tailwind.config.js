@@ -53,7 +53,10 @@ module.exports = {
     },
     extend: {
       blur:{
-        '2xl': '40px'
+        xl: '40px'
+      },
+      mixBlendMultiply:{
+        'mix-blend-mode': 'multiply'
       }
     },
   },
