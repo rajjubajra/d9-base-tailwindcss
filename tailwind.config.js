@@ -52,15 +52,13 @@ module.exports = {
       }
     },
     extend: {
-      mixBlendMode:  'multiply',
+      blur:{
+        '2xl': '40px'
+      }
     },
   },
   variants: {
-    backgroundColor: ['active'],
-    // ...
-    borderColor: ['focus-visible', 'first'],
-    // ...
-    textColor: ['visited'],
+  
   },
   plugins: []
 }
