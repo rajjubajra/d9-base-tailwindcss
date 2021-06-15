@@ -53,6 +53,9 @@ module.exports = {
     },
     extend: {
       filter: ['hover', 'focus', 'blur'],
+      blur: {
+        xs: '40px',
+      }
       
     },
   },
