@@ -59,10 +59,10 @@
 {%
   set description_classes = [
     'description',
-    description_display == 'invisible' ? 'visually-hidden',
+    description_display == 'tw-invisible' ? 'tw-visually-hidden',
   ]
 %}
-<div{{ attributes.addClass('md:col-span-2') }}>
+<div{{ attributes.addClass('md:tw-col-span-2') }}>
   {% if label_display in ['before', 'invisible'] %}
     {{ label }}
   {% endif %}
