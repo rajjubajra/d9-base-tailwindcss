@@ -1,4 +1,5 @@
 module.exports = {
+  important: false,
   purge: [
     {
       enabled: false, // Remove or change to `true` to enable purging.
