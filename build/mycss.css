@@ -8,5 +8,5 @@
 
 .my-blob{
   filter: blur(1.0rem);
-  animation: blob-action 4s infinite;
+  animation: blob-action 7s infinite;
 }
