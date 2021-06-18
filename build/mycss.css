@@ -11,6 +11,6 @@
   animation: blob-action 30s infinite;
 }
 
-.main-menu div ul li a{
+nav.main div ul li a{
   background-color: #ffffff;
 }
