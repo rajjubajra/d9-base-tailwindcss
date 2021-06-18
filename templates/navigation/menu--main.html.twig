@@ -18,10 +18,10 @@
       <ul>
     {% endif %}
     {% for item in items %}
-      <li{{ item.attributes }}>
+      <li{{ item.attributes.addClass('bg-white') }}>
         {{ link(item.title, item.url) }}
         {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+          {{ menus.menu_links(item.below, attributes.addClass('bg-white'), menu_level + 1) }}
         {% endif %}
       </li>
     {% endfor %}
