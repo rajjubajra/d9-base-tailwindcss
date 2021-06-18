@@ -1114,6 +1114,14 @@ video {
   opacity: 0.9;
 }
 
+.opacity-25 {
+  opacity: 0.25;
+}
+
+.bg-blend-multiply {
+  background-blend-mode: multiply;
+}
+
 .mix-blend-multiply {
   mix-blend-mode: multiply;
 }
@@ -1130,6 +1138,11 @@ video {
 
 .blur-xl {
   --tw-blur: blur(24px);
+  filter: var(--tw-filter);
+}
+
+.blur-lg {
+  --tw-blur: blur(16px);
   filter: var(--tw-filter);
 }
 
