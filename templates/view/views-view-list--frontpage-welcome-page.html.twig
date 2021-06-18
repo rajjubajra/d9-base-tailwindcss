@@ -24,9 +24,9 @@
 {% if(attributes.storage.class[0] == "theme-gallery") %}
   {%
     set classes = [
-      'tw-p-3',
-      'tw-border',
-      'tw-border-gray-500'
+      'p-3',
+      'border',
+      'border-gray-500'
     ]
   %}
 {% endif %}
@@ -42,7 +42,7 @@
 
 
   {% if(attributes.storage.class[0] == "theme-gallery") %}
-  <ul class="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4" >
+  <ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-4" >
   {% else %}
   <{{ list.type }}{{ list.attributes }} >
   {% endif %}

@@ -72,7 +72,7 @@
 #}
 
 
-<article{{ attributes.addClass('tw-w-full tw-min-h-screen tw-flex tw-justify-center tw-items-center') }}>
+<article{{ attributes.addClass('w-full min-h-screen flex justify-center items-center') }}>
 
   {{ title_prefix }}
   {% if not page %}
@@ -92,15 +92,15 @@
     </footer>
   {% endif %}
 
-  <div{{ content_attributes.addClass('tw-grid md:tw-grid-cols-3') }}>
+  <div{{ content_attributes.addClass('grid md:grid-cols-3') }}>
   
-    <div class="tw-flex tw-justify-center md:tw-justify-end tw-pl-4 tw-pt-8">
+    <div class="flex justify-center md:justify-end pl-4 pt-8">
       {{ content.field_logo_square }}
     </div>
-    <div class="md:tw-col-span-2 md:tw-h-64 tw-py-8 tw-px-3 tw-text-2xl tw-text-center md:tw-text-left  tw-border-l tw-mb-4">
+    <div class="md:col-span-2 md:h-64 py-8 px-3 text-2xl text-center md:text-left  border-l mb-4">
       {{ content.body }}
     </div>
-    <div class="md:tw-col-span-3">
+    <div class="md:col-span-3">
       {{ content.field_links }}
     </div>
 

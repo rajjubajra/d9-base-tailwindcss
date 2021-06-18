@@ -25,10 +25,10 @@
  * @see template_preprocess_block()
  */
 #}
-<div{{ attributes.addClass('tw-w-full tw-mb-96 md:tw-w-2/3 lg:tw-w-1/2 tw-my-40 md:tw-mb-64 tw-flex tw-flex-col tw-align-center tw-justify-center') }}>
+<div{{ attributes.addClass('w-full mb-96 md:w-2/3 lg:w-1/2 my-40 md:mb-64 flex flex-col align-center justify-center') }}>
   {{ title_prefix }}
   {% if label %}
-    <h2{{ title_attributes.addClass('tw-font-thin tw-my-4') }}>{{ label }}</h2>
+    <h2{{ title_attributes.addClass('font-thin my-4') }}>{{ label }}</h2>
   {% endif %}
   {{ title_suffix }}
   {% block content %}
