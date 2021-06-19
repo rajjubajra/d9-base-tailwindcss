@@ -14,3 +14,13 @@
 nav.main div ul li a{
   background-color: #ffffff !important;
 }
+
+.navbar-we-mega-menu.navbar .we-mega-menu-ul>li>a, .navbar-we-mega-menu.navbar .we-mega-menu-ul>li>.we-megamenu-nolink {
+  padding-left: 15px;
+  padding-right: 15px;
+  border-top: 0px solid rgba(0,0,0,0.3); 
+  text-shadow: 0 0px 0 rgb(0 0 0 / 50%);
+  -moz-box-shadow: 0 0px 0 rgba(255,255,255,0.05) inset;
+  -webkit-box-shadow: 0 0px 0 rgb(255 255 255 / 5%) inset;
+  box-shadow: 0 0px 0 rgb(255 255 255 / 5%) inset; 
+}
