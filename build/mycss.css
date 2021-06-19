@@ -11,6 +11,8 @@
   animation: blob-action 30s infinite;
 }
 
+
+/** MEGHA MENU STYLE  **/
 nav.main div ul li a{
   background-color: #ffffff !important;
 }
@@ -23,4 +25,12 @@ nav.main div ul li a{
   -moz-box-shadow: 0 0px 0 rgba(255,255,255,0.05) inset;
   -webkit-box-shadow: 0 0px 0 rgb(255 255 255 / 5%) inset;
   box-shadow: 0 0px 0 rgb(255 255 255 / 5%) inset; 
+}
+
+.navbar-we-mega-menu.navbar{
+  background: #ffffff !important;
+}
+
+a.we-mega-menu-li{
+  color: #000000 !important;
 }
