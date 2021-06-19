@@ -14,14 +14,14 @@
  */
 #}
 {% block content %}
-  <div class="flex items-center">
+  <div class="flex">
     {% if site_logo %}
       <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="site-logo mr-2">
         <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
       </a>
     {% endif %}
     {% if site_name %}
-      <div class="site-name text-1xl font-thin text-center full mx-2 hidden md:block">
+      <div class="site-name">
         <h1>{{ site_name }}</h1>
       </div>
     {% endif %}
