@@ -38,3 +38,7 @@ nav.main div ul li a{
 a.we-mega-menu-li{
   color: #000000 !important;
 }
+li.active a{
+  color: #a2a2a2;
+
+}
