@@ -31,6 +31,8 @@ nav.main div ul li a{
   background: #ffffff !important;
 }
 
-a.we-mega-menu-li{
+a.we-mega-menu-li,
+.nav .open, 
+.nav .open a:hover{
   color: #000000 !important;
 }
