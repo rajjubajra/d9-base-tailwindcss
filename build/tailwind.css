@@ -954,6 +954,10 @@ video {
   gap: 0.5rem;
 }
 
+.gap-8 {
+  gap: 2rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
