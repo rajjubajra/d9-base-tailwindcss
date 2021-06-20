@@ -14,8 +14,9 @@
  * @ingroup themeable
  */
 #}
+
 {% if content %}
-  <div{{ attributes.addClass('flex justify-between relative z-10') }}>
+  <div{{ attributes.addClass('flex justify-between') }}>
     {{ content }}
   </div>
 {% endif %}
