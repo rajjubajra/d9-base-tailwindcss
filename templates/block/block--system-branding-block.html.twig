@@ -16,7 +16,7 @@
 
 
 {% block content %}
-  <div class="uppercase flex items-center">
+  <div class="uppercase">
     {% if site_logo %}
       <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="site-logo mr-2">
         <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
@@ -32,4 +32,9 @@
     {% endif %}
   </div>
 {% endblock %}
+
+<script>
+  let dv = document.getElementById('block-tailwindcss-branding');
+  div.addClass('flex items-center');
+</script>
 
