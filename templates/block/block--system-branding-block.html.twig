@@ -23,7 +23,7 @@
       </a>
     {% endif %}
     {% if site_name %}
-      <div class="site-name px-4">
+      <div class="site-name px-4 mt-5">
         <h1>{{ site_name }}</h1>
       </div>
     {% endif %}
@@ -31,11 +31,6 @@
       <div class="site-slogan">{{ site_slogan }}</div>
     {% endif %}
   </div>
-  <script>
-    let element = document.getElementById('block-tailwindcss-branding');
-    element.classList.add('flex items-center');
-  </script>
-
 {% endblock %}
 
 
