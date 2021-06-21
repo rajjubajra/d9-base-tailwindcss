@@ -11,7 +11,7 @@
   animation: blob-action 30s infinite;
 }
 
-.overlay{
+.overlay, nav.main{
   position: relative;
   z-index: 60;
 }
