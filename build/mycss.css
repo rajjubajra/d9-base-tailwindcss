@@ -14,10 +14,9 @@
 .overlay, nav.main{
   position: relative;
   z-index: 60;
-  @media (min-width: 992px){
-    background: #ffffff;
-  }
 }
+
+
 
 /** MEGHA MENU STYLE  
 nav.main div ul li a{
