@@ -15,6 +15,13 @@
   position: relative;
   z-index: 60;
 }
+@media (min-width) {
+  
+  .nav.main{
+    background: #ffffff;
+  }
+  
+}
 
 
 
