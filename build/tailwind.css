@@ -707,6 +707,10 @@ video {
   bottom: 0px;
 }
 
+.top-20 {
+  top: 5rem;
+}
+
 .z-0 {
   z-index: 0;
 }
