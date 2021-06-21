@@ -11,6 +11,10 @@
   animation: blob-action 30s infinite;
 }
 
+.overlay{
+  position: relative;
+  z-index: 60;
+}
 
 /** MEGHA MENU STYLE  
 nav.main div ul li a{
