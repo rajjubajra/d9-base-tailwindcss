@@ -16,9 +16,15 @@
   z-index: 60;
 }
 @media (min-width: 992px) {
-  .nav.main{
-    background: #ffffff;
+  nav.main{
+    background: #ffffff !important;
   }
+  nav.main a{
+    background: #ffffff !important;
+  }
+}
+@media(max-width: 991){
+  
 }
 
 
