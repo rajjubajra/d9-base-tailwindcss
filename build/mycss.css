@@ -30,6 +30,10 @@
 
 .btn-main-page ul li{
   background: #ffffff !important;
+  border-bottom: none !important;
+}
+.btn-main-page ul li a:hover{
+  text-decoration: none;
 }
 
 
