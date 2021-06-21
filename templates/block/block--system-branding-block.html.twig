@@ -13,6 +13,7 @@
  * - site_slogan: Slogan for site as defined in Site information settings.
  */
 #}
+<div class="flex items center">
 {% block content %}
   <div class="uppercase">
     {% if site_logo %}
@@ -21,7 +22,7 @@
       </a>
     {% endif %}
     {% if site_name %}
-      <div class="site-name">
+      <div class="site-name px-4">
         <h1>{{ site_name }}</h1>
       </div>
     {% endif %}
@@ -30,3 +31,4 @@
     {% endif %}
   </div>
 {% endblock %}
+</div>
