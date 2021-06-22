@@ -2,9 +2,12 @@
 
 
 function tailwindcss_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  /**
+   * Implementation of hook_form_alter
+   */
 
   if($form_id == "contact_form"){
-    $form['action']['submit']['#value'] = t('Send Message');
+    $form['actions']['submit']['#value'] = t('Send Message');
   }
   
 }
