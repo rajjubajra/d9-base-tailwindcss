@@ -19,7 +19,7 @@ Steps:
     npx tailwindcss -0 ./build/tailwind.css --jit --purge "./templates/**/*.html.twig ./templates/*.html.twig"
    
   3 - Watch process [while development in process]
-    npx tailwindcss -0 ./build/tailwind.css --jit --purge "./templates/**/*.html.twig ./templates/*.html.twig" -watch
+    npx tailwindcss -0 ./build/tailwind.css --jit --purge "./templates/**/*.html.twig" -watch
     
   
 
