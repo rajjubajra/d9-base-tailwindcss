@@ -17,12 +17,11 @@
  * @ingroup themeable
  */
 #}
-<details{{ attributes }}>
+<details{{ attributes.addClass('col-span-4') }}>
   {%
     set summary_classes = [
       required ? 'js-form-required',
       required ? 'form-required',
-      'col-span-4'
     ]
   %}
   {%- if title -%}
