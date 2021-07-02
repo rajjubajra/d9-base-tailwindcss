@@ -91,3 +91,14 @@
   {% endif %}
 
 </div>{# /.layout-container #}
+
+<script>
+  console.log('Invoice - Page');
+  fetch('https://rdbajra.com/d9-base/jsonapi/node/invoice',
+    {
+      headers:{Accept: application/vnd.api+json}
+    }    
+  ).then(response => response.json())
+  .then(data => console.log("invoice data",data))
+  .catch(err=>console.log("invoice error",err));
+</script>
