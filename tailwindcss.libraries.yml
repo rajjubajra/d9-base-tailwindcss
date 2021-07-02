@@ -3,3 +3,7 @@ global-styling:
     base:
       build/mycss.css: {}
       build/tailwind.css: {}
+  js:
+    reactjs/react_development.js: {}
+    reactjs/react_dom_development: {}
+    reactjs/react.js: {}

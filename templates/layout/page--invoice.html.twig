@@ -65,12 +65,14 @@
 
     <div class="md:flex -mx-4">
       <div class="md:flex-1 p-4">
+        <div id="react-container"></div>
         {{ page.content }}
       </div>{# /.layout-content #}
 
       {% if page.sidebar_first %}
         <aside class="md:w-1/4 p-4" role="complementary">
           {{ page.sidebar_first }}
+          <div></div>
         </aside>
       {% endif %}
 
@@ -91,14 +93,6 @@
 </div>{# /.layout-container #}
 
 <script>
-  fetch('https://rdbajra.com/d9-base/rest/invoice)')
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    console.log("data invoice?",data);
-  })
-  .catch(err => console.log("Error Ho?",err));
-
-
+  const domContainer = document.querySelector('#react-container');
+  ReactDOM.render(e(LikeButton), domContainer);
 </script>
