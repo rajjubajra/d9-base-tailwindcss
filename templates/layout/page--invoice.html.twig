@@ -94,8 +94,10 @@
 
 <script>
   console.log('Invoice - Page');
+  const inv = [];
   fetch('https://rdbajra.com/d9-base/node/25?_format=json')
   .then(response => response.json())
-  .then(data => console.log("invoice data",data))
+  .then(data => inv = data)
   .catch(err=>console.log("invoice error",err));
+  console.log("INVOICE DATA",inv);
 </script>
