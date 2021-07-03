@@ -62,6 +62,7 @@
 
   <main role="main">
     <div class="w-full min-h-screen">
+
       {# INVOICE HEADER #}
       <div>
         <h1 class="uppercase text-3xl">Yellow-Website.com</h1>
@@ -88,27 +89,29 @@
       </div>
 
       {# INVOICE DETAILS #}
-      <div class="border w-full">
-        <table>
-          <tr>
-            <th>Descrition</th>
-            <th>Quantity</th>
-            <th>Rate</th>
-            <th>Amount</th>
+      <div class="w-full my-5">
+        <table class="border">
+          <tr class="border-b">
+            <th class="w-80 border-l border-r">Descrition</th>
+            <th class="px-1">Quantity</th>
+            <th class="px-3">Rate</th>
+            <th class="px-2 border-r">Amount</th>
           </tr>
-          <tr>
+          <tr class="border-l border-r border-b">
             <td>Test item description</td>
             <td> - </td>
-            <td> - </td>
-            <td> 1900.00 </td>
+            <td class="text-right pr-1"> - </td>
+            <td class="text-right pr-1"> 1900.00 </td>
           </tr>
         </table>
+
+        {# TOTAL AMOUNT #}
+        <div>
+          Total Amount £ 1900.00
+        </div>
       </div>
 
-      {# TOTAL AMOUNT #}
-      <div>
-        Total Amount £ 1900.00
-      </div>
+      
 
       {# BANK ACCOUNT DETAILS #}
       <div>
