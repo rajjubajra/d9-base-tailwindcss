@@ -95,38 +95,27 @@
 <script>
   console.log('Invoice - Page');
 
-  fetch('http://example.com/movies.json')
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    console.log(data);
-  });
+  const invoices = {
+    invoiceList = []
+  }
 
-  async function loadInvoice(){
-
+  async function getInvoices(){
     const response = await fetch('https://rdbajra.com/d9-base/node/25?_format=json')
-            .then(res => {
-              return res.json();
-            })
-            .then(data => {
-              const invData = await data;
-              //console.log("invoice data",data);
-            })
+    const invData = await response.json();
+    console.log(invData);
     return invData;
   }
 
-  
-  document.addEventListener("DOMContentLoaded", async()=>{
-    let invData = [];
-    try{
-      invData = await loadInvoice();
-    }catch(e){
-      console.log("Error!",e);
-    }
 
-    console.log("INV DATA",invData);
+  getInvoices();
 
-  })
+  const loadInvoices = async () =>{
+    const data = await getInvoices();
+    invoices.invoiceList = data;
+  } 
+
+  loadInvoices();
+  console.log("INVOICE LIST ",invoices.invoiceList);
+
 
 </script>
