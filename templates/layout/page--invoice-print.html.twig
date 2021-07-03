@@ -66,6 +66,9 @@
     <div class="md:flex -mx-4">
       <div class="md:flex-1 p-4">
         <div id="react-container"></div>
+
+        <div id="date"></div>
+        
         {{ page.content }}
       </div>{# /.layout-content #}
 
@@ -103,7 +106,7 @@
   console.log(invoices);
   console.log(invoices.created[0].value);
   return invoices;
-
+  document.getElementById("date").innerHTML = invoices.created[0].value;
   }
 
   getInvoices();
