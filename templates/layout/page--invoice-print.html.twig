@@ -93,6 +93,7 @@
 </div>{# /.layout-container #}
 
 <script>
+
   //console.log('Invoice - Page');
 
   const getInvoices = async () => {
@@ -100,16 +101,11 @@
   const response = await fetch('https://rdbajra.com/d9-base/node/24?_format=json');
   const invoices = await response.json();
   console.log(invoices);
+  console.log(invoices.created[0].value);
   return invoices;
 
-  } 
+  }
 
   getInvoices();
-  
-
-
-  
-  
-
 
 </script>
