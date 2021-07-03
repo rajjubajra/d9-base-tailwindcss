@@ -95,30 +95,14 @@
 <script>
   console.log('Invoice - Page');
 
-  const invoices = {
-    invoiceList = []
-  }
 
-  async function getInvoices(){
+  
     const response = await fetch('https://rdbajra.com/d9-base/node/25?_format=json')
     .then(res => res.json())
     .then(data => console.log(data))
     return response;
     
-  }
-
-
-  getInvoices();
-
-  /**
-  const loadInvoices = async () =>{
-    const data = await getInvoices();
-    invoices.invoiceList = data;
-  } 
-
-  loadInvoices();
-  console.log("INVOICE LIST ",invoices.invoiceList);
-  **/
+  
 
 
 </script>
