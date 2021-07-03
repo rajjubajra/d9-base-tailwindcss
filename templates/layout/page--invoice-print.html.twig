@@ -98,6 +98,9 @@
 <script>
 
   //console.log('Invoice - Page');
+  const invoiceList = {
+    list: []
+  }
 
   const getInvoices = async () => {
 
@@ -110,5 +113,14 @@
   }
 
   getInvoices();
+
+  const loadInvoiceList = async () => {
+    const data = await getInvoices();
+    invoiceList.list = data;
+    console.log("list 1",invoiceList.list);
+  }
+
+  loadInvoiceList();
+  console.log("list 2",invoiceList.list);
 
 </script>
