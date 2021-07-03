@@ -145,7 +145,8 @@
   /** FETCH INVOICE **/
   const getInvoices = async () => {
 
-  const url = '/d9-base/rest/invoice-print';
+  //const url = '/d9-base/rest/invoice-print';
+  const url = '/d9-base/invoice-print/28';
 
   const response = await fetch(url, {
     method: "GET",
@@ -157,6 +158,8 @@
   const invoices = await response.json();
 
   console.log(invoices);
+
+  const invoiceNumber = invoices
 
   }
 
