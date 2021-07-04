@@ -175,7 +175,7 @@
   const paragraphArr = invoices[0].field_invoice_details;
 
   console.log("PARA", paragraphArr);
-  getParagraphs();
+  getParagraphs(paragraphArr);
 
   }
 
@@ -184,7 +184,13 @@
 
   /** FETCH PARAGRAPHS **/
 
-  const getParagraphs = async () => {
+  const getParagraphs = async (arr) => {
+
+    /** New Arr : Paragraphs IDs Arr **/
+    const idArr = [];
+    arr.map(item=>{
+      idArr.push({id: item.target_id})
+    })
 
     const url = `/d9-base/rest/paragraphs`;
   
@@ -198,7 +204,7 @@
     const paragraphs = await response.json();
   
     console.log("PARAGRAPHS",paragraphs);
-    //console.log("ID Arr", arr);
+    console.log("ID Arr", idArr);
     
     /** Display INVOICE DESCRIPTION **
     const invoiceDescription = paragraphs[0].field_description[0].value;
