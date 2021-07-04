@@ -220,15 +220,15 @@
       let rate = item.rate;
       let amount = item.qty * item.rate;
 
-      domIncoiceDescription(desc, qty, rate, amount);
+     return domInvoiceDescription(desc, qty, rate, amount);
 
     })
   
   }
 
   /** DOM INVOICE DESCRIPTION **/
-  const domIncoiceDescription = (desc, qty, rate, amount) =>{
-    return document.getElementById("invoice-details").innerHTML = `<tr>
+  const domInvoiceDescription = (desc, qty, rate, amount) =>{
+      return document.getElementById("invoice-details").innerHTML = `<tr>
       <td class="p-1">${desc}</td>
       <td class="text-center">${qty}</td>
       <td class="text-right pr-1">${rate}</td>
