@@ -144,7 +144,7 @@
   /** FETCH INVOICE **/
   const getInvoices = async () => {
 
-  const url = '/d9-base/rest/invoice-print/32?_format=json';
+  const url = '/d9-base/rest/invoice-print/28?_format=json';
 
   const response = await fetch(url, {
     method: "GET",
@@ -224,7 +224,7 @@
       <td class="text-right pr-1">${item.rate}</td>
       <td class="text-right pr-1">${amount}</td>
       </tr>`;
-      return document.getElementById("invoice-details").innerHTML = items;
+      return document.getElementById("invoice-details").innerHTML = `${desc} - ${qty} - ${rate} - ${rate}`;
     })
     
 
