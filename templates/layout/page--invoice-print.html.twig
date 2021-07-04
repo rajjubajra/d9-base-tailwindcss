@@ -228,12 +228,12 @@
 
   /** DOM INVOICE DESCRIPTION **/
   const domIncoiceDescription = (desc, qty, rate, amount) =>{
-    <tr>
+    return `<tr>
       <td class="p-1">${desc}</td>
       <td class="text-center">${qty}</td>
       <td class="text-right pr-1">${rate}</td>
       <td class="text-right pr-1">${amount}</td>
-    </tr>
+    </tr>`
   }
     
     
