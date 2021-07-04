@@ -98,7 +98,7 @@
             <th class="px-2 border-r">Amount</th>
           </tr>
           <tr class="border-l border-r border-b">
-            <td>Test item description</td>
+            <td id="invoice-description"></td>
             <td> - </td>
             <td class="text-right pr-1"> - </td>
             <td class="text-right pr-1"> 1900.00 </td>
@@ -158,11 +158,11 @@
   console.log(invoices);
 
   /** View in Browser innerHTML **/
-  /** INVOICE NUMBER **/
+  /** Display INVOICE NUMBER **/
   const oldInvoiceNumber = invoices[0].field_old_invoice_number[0].value;
   document.getElementById("invoice-num").innerHTML = oldInvoiceNumber;
 
-  /** INVOICE DATE **/
+  /** Display INVOICE DATE **/
   const oldInvoiceDate = invoices[0].field_old_invoice_date[0].value;
   document.getElementById("invoice-date").innerHTML = oldInvoiceDate;
 
@@ -192,6 +192,12 @@
     const paragraphs = await response.json();
   
     console.log("PARAGRAPHS",paragraphs);
+
+    /** Display INVOICE DATE **/
+    const invoiceDescription = paragraphs[0].field_description[0].value;
+    document.getElementById("invoice-description").innerHTML = invoiceDescription;
+    
+
   
     }
   
