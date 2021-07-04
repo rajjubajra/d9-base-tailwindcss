@@ -228,7 +228,7 @@
 
   /** DOM INVOICE DESCRIPTION **/
   const domIncoiceDescription = (desc, qty, rate, amount) =>{
-    return `<tr>
+    return document.getElementById("invoice-details").innerHTML = `<tr>
       <td class="p-1">${desc}</td>
       <td class="text-center">${qty}</td>
       <td class="text-right pr-1">${rate}</td>
