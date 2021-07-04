@@ -168,8 +168,9 @@
 
 
   /** RUN PARAGRAPH FUNTION **/
-  const paragraphId = invoices[0].field_invoice_details[0].target_id;
-  getParagraphs(paragraphId);
+  const paragraphArr = invoices[0].field_invoice_details
+
+  getParagraphs(paragrapArr);
 
 
   }
@@ -178,9 +179,9 @@
 
 
   /** FETCH PARAGRAPHS **/
-  const getParagraphs = async (id) => {
+  const getParagraphs = async (arr) => {
 
-    const url = `/d9-base/rest/paragraphs/${id}`;
+    const url = `/d9-base/rest/paragraphs`;
   
     const response = await fetch(url, {
       method: "GET",
@@ -192,6 +193,7 @@
     const paragraphs = await response.json();
   
     console.log("PARAGRAPHS",paragraphs);
+    console.log("ID Arr", arr);
 
 
     
