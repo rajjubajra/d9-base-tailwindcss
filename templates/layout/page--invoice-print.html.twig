@@ -50,7 +50,7 @@
             <th class="px-3">Rate</th>
             <th class="px-2 border-r">Amount</th>
           </tr>
-          <tbody class="border-l border-r border-b"></tbody>
+          <tbody class="border-l border-r border-b" id="invoice-details"></tbody>
         </table>
 
         {# TOTAL AMOUNT #}
@@ -166,9 +166,14 @@
     console.log("ID Arr", idArr);
     console.log("INVOICE DETAILS ",invoiceDetailArr);
 
+    invoiceDetailArr.map(item=>{
+      let amount = item.qty * item.rate;
+      return (item.desc, item.qty, item.rate, amount);
+    })
+
   }
 
-  /** DOM INVOICE DESCRIPTION **
+  /** DOM INVOICE DESCRIPTION **/
   const domInvoiceDescription = (desc, qty, rate, amount) =>{
       return document.getElementById("invoice-details").innerHTML = `<tr>
       <td class="p-1">${desc}</td>
@@ -177,10 +182,8 @@
       <td class="text-right pr-1">${amount}</td>
     </tr>`
   }
-  **/
-    
-
   
+
 
 
 </script>
