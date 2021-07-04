@@ -168,12 +168,15 @@
 
     invoiceDetailArr.map(item=>{
       let amount = item.qty * item.rate;
-      let num = 1
-      console.log(num)
-      return( 
-      num++,
-      domInvoiceDescription(item.desc, item.qty, item.rate, amount)
-      )
+      let Items = `<tr>
+        <td class="p-1">${item.desc}</td>
+        <td class="text-center">${item.qty}</td>
+        <td class="text-right pr-1">${item.rate}</td>
+        <td class="text-right pr-1">${amount}</td>
+      </tr>`
+
+      let totalAmount = amount++;
+      document.getElementById("total-amount").innerHTML = totalAmount;
       
     })
 
