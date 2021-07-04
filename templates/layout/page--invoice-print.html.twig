@@ -215,12 +215,9 @@
 
     invoiceDetailArr.map(item => {
 
-      let desc = item.desc;
-      let qty = item.qty;
-      let rate = item.rate;
       let amount = item.qty * item.rate;
 
-     return domInvoiceDescription(desc, qty, rate, amount);
+      return document.getElementById("invoice-details").innerHTML = amount
 
     })
   
