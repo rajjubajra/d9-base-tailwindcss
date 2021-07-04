@@ -97,12 +97,7 @@
             <th class="px-3">Rate</th>
             <th class="px-2 border-r">Amount</th>
           </tr>
-          <tr class="border-l border-r border-b">
-            <td id="invoice-description"></td>
-            <td class="text-center"> - </td>
-            <td class="text-right pr-1"><span id="invoice-rate"></span></td>
-            <td class="text-right pr-1"><span id="invoice-amount"></span></td>
-          </tr>
+          <tbody class="border-l border-r border-b" id="invoice-details"></tbody>
         </table>
 
         {# TOTAL AMOUNT #}
@@ -171,10 +166,10 @@
   const oldInvoiceDate = invoices[0].field_old_invoice_date;
   document.getElementById("invoice-date").innerHTML = oldInvoiceDate.length > 0 ? oldInvoiceDate[0].value : ' - ';
 
-  /** RUN PARAGRAPH FUNTION **/
+  /** RUN PARAGRAPH FUNTION for Invoice Description, Qty, Rate, Amount **/
   const paragraphArr = invoices[0].field_invoice_details;
 
-  console.log("PARA", paragraphArr);
+  //console.log("PARA", paragraphArr);
   getParagraphs(paragraphArr);
 
   }
@@ -182,7 +177,8 @@
   getInvoices();
 
 
-  /** FETCH PARAGRAPHS **/
+  /** FETCH PARAGRAPHS in order to 
+  get Invoice Description, Quantity, Rate **/
 
   const getParagraphs = async (arr) => {
 
@@ -206,35 +202,39 @@
     const invoiceDetailArr = [];
     paragraphs.map(item=>{
       if(idArr.includes(item.id[0].value)){ /** if true **/
-      invoiceDetailArr.push({desc: item.field_description[0].value, qty: item.field_quantity[0].value, rate: item.field_rate[0]})
+      invoiceDetailArr.push({
+        desc: item.field_description[0].value, 
+        qty: item.field_quantity[0].value, 
+        rate: item.field_rate[0].value})
       }
-    })
-    console.log("PARAGRAPHS",paragraphs);
-    console.log("ID Arr", idArr);
+    });
+
+    //console.log("PARAGRAPHS",paragraphs);
+    //console.log("ID Arr", idArr);
     console.log("INVOICE DETAILS ",invoiceDetailArr);
+
+    invoiceDetailArr.map(item => {
+      let desc = item.desc;
+      let qty = item.qty;
+      let rate = item.rate;
+      let amount = item.qty * item.rate;
+      return (
+        document.getElementById('invoice-details').innerHTML = 
+        <tr>
+            <td class="p-1">{item.desc}</td>
+            <td class="text-center">{item.qty}</td>
+            <td class="text-right pr-1">{item.rate}</td>
+            <td class="text-right pr-1">{amount}</td>
+        </tr>
+      )
+
+    })
     
-    /** Display INVOICE DESCRIPTION **
-    const invoiceDescription = paragraphs[0].field_description[0].value;
-    document.getElementById("invoice-description").innerHTML = invoiceDescription;
 
-     /** quantity **
-    const invoiceQuantity = paragraphs[0].field_quantity[0]
-
-    /** Display INVOICE Rate and Amount **
-    const invoiceRate = paragraphs[0].field_rate[0].value;
-    console.log("RATE",invoiceRate);
-    document.getElementById("invoice-rate").innerHTML = invoiceQuantity === undefined ? '-' : invoiceRate;
-
-    /** Display INVOICE Amount **
-    const invoiceAmount = invoiceQuantity === undefined ? invoiceRate : invoiceRate * invoiceQuantity;
-    document.getElementById("invoice-amount").innerHTML = invoiceAmount;
-
-    console.log("invoice qty", invoiceQuantity);
-    **/    
-
-    }
+  }
     
     
+
   
 
 
