@@ -219,13 +219,13 @@
       let rate = item.rate;
       let amount = item.qty * item.rate;
       return (
-        document.getElementById('invoice-details').outerHTML = 
-        <tr>
-            <td class="p-1">{item.desc}</td>
-            <td class="text-center">{item.qty}</td>
-            <td class="text-right pr-1">{item.rate}</td>
-            <td class="text-right pr-1">{amount}</td>
-        </tr>
+        document.getElementById('invoice-details').innerHTML = 
+        `<tr>
+            <td class="p-1">${item.desc}</td>
+            <td class="text-center">${item.qty}</td>
+            <td class="text-right pr-1">${item.rate}</td>
+            <td class="text-right pr-1">${amount}</td>
+        </tr>`
       )
 
     })
