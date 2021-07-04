@@ -184,10 +184,9 @@
 
   /** FETCH PARAGRAPHS **/
 
-  
   const getParagraphs = async (arr) => {
 
-    const url = `https://rdbajra.com/d9-base/rest/paragraphs`;
+    const url = `/d9-base/rest/paragraphs`;
   
     const response = await fetch(url, {
       method: "GET",
@@ -200,7 +199,6 @@
   
     console.log("PARAGRAPHS",paragraphs);
     console.log("ID Arr", arr);
-
     
     /** Display INVOICE DESCRIPTION **
     const invoiceDescription = paragraphs[0].field_description[0].value;
@@ -208,7 +206,6 @@
 
      /** quantity **
     const invoiceQuantity = paragraphs[0].field_quantity[0]
-
 
     /** Display INVOICE Rate and Amount **
     const invoiceRate = paragraphs[0].field_rate[0].value;
