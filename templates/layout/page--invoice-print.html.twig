@@ -208,6 +208,7 @@
 
     /** Display INVOICE Amount **/
     const invoiceAmount = invoiceQuantity === undefined ? invoiceRate : invoiceRate * invoiceQuantity;
+    document.getElementById("invoice-amount").innerHTML = invoiceAmount;
 
     console.log("invoice qty", invoiceQuantity);
 
