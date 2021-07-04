@@ -168,7 +168,7 @@
 
     invoiceDetailArr.map(item=>{
       let amount = item.qty * item.rate;
-      return (item.desc, item.qty, item.rate, amount);
+      return domInvoiceDescription(item.desc, item.qty, item.rate, amount);
     })
 
   }
