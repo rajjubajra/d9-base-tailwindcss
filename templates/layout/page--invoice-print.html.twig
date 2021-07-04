@@ -213,17 +213,9 @@
     //console.log("ID Arr", idArr);
     console.log("INVOICE DETAILS ",invoiceDetailArr);
 
-    invoiceDetailArr.map(item => {
-
-      let amount = item.qty * item.rate;
-
-      return document.getElementById("invoice-details").innerHTML = amount
-
-    })
   
-  }
 
-  /** DOM INVOICE DESCRIPTION **/
+  /** DOM INVOICE DESCRIPTION **
   const domInvoiceDescription = (desc, qty, rate, amount) =>{
       return document.getElementById("invoice-details").innerHTML = `<tr>
       <td class="p-1">${desc}</td>
@@ -232,7 +224,7 @@
       <td class="text-right pr-1">${amount}</td>
     </tr>`
   }
-    
+  **/
     
 
   
