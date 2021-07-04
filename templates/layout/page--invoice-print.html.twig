@@ -218,11 +218,13 @@
       let qty = item.qty;
       let rate = item.rate;
       let amount = item.qty * item.rate;
-      let items = `<td class="p-1">${item.desc}</td>
+      let items = `<tr>
+      <td class="p-1">${item.desc}</td>
       <td class="text-center">${item.qty}</td>
       <td class="text-right pr-1">${item.rate}</td>
-      <td class="text-right pr-1">${amount}</td>`;
-      return `<tr>${items}</tr>`
+      <td class="text-right pr-1">${amount}</td>
+      </tr>`;
+      return {items}
     })
     
 
