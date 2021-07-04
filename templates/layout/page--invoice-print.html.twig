@@ -189,7 +189,7 @@
     /** New Arr : Paragraphs IDs Arr **/
     const idArr = [];
     arr.map(item=>{
-      idArr.push({id: item.target_id})
+      idArr.push(item.target_id)
     })
 
     const url = `/d9-base/rest/paragraphs`;
@@ -203,8 +203,15 @@
   
     const paragraphs = await response.json();
   
+    const invoiceDetailArr = [];
+    paragraphs.map(item=>{
+      if(idArr.includes(item.id[0].value)){ /** if true **/
+      invoiceDetailArr.push({desc: item.field_description[0].value, qty: item.field_quantity[0].value, rate: item.field_rate[0]})
+      }
+    })
     console.log("PARAGRAPHS",paragraphs);
     console.log("ID Arr", idArr);
+    console.log("INVOICE DETAILS ",invoiceDetailArr);
     
     /** Display INVOICE DESCRIPTION **
     const invoiceDescription = paragraphs[0].field_description[0].value;
