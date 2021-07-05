@@ -220,14 +220,13 @@
     const clientAdd = await response.json();
     console.log(clientAdd);
 
-    /** CLIENT NAME **
-    document.getElementById("client-name").innerHTML = clientAdd.field_client_s_name;
-    document.getElementById("address-line-1").innerHTML = clientAdd.field_client_s_address_line_1;
-    document.getElementById("address-line-2").innerHTML = clientAdd.field_client_s_address_line_2;
-    document.getElementById("address-email").innerHTML = clientAdd.field_client_s_email;
-    document.getElementById("address-tel").innerHTML = clientAdd.field_client_s_tel;
-    */
-
+    /** CLIENT NAME **/
+    document.getElementById("client-name").innerHTML = clientAdd[0].field_client_s_name;
+    document.getElementById("address-line-1").innerHTML = clientAdd[0].field_client_s_address_line_1;
+    document.getElementById("address-line-2").innerHTML = clientAdd[0].field_client_s_address_line_2;
+    document.getElementById("address-email").innerHTML = clientAdd[0].field_client_s_email;
+    document.getElementById("address-tel").innerHTML = clientAdd[0].field_client_s_tel;
+    
   }
 
 
