@@ -156,8 +156,8 @@
     const invoiceDetailArr = [];
     paragraphs.map(item=>{
       console.log(idArr.includes(item.id));
-      console.log("item id",item.id);
-      if(idArr.includes(item.id, typeof(item.id))){ /** if true **/
+      console.log("item id",item.id, typeof(item.id));
+      if(idArr.includes(item.id)){ /** if true **/
       invoiceDetailArr.push({
         desc: item.field_description, 
         qty: item.field_quantity, 
