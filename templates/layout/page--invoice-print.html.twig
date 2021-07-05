@@ -32,9 +32,15 @@
       <div>
         Bill To:
         <ul>
-          <li>add 1</li>
-          <li>add 2</li>
-          <li>Add 3</li>
+          <li id="client-name"></li>
+          <li id="address-line-1">add 2</li>
+          <li id="address-line-2">Add 3</li>
+          <li id="address-city">Add 3</li>
+          <li id="address-postcode">Add 3</li>
+          <li id="address-email">Add 3</li>
+          <li id="address-tel">Add 3</li>
+
+
           <li>Add 4</li>
         </ul>
 
@@ -213,6 +219,19 @@
   
     const clientAdd = await response.json();
     console.log(clientAdd);
+
+    /** CLIENT NAME **/
+    document.getElementById("client-name").innerHTML = clientAdd.field_client_s_name;
+    document.getElementById("address-line-1").innerHTML = clientAdd.field_client_s_address_line_1;
+    document.getElementById("address-line-2").innerHTML = clientAdd.field_client_s_address_line_2;
+    document.getElementById("address-email").innerHTML = clientAdd.field_client_s_email;
+    document.getElementById("address-tel").innerHTML = clientAdd.field_client_s_tel;
+    
+    
+    
+
+
+    
 
   }
 
