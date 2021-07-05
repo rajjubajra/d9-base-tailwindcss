@@ -154,10 +154,11 @@
   
     const invoiceDetailArr = [];
     paragraphs.map(item=>{
+      console.log(item.field_quantity[0]);
       if(idArr.includes(item.id[0].value)){ /** if true **/
       invoiceDetailArr.push({
         desc: item.field_description[0].value, 
-        qty: item.field_quantity === [] ? 0 : item.field_quantity[0].value, 
+        //qty: item.field_quantity === [] ? 0 : item.field_quantity[0].value, 
         rate: item.field_rate[0].value})
       }
     });
