@@ -249,7 +249,7 @@
 
     const postcode = await response.json();
     console.log(postcode);
-    document.getElementById('address-postcode').innerHTML = postcode.name;
+    document.getElementById('address-postcode').innerHTML = postcode[0].name;
 
   }
 
