@@ -202,7 +202,7 @@
 
   /** FETCH CLIENT ADDRESS **/
   const getClientAddress = async (id) => {
-    const url = `/d9-base/rest/clients-list-invoice/${id}`;
+    const url = `/d9-base/rest/clients-list-invoice/${id}?_format=json`;
     const response = fetch({
       method: "GET",
       headers:{
