@@ -178,7 +178,7 @@
     console.log("ID Arr", idArr);
     console.log("INVOICE DETAILS ",invoiceDetailArr);
 
-
+    const amountTtArr = [];
 
     invoiceDetailArr.map(item=>{
       let amount = item.qty === "" ? item.rate : item.qty * item.rate;
@@ -194,14 +194,16 @@
         <td class="text-right pr-1">${amount}</td>
       </tr>`;
 
-      let totalAmt = +amount;
-      console.log(totalAmt);
+      /** Array for the Total amount **/
+      amountTtArr.push(amount);
 
       console.log("items",Items);
       document.getElementById("invoice-details").innerHTML += Items;
-      document.getElementById("total-amount").innerHTML = totalAmt;
 
     })
+
+
+    console.log(amountTtArr)
     
   }
 
