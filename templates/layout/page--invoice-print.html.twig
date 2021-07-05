@@ -168,14 +168,16 @@
     console.log("INVOICE DETAILS ",invoiceDetailArr);
 
     invoiceDetailArr.map(item=>{
-      let amount = item.qty === "" ? 1 : item.qty * item.rate;
+      let amount = item.qty === "" ? item.rate : item.qty * item.rate;
+      let rate = item.qty === "" ? '-' : item.rate;
+      let qty = item.qty === "" ? " - " : item.qty;
 
       console.log(item.desc, item.qty, item.rate);
 
       let Items = `<tr>
         <td class="p-1">${item.desc}</td>
-        <td class="text-center">${item.qty}</td>
-        <td class="text-right pr-1">${item.rate}</td>
+        <td class="text-center">${qty}</td>
+        <td class="text-right pr-1">${rate}</td>
         <td class="text-right pr-1">${amount}</td>
       </tr>`;
 
