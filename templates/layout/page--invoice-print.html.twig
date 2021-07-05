@@ -138,6 +138,7 @@
     /** New Arr : Paragraphs IDs Arr **/
     const idArr = [];
     arr.map(item=>{
+      console.log("id Arr",item.target_id, typeof(item.target_id));
       idArr.push(item.target_id)
     })
 
@@ -156,7 +157,7 @@
     paragraphs.map(item=>{
       console.log(idArr.includes(item.id));
       console.log("item id",item.id);
-      if(idArr.includes(item.id)){ /** if true **/
+      if(idArr.includes(item.id, typeof(item.id))){ /** if true **/
       invoiceDetailArr.push({
         desc: item.field_description, 
         qty: item.field_quantity, 
