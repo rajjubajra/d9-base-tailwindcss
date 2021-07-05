@@ -195,10 +195,11 @@
       </tr>`;
 
       let totalAmt = ++amount;
+      console.log(totalAmt);
 
       console.log("items",Items);
       document.getElementById("invoice-details").innerHTML += Items;
-      document.getElementById("total-amount").innerHTML += totalAmt;
+      document.getElementById("total-amount").innerHTML = totalAmt;
 
     })
     
