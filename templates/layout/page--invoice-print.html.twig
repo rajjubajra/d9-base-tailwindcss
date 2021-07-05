@@ -154,6 +154,7 @@
   
     const invoiceDetailArr = [];
     paragraphs.map(item=>{
+      console.log(idArr.includes(item.id));
       if(idArr.includes(item.id)){ /** if true **/
       invoiceDetailArr.push({
         desc: item.field_description, 
