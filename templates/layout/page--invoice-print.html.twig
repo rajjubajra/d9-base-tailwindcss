@@ -94,7 +94,7 @@
 
   /** GET node Id from URL parameter **/
   const nodeId = '';
-window.onload = function(){
+
   try{
       const url_string =  (window.location.href).toLowerCase();
       const url = new URL(url_string);
@@ -104,14 +104,14 @@ window.onload = function(){
   }catch(err){
     console.log("Error: URL parameter not found" );
   }
-}
+
 console.log(nodeId);
 
 
   /** FETCH INVOICE **/
   const getInvoices = async () => {
 
-  const url = `/d9-base/rest/invoice-print/${nodeId}?_format=json`;
+  const url = `/d9-base/rest/invoice-print/32?_format=json`;
 
   const response = await fetch(url, {
     method: "GET",
