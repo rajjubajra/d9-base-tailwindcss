@@ -23,13 +23,15 @@
       </div>
 
       {# INVOICE NUMBER AND DATA #}
-      <div>
-        <div>Invoice - <span id="invoice-num"></span></div>
-        <div id="invoice-date"></div>
+      <div class="mt-5 w-full flex justify-end item-end">
+        <div>
+          <div>Invoice - <span id="invoice-num"></span></div>
+          <div id="invoice-date"></div>
+        </div>
       </div>
 
       {# CLIENT'S ADDRESS #}
-      <div>
+      <div class="my-5">
         Bill To:
         <ul>
           <li id="client-name"></li>
@@ -39,7 +41,12 @@
           <li id="address-postcode"></li>
         </ul>
 
-        <ul><li><span id="address-tel"></span> | <span id="address-email"></span></li></ul>
+        <ul class="my-5">
+          <li>
+              <span id="address-tel"></span> | 
+              <span id="address-email"></span>
+          </li>
+        </ul>
       </div>
 
       {# INVOICE DETAILS #}
@@ -60,7 +67,7 @@
         </div>
       </div>
 
-      
+
       {# BANK ACCOUNT DETAILS #}
       <div id="bank-details"></div>
       
