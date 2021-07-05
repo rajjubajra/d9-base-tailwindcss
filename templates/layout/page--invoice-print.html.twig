@@ -234,6 +234,7 @@
     
   }
 
+
   /** GET POST CODE **/
   const getPostCode = async (tid) => {
 
@@ -248,9 +249,9 @@
 
     const postcode = await response.json();
     console.log(postcode);
+    document.getElementById('address-postcode').innerHTML = postcode.name;
 
   }
-
 
 
 /** FETCH BANK ACCOUNT DETAILS **/
@@ -270,7 +271,6 @@
       console.log(bankDetails);
       document.getElementById("bank-details").innerHTML = bankDetails[0].field_bank_account_details;
   }
-  
 
 
 
