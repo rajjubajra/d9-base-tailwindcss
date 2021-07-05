@@ -168,6 +168,8 @@
 
     invoiceDetailArr.map(item=>{
       let amount = item.qty * item.rate;
+      let qty = item.qty === undefined ? 0 : item.qty
+      console.log(qty);
       let Items = `<tr>
         <td class="p-1">${item.desc}</td>
         <td class="text-center">${item.qty}</td>
