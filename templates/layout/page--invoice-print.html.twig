@@ -92,6 +92,19 @@
 
 <script>
 
+  /** GET node Id from URL parameter **/
+window.onload = function(){
+  try{
+      const url_string =  (window.location.href).toLowerCase();
+      const url = new URL(url_string);
+      const nodeId = url.searchParams.get("nid");
+      console.log("NODE ID",nodeId);
+
+  }catch(err){
+    console.log("Error: URL parameter not found" );
+  }
+}
+
 
   /** FETCH INVOICE **/
   const getInvoices = async () => {
