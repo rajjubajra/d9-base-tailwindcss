@@ -61,17 +61,8 @@
       </div>
 
       
-
       {# BANK ACCOUNT DETAILS #}
-      <div>
-        <ul>
-          <li>Bank Details</li>
-          <li>Rajju D Bajrachary</li>
-          <li>Bank: HSCB</li>
-          <li>Account Number: 91 6053 56</li>
-          <li>Sort Code: 50-70-35</li>
-        </ul>
-      </div>
+      <div id="bank-details"></div>
       
 
     </div>
@@ -235,7 +226,7 @@
   const getBankAccountDetails = async (id) => {
 
     console.log(id);
-    
+
       url = `/d9-base/rest/bank/${id}?_format=json`;
 
       const response = await fetch(url,{
@@ -246,6 +237,7 @@
       })
       const bankDetails = await response.json();
       console.log(bankDetails);
+      document.getElementById("bank-details").innerHTML = bankDetails[0].field_bank_account_details;
   }
   
 
