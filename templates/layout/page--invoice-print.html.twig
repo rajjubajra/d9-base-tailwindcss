@@ -157,7 +157,7 @@
       if(idArr.includes(item.id)){ /** if true **/
       invoiceDetailArr.push({
         desc: item.field_description, 
-        qty: item.field_quantity === "" ? 0 : item.field_quantity, 
+        qty: item.field_quantity, 
         rate: item.field_rate})
       }
     });
