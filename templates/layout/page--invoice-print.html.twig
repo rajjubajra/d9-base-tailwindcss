@@ -194,17 +194,25 @@
         <td class="text-right pr-1">${amount}</td>
       </tr>`;
 
-      /** Array for the Total amount **/
-      amountTtArr.push(amount);
-
+      /** display Invoice Descrition, Quantity, Rate **/
       console.log("items",Items);
       document.getElementById("invoice-details").innerHTML += Items;
 
+      
+      /** Array for the Total amount **/
+      amountTtArr.push(amount);
+
+
     })
 
+    /** display total sum of the amount **/
+    //console.log(amountTtArr)
+    const sumAmount = amountTtArr.reduce((accumulator, element)=>{
+      return accumulator + element;
+    }, 0);
 
-    console.log(amountTtArr)
-    
+    document.getElementById('total-amount').innerHTML = sumAmount;
+
   }
 
 
