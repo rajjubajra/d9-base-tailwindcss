@@ -196,8 +196,8 @@
 
       let totalAmount = amount++;
       console.log("items",Items);
-      document.getElementById("invoice-details").innerHTML = Items;
-    document.getElementById("total-amount").innerHTML = totalAmount;
+      document.getElementById("invoice-details").innerHTML += Items;
+      document.getElementById("total-amount").innerHTML = totalAmount;
 
     })
     
