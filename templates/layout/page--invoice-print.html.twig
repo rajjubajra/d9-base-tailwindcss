@@ -199,16 +199,18 @@
 
 
 
-
   /** FETCH CLIENT ADDRESS **/
   const getClientAddress = async (id) => {
+
     const url = `/d9-base/rest/clients-list-invoice/${id}?_format=json`;
-    const response = fetch(url,{
+
+    const response = await fetch(url, {
       method: "GET",
       headers:{
         Accept: 'application/vnd.api+json'
-      },
-    })
+      }
+    });
+  
     const clientAdd = await response.json();
     console.log(clientAdd);
 
