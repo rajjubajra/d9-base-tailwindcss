@@ -55,7 +55,7 @@
         </table>
 
         {# TOTAL AMOUNT #}
-        <div>
+        <div class="my-5">
           <span>Total Amount £</span><span id="total-amount"></span>
         </div>
       </div>
@@ -130,6 +130,11 @@
   const clientId = invoices[0].field_client_id_invoice[0].target_id;
   console.log("CLEINT ID",clientId);
   getClientAddress(clientId);
+
+  /** Display BANK ACCOUNT DETAILS **/
+  const bankAccId = invoices[0].field_bank_account[0].target_id;
+  console.log(bankAccId);
+  getBankAccountDetails(bankAccId);
 
   }
 
@@ -226,8 +231,20 @@
 
 
 
+/** FETCH BANK ACCOUNT DETAILS **/
+  const getBankAccountDetails = async (id) => {
 
+      url = `/d9-base/rest/bank/${id}?_format=json`;
 
+      const response = await fetch(url,{
+        method: 'GET',
+        headers:{
+          Accept: 'application/vnd.api+json'
+        }
+      })
+      const bankDetails = await response.json();
+      console.log(bankDetails);
+  }
   
 
 
