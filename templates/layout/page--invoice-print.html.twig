@@ -224,14 +224,31 @@
     document.getElementById("address-line-1").innerHTML = clientAdd[0].field_client_s_address_line_1;
     document.getElementById("address-line-2").innerHTML = clientAdd[0].field_client_s_address_line_2;
     /** CLIENT POST-CODE **/
-    const postcodeId = clientAdd[0].field_client_s_post_code;
-    console.log("post code", postcodeId);
-
+    const postcodeTid = clientAdd[0].field_client_s_post_code;
+    console.log("post code", postcodeTid);
+    getPostCode(postcodeTid);
 
     /** CLIENT EMAIL AND PHONE **/
     document.getElementById("address-email").innerHTML = clientAdd[0].field_client_s_email;
     document.getElementById("address-tel").innerHTML = clientAdd[0].field_client_s_tel;
     
+  }
+
+  /** GET POST CODE **/
+  const getPostCode = async (tid) => {
+
+    const url = `/d9-base/rest/taxonomy/${tid}`;
+
+    const response = await fetch(url,{
+      method: 'GET',
+      headers: {
+        Accept: 'application/vnd.api+json'
+      }
+    })
+
+    const postcode = response.json();
+    console.log(postcode);
+
   }
 
 
