@@ -168,7 +168,7 @@
     console.log("INVOICE DETAILS ",invoiceDetailArr);
 
     invoiceDetailArr.map(item=>{
-      let amount = item.qty * item.rate;
+      let amount = item.qty === "" ? 1 : item.qty * item.rate;
 
       console.log(item.desc, item.qty, item.rate);
 
