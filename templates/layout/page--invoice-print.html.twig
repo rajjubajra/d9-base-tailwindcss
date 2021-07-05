@@ -119,20 +119,26 @@
   const oldInvoiceDate = invoices[0].field_old_invoice_date;
   document.getElementById("invoice-date").innerHTML = oldInvoiceDate.length > 0 ? oldInvoiceDate[0].value : ' - ';
 
-  /** RUN PARAGRAPH FUNTION for Invoice Description, Qty, Rate, Amount **/
+  /** Display INVOICE DESCTION, QTY, RATE, AMOUNT
+  * RUN PARAGRAPH FUNTION for Invoice Description, Qty, Rate **/
   const paragraphArr = invoices[0].field_invoice_details;
-
-  console.log("PARA", paragraphArr);
+  //console.log("PARA", paragraphArr);
   getParagraphs(paragraphArr);
+
+  /** Display CLIENT ADDRESS **/
+  const clientId = invoices[0].field_client_id_invoice[0].target_id;
+  console.log("CLEINT ID",clientId);
 
   }
 
   getInvoices();
 
 
-  /** FETCH PARAGRAPHS in order to 
-  get Invoice Description, Quantity, Rate **/
 
+  /** FETCH INVOICE DETAILS 
+  * [ description, quantity, rate ] 
+  * from PARAGRAPHS 
+  **/
   const getParagraphs = async (arr) => {
 
     /** New Arr : Paragraphs IDs Arr **/
@@ -190,15 +196,27 @@
 
   }
 
-  /** DOM INVOICE DESCRIPTION **/
-  const domInvoiceDescription = (desc, qty, rate, amount) =>{
-      return document.getElementById("invoice-details").innerHTML = `<tr>
-      <td class="p-1">${desc}</td>
-      <td class="text-center">${qty}</td>
-      <td class="text-right pr-1">${rate}</td>
-      <td class="text-right pr-1">${amount}</td>
-    </tr>`
+
+
+
+  /** FETCH CLIENT ADDRESS **/
+  const getClientAddress = async (id) => {
+    const url = `/d9-base/rest/clients-list-invoice/${id}`;
+    const response = fetch({
+      method: "GET",
+      headers:{
+        Accept: 'application/vnd.api+json'
+      },
+    })
+    const clientAdd = await response.json();
+    console.log(clientAdd);
+
   }
+
+
+
+
+
   
 
 
