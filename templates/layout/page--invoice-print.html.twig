@@ -134,6 +134,7 @@
   /** Display BANK ACCOUNT DETAILS **/
   const bankAccId = invoices[0].field_bank_account[0].target_id;
   console.log("BANK DETAILS",bankAccId);
+  getBankAccountDetails(bankAccId);
   
   }
 
@@ -233,6 +234,8 @@
 /** FETCH BANK ACCOUNT DETAILS **/
   const getBankAccountDetails = async (id) => {
 
+    console.log(id);
+    
       url = `/d9-base/rest/bank/${id}?_format=json`;
 
       const response = await fetch(url,{
