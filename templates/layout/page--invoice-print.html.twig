@@ -92,26 +92,30 @@
 
 <script>
 
-  /** GET node Id from URL parameter **/
-  const nodeId = '';
 
+window.onload = function(){
   try{
+      /** GET node Id from URL parameter **/
       const url_string =  (window.location.href).toLowerCase();
       const url = new URL(url_string);
       /** Node Id **/
-      nodeId = url.searchParams.get("nid");
+      const nodeId = url.searchParams.get("nid");
       //console.log("NODE ID",nodeId);
+
+      /** RUN GET INVOICE **/
+      getInvoices(nodeId);
+
   }catch(err){
     console.log("Error: URL parameter not found" );
   }
+}
 
-console.log(nodeId);
 
 
   /** FETCH INVOICE **/
-  const getInvoices = async () => {
+  const getInvoices = async (nid) => {
 
-  const url = `/d9-base/rest/invoice-print/32?_format=json`;
+  const url = `/d9-base/rest/invoice-print/${nid}?_format=json`;
 
   const response = await fetch(url, {
     method: "GET",
@@ -150,9 +154,6 @@ console.log(nodeId);
   getBankAccountDetails(bankAccId);
   
   }
-
-  getInvoices();
-
 
 
   /** FETCH INVOICE DETAILS 
