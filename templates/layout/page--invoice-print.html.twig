@@ -131,7 +131,10 @@ window.onload = function(){
   console.log(attributes);
   console.log(attributes.field_old_invoice_number);
 
+  /** INVOICE NUMBER **/
   document.getElementById('invoice-number').innerHTML = attributes.field_old_invoice_number;
+  /** INVOICE DATE **/
+  document.getElementById('invoice-date').innerHTML = attributes.field_old_invoice_date;
 
 
   
