@@ -178,7 +178,7 @@ window.onload = function(){
       let desc = attributes.field_description.value;
       let qty = attributes.field_quantity;
       let rate = attributes.field_rate;
-      let amount = qty === ("" | null) ? rate : qty * rate;
+      let amount = qty === (null || "") ? rate : qty * rate;
 
       let Items = `<tr>
         <td class="p-1">${desc}</td>
