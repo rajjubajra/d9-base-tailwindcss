@@ -173,7 +173,7 @@ window.onload = function(){
     paragraphs.data.map(item=>{
       /** nested array distructuring **/
       const {attributes} = item;
-      let desc = attributes.field_desctipion.value;
+      let desc = attributes.field_description.value;
       let qty = attributes.field_quantity;
       let rate = attributes.field_rate;
       let amount = qty === "" ? rate : qty * rate;
