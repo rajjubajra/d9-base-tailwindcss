@@ -141,11 +141,20 @@ window.onload = function(){
   document.getElementById('invoice-date').innerHTML = attributes.field_old_invoice_date;
 
 
-  /** INVOICE DETAILS **/
+  
   /** nested array distructuring **/
-  const {data: {relationships:{field_invoice_details:{links}}}} = invoices;
+  const {data: 
+    {relationships:
+      {field_invoice_details:{links}, field_client_id_invoice}
+    }
+  } = invoices;
 
+  /** INVOICE DETAILS **/
   getParagraphs(links.related.href)
+
+
+  /** INVOICE CLIENT DETAILS **/
+  getClientDetails(field_client_id_invoice.data.id);
 
 
   
@@ -202,6 +211,8 @@ window.onload = function(){
 
 
   const getClientDetails = async (tid) => {
+
+    console.log("tid", tid);
 
     url = `/d9-base/jsonapi/node/client_details`;
 
