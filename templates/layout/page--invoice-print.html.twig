@@ -115,7 +115,7 @@ window.onload = function(){
   /** FETCH INVOICE **/
   const getInvoices = async (uuid) => {
 
-  const url = `/jsonapi/node/invoice/${uuid}`;
+  const url = `/d9-base/jsonapi/node/invoice/${uuid}`;
 
   const response = await fetch(url, {
     method: "GET",
