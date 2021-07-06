@@ -159,7 +159,6 @@ window.onload = function(){
   **/
   const getParagraphs = async (url) => {
   
-    
     const response = await fetch(url, {
       method: "GET",
       headers:{
@@ -170,6 +169,27 @@ window.onload = function(){
     const paragraphs = await response.json();
 
     console.log("PARA",paragraphs);
+    /** nested array distructuring **/
+    paragraphs.data.map(item=>{
+      /** nested array distructuring **/
+      const {attributes} = item;
+      let desc = attributes.field_desctipion.value;
+      let qty = attributes.field_quantity;
+      let rate = attributes.field_rate;
+      let amount = qty === "" ? rate : qty * rate;
+
+      let Items = `<tr>
+        <td class="p-1">${desc}</td>
+        <td class="text-center">${qty}</td>
+        <td class="text-right pr-1">${rate}</td>
+        <td class="text-right pr-1">${amount}</td>
+      </tr>`;
+
+      document.getElementById('invoice-details').innerHTML += Items;
+
+    })
+
+
     
   
 
