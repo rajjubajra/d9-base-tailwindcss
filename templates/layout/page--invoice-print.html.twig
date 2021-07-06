@@ -201,6 +201,20 @@ window.onload = function(){
   }
 
 
+  const getClientDetails = async (tid) => {
 
+    url = `/d9-base/jsonapi/node/client_details`;
+
+    const response = await fetch(url,{
+      method: 'GET',
+      headers:{
+          Accept: 'application/vnd.api+json'
+        }
+    })
+    const clientList = await response.json();
+    console.log(clientList);
+
+
+  }
 
 </script>
