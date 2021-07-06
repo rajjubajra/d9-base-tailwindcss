@@ -126,6 +126,8 @@ window.onload = function(){
 
   const invoices = await response.json();
 
+  console.log(invoices);
+
   const { data: {attributes} } = invoices;
 
   console.log(attributes);
