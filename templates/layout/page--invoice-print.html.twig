@@ -126,11 +126,10 @@ window.onload = function(){
 
   const invoices = await response.json();
 
-  console.log(invoices);
+  console.log(invoices.data.attributes);
 
-  const { data, attributes } = data;
   
-  document.getElementById('invoice-number').innerHTML = data.field_old_invoice_number;
+  
   
   
   }
