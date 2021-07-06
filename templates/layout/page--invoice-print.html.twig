@@ -225,6 +225,14 @@ window.onload = function(){
     const clientList = await response.json();
     console.log("CLIENT LIST",clientList);
 
+    /** Array distructuring **/
+    const {data:{relationships}} = clientList;
+
+    const clientTid = relationships.flield_client_id.data.id;
+    console.log("client TID",clientTid);
+
+
+
 
   }
 
