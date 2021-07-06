@@ -128,10 +128,12 @@ window.onload = function(){
 
   console.log(invoices);
 
-  const { data: {attributes} } = invoices;
+  const { data: {attributes, relationships} } = invoices;
 
   console.log(attributes);
-  console.log(attributes.field_old_invoice_number);
+  console.log(relationships);
+  
+  //console.log(attributes.field_old_invoice_number);
 
   /** INVOICE NUMBER **/
   document.getElementById('invoice-number').innerHTML = attributes.field_old_invoice_number;
@@ -139,10 +141,36 @@ window.onload = function(){
   document.getElementById('invoice-date').innerHTML = attributes.field_old_invoice_date;
 
 
+  /** INVOICE DETAILS **/
+  /** nested array distructuring **/
+  const {data: {relationships:{field_invoice_details:{links}}}} = invoices;
+
+  getParagraphs(links.related)
+
+
   
+  }
+
+
+
+  /** FETCH INVOICE DETAILS 
+  * [ description, quantity, rate ] 
+  * from PARAGRAPHS 
+  **/
+  const getParagraphs = async (url) => {
   
+    const response = await fetch(url, {
+      method: "GET",
+      headers:{
+        Accept: 'application/vnd.api+json'
+      }
+    });
   
+    const paragraphs = await response.json();
+
+    console.log("PARA",paragraphs);
   
+
   }
 
 
