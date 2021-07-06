@@ -170,6 +170,8 @@ window.onload = function(){
 
     console.log("PARA",paragraphs);
     /** nested array distructuring **/
+
+    const amtArr = [];
     paragraphs.data.map(item=>{
       /** nested array distructuring **/
       const {attributes} = item;
@@ -185,13 +187,16 @@ window.onload = function(){
         <td class="text-right pr-1">${amount}</td>
       </tr>`;
 
+      /** Total Amount **/
+      amtArr.push(amount);
       document.getElementById('invoice-details').innerHTML += Items;
 
     })
 
+    document.getElementById('total-amount').innerHTML = amtArr.reduce((acc, elm)=>{
+      return acc + elm;
+    })
 
-    
-  
 
   }
 
