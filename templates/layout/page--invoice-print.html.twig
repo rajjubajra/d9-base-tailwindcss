@@ -145,7 +145,7 @@ window.onload = function(){
   /** nested array distructuring **/
   const {data: {relationships:{field_invoice_details:{links}}}} = invoices;
 
-  getParagraphs(links.related)
+  getParagraphs(links.related.href)
 
 
   
@@ -159,8 +159,7 @@ window.onload = function(){
   **/
   const getParagraphs = async (url) => {
   
-    console.log(url.href);
-    /**
+    
     const response = await fetch(url, {
       method: "GET",
       headers:{
@@ -171,7 +170,7 @@ window.onload = function(){
     const paragraphs = await response.json();
 
     console.log("PARA",paragraphs);
-    **/
+    
   
 
   }
