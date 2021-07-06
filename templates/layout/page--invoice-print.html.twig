@@ -128,6 +128,9 @@ window.onload = function(){
 
   console.log(invoices);
 
+  const { data, attributes } = data;
+  
+  document.getElementById('invoice-number').innerHTML = data.field_old_invoice_number;
   
   
   }
