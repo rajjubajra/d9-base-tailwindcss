@@ -99,11 +99,11 @@ window.onload = function(){
       const url_string =  (window.location.href).toLowerCase();
       const url = new URL(url_string);
       /** Node Id **/
-      const nodeId = url.searchParams.get("nid");
-      //console.log("NODE ID",nodeId);
+      const uuid = url.searchParams.get("nid");
+      console.log("NODE ID", uuid);
 
       /** RUN GET INVOICE **/
-      getInvoices(nodeId);
+      getInvoices(uuid);
 
   }catch(err){
     console.log("Error: URL parameter not found" );
@@ -113,9 +113,9 @@ window.onload = function(){
 
 
   /** FETCH INVOICE **/
-  const getInvoices = async (nid) => {
+  const getInvoices = async (uuid) => {
 
-  const url = `/d9-base/rest/invoice-print/${nid}?_format=json`;
+  const url = `/jsonapi/node/invoice/${uuid}`;
 
   const response = await fetch(url, {
     method: "GET",
@@ -128,179 +128,10 @@ window.onload = function(){
 
   console.log(invoices);
 
-  /** View in Browser innerHTML **/
-  /** Display INVOICE NUMBER **/
-  const oldInvoiceNumber = invoices[0].field_old_invoice_number
-  document.getElementById("invoice-num").innerHTML = oldInvoiceNumber.length > 0 ? oldInvoiceNumber[0].value : ' - ';
-
-  /** Display INVOICE DATE **/
-  const oldInvoiceDate = invoices[0].field_old_invoice_date;
-  document.getElementById("invoice-date").innerHTML = oldInvoiceDate.length > 0 ? oldInvoiceDate[0].value : ' - ';
-
-  /** Display INVOICE DESCTION, QTY, RATE, AMOUNT
-  * RUN PARAGRAPH FUNTION for Invoice Description, Qty, Rate **/
-  const paragraphArr = invoices[0].field_invoice_details;
-  //console.log("PARA", paragraphArr);
-  getParagraphs(paragraphArr);
-
-  /** Display CLIENT ADDRESS **/
-  const clientId = invoices[0].field_client_id_invoice[0].target_id;
-  console.log("CLEINT ID",clientId);
-  getClientAddress(clientId);
-
-  /** Display BANK ACCOUNT DETAILS **/
-  const bankAccId = invoices[0].field_bank_account[0].target_id;
-  console.log("BANK DETAILS",bankAccId);
-  getBankAccountDetails(bankAccId);
+  
   
   }
 
-
-  /** FETCH INVOICE DETAILS 
-  * [ description, quantity, rate ] 
-  * from PARAGRAPHS 
-  **/
-  const getParagraphs = async (arr) => {
-
-    /** New Arr : Paragraphs IDs Arr **/
-    const idArr = [];
-    arr.map(item=>{
-      console.log("id Arr",item.target_id, typeof(item.target_id));
-      idArr.push(item.target_id)
-    })
-
-    const url = `/d9-base/rest/paragraphs-invoice`;
-  
-    const response = await fetch(url, {
-      method: "GET",
-      headers:{
-        Accept: 'application/vnd.api+json'
-      }
-    });
-  
-    const paragraphs = await response.json();
-  
-    const invoiceDetailArr = [];
-    paragraphs.map(item=>{
-      if(idArr.includes(parseInt(item.id))){ /** if true **/
-      invoiceDetailArr.push({
-        desc: item.field_description, 
-        qty: item.field_quantity, 
-        rate: item.field_rate})
-      }
-    });
-
-    console.log("PARAGRAPHS",paragraphs);
-    console.log("ID Arr", idArr);
-    console.log("INVOICE DETAILS ",invoiceDetailArr);
-
-    const amountTtArr = [];
-
-    invoiceDetailArr.map(item=>{
-      let amount = item.qty === "" ? item.rate : item.qty * item.rate;
-      let rate = item.qty === "" ? '-' : item.rate;
-      let qty = item.qty === "" ? " - " : item.qty;
-
-      console.log(item.desc, item.qty, item.rate);
-
-      let Items = `<tr>
-        <td class="p-1">${item.desc}</td>
-        <td class="text-center">${qty}</td>
-        <td class="text-right pr-1">${rate}</td>
-        <td class="text-right pr-1">${amount}</td>
-      </tr>`;
-
-      /** display Invoice Descrition, Quantity, Rate **/
-      console.log("items",Items);
-      document.getElementById("invoice-details").innerHTML += Items;
-
-      
-      /** Array for the Total amount **/
-      amountTtArr.push(amount);
-
-
-    })
-
-    /** display total sum of the amount **/
-    //console.log(amountTtArr)
-    const sumAmount = amountTtArr.reduce((accumulator, element)=>{
-      return accumulator + element;
-    }, 0);
-
-    document.getElementById('total-amount').innerHTML = sumAmount;
-
-  }
-
-
-
-  /** FETCH CLIENT ADDRESS **/
-  const getClientAddress = async (id) => {
-
-    const url = `/d9-base/rest/clients-list-invoice/${id}?_format=json`;
-
-    const response = await fetch(url, {
-      method: "GET",
-      headers:{
-        Accept: 'application/vnd.api+json'
-      }
-    });
-  
-    const clientAdd = await response.json();
-    console.log(clientAdd);
-
-    /** CLIENT NAME **/
-    document.getElementById("client-name").innerHTML = clientAdd[0].field_client_s_name;
-    /** CLIENT ADDRESS **/
-    document.getElementById("address-line-1").innerHTML = clientAdd[0].field_client_s_address_line_1;
-    document.getElementById("address-line-2").innerHTML = clientAdd[0].field_client_s_address_line_2;
-    /** CLIENT POST-CODE **/
-    const postcodeTid = clientAdd[0].field_client_s_post_code;
-    console.log("post code", postcodeTid);
-    getPostCode(postcodeTid);
-
-    /** CLIENT EMAIL AND PHONE **/
-    document.getElementById("address-email").innerHTML = clientAdd[0].field_client_s_email;
-    document.getElementById("address-tel").innerHTML = clientAdd[0].field_client_s_tel;
-    
-  }
-
-
-  /** GET POST CODE **/
-  const getPostCode = async (tid) => {
-
-    const url = `/d9-base/rest/taxonomy/${tid}`;
-
-    const response = await fetch(url,{
-      method: 'GET',
-      headers: {
-        Accept: 'application/vnd.api+json'
-      }
-    })
-
-    const postcode = await response.json();
-    console.log(postcode);
-    document.getElementById('address-postcode').innerHTML = postcode[0].name;
-
-  }
-
-
-/** FETCH BANK ACCOUNT DETAILS **/
-  const getBankAccountDetails = async (id) => {
-
-    console.log(id);
-
-      url = `/d9-base/rest/bank/${id}?_format=json`;
-
-      const response = await fetch(url,{
-        method: 'GET',
-        headers:{
-          Accept: 'application/vnd.api+json'
-        }
-      })
-      const bankDetails = await response.json();
-      console.log(bankDetails);
-      document.getElementById("bank-details").innerHTML = bankDetails[0].field_bank_account_details;
-  }
 
 
 
