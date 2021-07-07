@@ -229,15 +229,14 @@ window.onload = function(){
     //const {relationships} = clientList.data[0];
     clientList.data.map(item=>{
       const {relationships: {field_client_id:{data:{id}} }} = item;
-      /**
       const {attributes:{
         field_client_s_name, 
         field_client_s_email, 
         field_client_s_tel, 
         field_client_s_address_line_1, 
-        field_client_s_address_line_2}}
+        field_client_s_address_line_2}} = item;
 
-      /**
+      
       if(tid === id){
 
         document.getElementById("client-name").innerHTML = field_client_s_name;
@@ -248,7 +247,7 @@ window.onload = function(){
         document.getElementById("address-email").innerHTML = field_client_s_email; 
 
       }
-      **/
+      
       
     })
 
