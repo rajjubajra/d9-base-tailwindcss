@@ -100,7 +100,7 @@ window.onload = function(){
       const url = new URL(url_string);
       /** Node Id **/
       const uuid = url.searchParams.get("nid");
-      console.log("NODE ID", uuid);
+      //console.log("NODE ID", uuid);
 
       /** RUN GET INVOICE **/
       getInvoices(uuid);
@@ -130,8 +130,8 @@ window.onload = function(){
 
   const { data: {attributes, relationships} } = invoices;
 
-  console.log("ATTR",attributes);
-  console.log("RELATION",relationships);
+  //console.log("ATTR",attributes);
+  //console.log("RELATION",relationships);
   
   //console.log(attributes.field_old_invoice_number);
 
@@ -182,7 +182,7 @@ window.onload = function(){
   
     const paragraphs = await response.json();
 
-    console.log("PARA",paragraphs);
+    //console.log("PARA",paragraphs);
     /** nested array distructuring **/
 
     const amtArr = [];
@@ -229,7 +229,7 @@ window.onload = function(){
         }
     })
     const clientList = await response.json();
-    console.log("CLIENT LIST",clientList);
+    //console.log("CLIENT LIST",clientList);
 
     /** FIND taxonomyId 'tid' **/
     //const {relationships} = clientList.data[0];
@@ -298,7 +298,7 @@ window.onload = function(){
   /** POST CODE **/
   const getClientPostCode = async (tid) => {
 
-    console.log("city tid", tid);
+    //console.log("city tid", tid);
 
     const url = `/d9-base/jsonapi/taxonomy_term/post_code`;
 
@@ -309,7 +309,7 @@ window.onload = function(){
       }
     })
     const postcodes = await response.json();
-    console.log("city names", postcodes); 
+    //console.log("city names", postcodes); 
     postcodes.data.map(item=>{
       if(item.id === tid){
         return document.getElementById("address-postcode").innerHTML = item.attributes.name;
@@ -320,10 +320,10 @@ window.onload = function(){
 
 
 
-
+  /** BANK ACCOUNT DETAILS **/
   const getBankDetails = async (tid) => {
 
-    console.log(tid);
+    //console.log(tid);
 
     const url = `/d9-base/jsonapi/node/bank_account_details`;
 
@@ -335,7 +335,7 @@ window.onload = function(){
     })
     const bankDetail = await response.json();
 
-    console.log("Bank Details",bankDetail);
+    //console.log("Bank Details",bankDetail);
     bankDetail.data.map(item=>{
       const {relationships:{field_bank_account_id_invoice:{data:{id}}}} = item;
       const {attributes:{field_bank_account_details:{value}}} = item;
