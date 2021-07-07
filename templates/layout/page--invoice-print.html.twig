@@ -284,7 +284,7 @@ window.onload = function(){
     })
     const cityNames = await response.json();
     console.log("city names",cityNames); 
-    cityNames.map(item=>{
+    cityNames.data.map(item=>{
       if(item.id === tid){
         return document.getElementById("address-city").innerHTML = item.attributes.name;
       }
