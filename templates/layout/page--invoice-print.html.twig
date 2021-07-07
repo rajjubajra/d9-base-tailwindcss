@@ -269,6 +269,7 @@ window.onload = function(){
 
 
   const getBankDetails = async (tid) => {
+
     console.log(tid);
 
     const url = `/d9-base/jsonapi/node/bank_account_details`;
@@ -282,6 +283,13 @@ window.onload = function(){
     const bankDetail = await response.json();
 
     console.log("Bank Details",bankDetail);
+    bankDetail.data.map(item=>{
+      const {relationships:{field_bank_account_id_invoice:{data:{id}}}} = item;
+      const {attributes:{field_bank_account_details:{value}}} = item;
+      if(tid === id){
+        document.getElementById("bank-details").innerHTML = value;
+      }
+    })
 
   }
 
