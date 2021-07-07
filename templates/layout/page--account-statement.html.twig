@@ -46,34 +46,38 @@
     /** FETCH INVOICE **/
     const getInvoices = async (uuid) => {
   
-    const url = `/d9-base/jsonapi/node/invoice`;
+    const urlInv = `/d9-base/jsonapi/node/invoice`;
   
-    const response = await fetch(url, {
+    const response_invoice = await fetch(urlInv, {
       method: "GET",
       headers:{
         Accept: 'application/vnd.api+json'
       }
     });
   
-    const invoices = await response.json();
+    const invoices = await response_invoice.json();
   
     console.log("INVOICE LIST",invoices);
-  
-    const { data: {attributes, relationships} } = invoices;
-  
-  
-    
-    /** nested array distructuring **/
-    const {data: 
-      {relationships:
-        {field_invoice_details:{links}, 
-          field_client_id_invoice,
-          field_bank_account,
-        }
+
+    const urlPara = `/d9-base/jsonapi/paragraph/invoice_fields`;
+    const response_paragraph = await fetch(urlPara, {
+      method: 'GET',
+      headers:{
+        Accept: 'application/vnd.api+json'
       }
-    } = invoices;
+    })
+    const paragraphs = await response_paragraph.json();
+
+    console.log(paragraphs);
+
+    const invoiceArr = [];
+
+    invoices.data.map(item=>{
+      const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
+      invoiceArr.push({data:field_old_invoice_date, number: field_old_invoice_number})
+    })
   
-  
+    console.log(invoiceArr);
     
     }
   
@@ -94,7 +98,7 @@
     
       const paragraphs = await response.json();
   
-      //console.log("PARA",paragraphs);
+      console.log("PARA",paragraphs);
       /** nested array distructuring **/
   
       const amtArr = [];
