@@ -226,7 +226,7 @@ window.onload = function(){
     console.log("CLIENT LIST",clientList);
 
     /** Array distructuring **/
-    const {data:{relationships}} = clientList;
+    const {relationships} = clientList.data[0];
 
     const clientTid = relationships;
     console.log("client TID",clientTid);
