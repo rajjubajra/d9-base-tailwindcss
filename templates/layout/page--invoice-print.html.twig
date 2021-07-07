@@ -156,7 +156,7 @@ window.onload = function(){
   getParagraphs(links.related.href)
 
 
-  /** INVOICE CLIENT DETAILS **/
+  /** INVOICE CLIENT ADDRESS  **/
   getClientDetails(field_client_id_invoice.data.id);
 
   /** BANK DETAILS **/
@@ -216,9 +216,10 @@ window.onload = function(){
   }
 
 
+  /** CLIENT ADDRESS **/
   const getClientDetails = async (tid) => {
 
-    console.log("tid", tid);
+    //console.log("tid", tid);
 
     url = `/d9-base/jsonapi/node/client_details`;
 
@@ -234,7 +235,11 @@ window.onload = function(){
     /** FIND taxonomyId 'tid' **/
     //const {relationships} = clientList.data[0];
     clientList.data.map(item=>{
-      const {relationships: {field_client_id:{data:{id}} }} = item;
+      const {relationships: {field_client_id:{data:{id}}, 
+                              field_client_s_city,
+                              field_client_s_post_code
+                            }
+                            } = item;
       const {attributes:{
         field_client_s_name, 
         field_client_s_email, 
@@ -243,16 +248,19 @@ window.onload = function(){
         field_client_s_address_line_2}} = item;
 
       
+      /** Client Name, Address Line 1, Address line 2 **/
       if(tid === id){
-
         document.getElementById("client-name").innerHTML = field_client_s_name;
         document.getElementById("address-line-1").innerHTML = field_client_s_address_line_1;
         document.getElementById("address-line-2").innerHTML = field_client_s_address_line_2;
 
         document.getElementById("address-tel").innerHTML = field_client_s_tel;
         document.getElementById("address-email").innerHTML = field_client_s_email; 
-
       }
+
+      /** Client City Name **/
+      getClientCity(field_client_s_city.data.id);
+
       
       
     })
@@ -265,6 +273,25 @@ window.onload = function(){
 
 
 
+  }
+
+
+  const getClientCity = async (tid) => {
+
+    console.log("city tid", tid);
+
+    const url = `d9-base/jsonapi/taxonomy_term/city_name`;
+
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Accept: 'application/vid.api+json'
+      }
+    })
+    const cityNames = await response.json();
+    console.log("city names",cityNames); 
+
+    
   }
 
 
