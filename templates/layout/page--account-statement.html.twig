@@ -11,7 +11,7 @@
   <main role="main">
     <div class="w-full min-h-screen">
       <h1 class="text-2xl">Account Statement</h1>
-      
+
     </div>
     
 
@@ -28,7 +28,238 @@
 
 
 
+<script>
 
+
+  window.onload = function(){
+    try{
+
+        getInvoices();
+  
+    }catch(err){
+      console.log("Error: URL parameter not found or", err );
+    }
+  }
+  
+  
+  
+    /** FETCH INVOICE **/
+    const getInvoices = async (uuid) => {
+  
+    const url = `/d9-base/jsonapi/node/invoice`;
+  
+    const response = await fetch(url, {
+      method: "GET",
+      headers:{
+        Accept: 'application/vnd.api+json'
+      }
+    });
+  
+    const invoices = await response.json();
+  
+    //console.log("INVOICE LIST",invoices);
+  
+    const { data: {attributes, relationships} } = invoices;
+  
+  
+    
+    /** nested array distructuring **/
+    const {data: 
+      {relationships:
+        {field_invoice_details:{links}, 
+          field_client_id_invoice,
+          field_bank_account,
+        }
+      }
+    } = invoices;
+  
+  
+    
+    }
+  
+  
+  
+    /** FETCH INVOICE DETAILS 
+    * [ description, quantity, rate ] 
+    * from PARAGRAPHS 
+    **/
+    const getParagraphs = async (url) => {
+    
+      const response = await fetch(url, {
+        method: "GET",
+        headers:{
+          Accept: 'application/vnd.api+json'
+        }
+      });
+    
+      const paragraphs = await response.json();
+  
+      //console.log("PARA",paragraphs);
+      /** nested array distructuring **/
+  
+      const amtArr = [];
+      paragraphs.data.map(item=>{
+        /** nested array distructuring **/
+        const {attributes} = item;
+        let desc = attributes.field_description.value;
+        let qty = attributes.field_quantity;
+        let quantity = qty < 1 ? ' - ' : qty;
+        let rate = qty < 1 ? ' - ' : attributes.field_rate;
+        let amount = qty < 1 ? attributes.field_rate : qty * attributes.field_rate;
+  
+        let Items = `<tr>
+          <td class="p-1">${desc}</td>
+          <td class="text-center">${quantity}</td>
+          <td class="text-right pr-1">${rate}</td>
+          <td class="text-right pr-1">${amount}</td>
+        </tr>`;
+  
+        /** Total Amount **/
+        amtArr.push(amount);
+        document.getElementById('invoice-details').innerHTML += Items;
+  
+      })
+  
+      document.getElementById('total-amount').innerHTML = amtArr.reduce((acc, elm)=>{
+        return acc + elm;
+      })
+  
+  
+    }
+  
+  
+    /** CLIENT ADDRESS **/
+    const getClientDetails = async (tid) => {
+  
+      //console.log("tid", tid);
+  
+      url = `/d9-base/jsonapi/node/client_details`;
+  
+      const response = await fetch(url,{
+        method: 'GET',
+        headers:{
+            Accept: 'application/vnd.api+json'
+          }
+      })
+      const clientList = await response.json();
+      //console.log("CLIENT LIST",clientList);
+  
+      /** FIND taxonomyId 'tid' **/
+      //const {relationships} = clientList.data[0];
+      clientList.data.map(item=>{
+        const {relationships: {field_client_id:{data:{id}}, 
+                                field_client_s_city,
+                                field_client_s_post_code
+                              }
+                              } = item;
+        const {attributes:{
+          field_client_s_name, 
+          field_client_s_email, 
+          field_client_s_tel, 
+          field_client_s_address_line_1, 
+          field_client_s_address_line_2}} = item;
+  
+        
+        /** Client Name, Address Line 1, Address line 2 **/
+        if(tid === id){
+          document.getElementById("client-name").innerHTML = field_client_s_name;
+          document.getElementById("address-line-1").innerHTML = field_client_s_address_line_1;
+          document.getElementById("address-line-2").innerHTML = field_client_s_address_line_2;
+  
+          document.getElementById("address-tel").innerHTML = field_client_s_tel;
+          document.getElementById("address-email").innerHTML = field_client_s_email; 
+  
+          
+          /** Client City Name **/
+          getClientCity(field_client_s_city.data.id);
+          /** Client City Name **/
+          getClientPostCode(field_client_s_post_code.data.id);
+  
+        }
+        
+      })
+  
+      //const clientTid = relationships.field_client_id.data.id;
+      //console.log("client TID",clientTid);
+     
+      
+    }
+  
+    /** CITY NAME **/
+    const getClientCity = async (tid) => {
+  
+      //console.log("city tid", tid);
+  
+      const url = `/d9-base/jsonapi/taxonomy_term/city_name`;
+  
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          Accept: 'application/vid.api+json'
+        }
+      })
+      const cityNames = await response.json();
+      //console.log("city names",cityNames); 
+      cityNames.data.map(item=>{
+        if(item.id === tid){
+          return document.getElementById("address-city").innerHTML = item.attributes.name;
+        }
+      })
+  
+    }
+  
+    /** POST CODE **/
+    const getClientPostCode = async (tid) => {
+  
+      //console.log("city tid", tid);
+  
+      const url = `/d9-base/jsonapi/taxonomy_term/post_code`;
+  
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          Accept: 'application/vid.api+json'
+        }
+      })
+      const postcodes = await response.json();
+      //console.log("city names", postcodes); 
+      postcodes.data.map(item=>{
+        if(item.id === tid){
+          return document.getElementById("address-postcode").innerHTML = item.attributes.name;
+        }
+      })
+  
+    }
+  
+  
+  
+    /** BANK ACCOUNT DETAILS **/
+    const getBankDetails = async (tid) => {
+  
+      //console.log(tid);
+  
+      const url = `/d9-base/jsonapi/node/bank_account_details`;
+  
+      const response = await fetch(url,{
+        method: 'GET',
+        headers:{
+          Accept: 'application/vnd.api+json'
+        }
+      })
+      const bankDetail = await response.json();
+  
+      //console.log("Bank Details",bankDetail);
+      bankDetail.data.map(item=>{
+        const {relationships:{field_bank_account_id_invoice:{data:{id}}}} = item;
+        const {attributes:{field_bank_account_details:{value}}} = item;
+        if(tid === id){
+          document.getElementById("bank-details").innerHTML = value;
+        }
+      })
+  
+    }
+  
+  </script>
 
 
 
