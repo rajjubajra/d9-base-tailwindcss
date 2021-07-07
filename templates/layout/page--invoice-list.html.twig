@@ -69,10 +69,11 @@
 
     invoices.data.map(item=>{
       const {attributes:{field_old_invoice_number, field_old_invoice_date}} = item;
-      const items = `<div>${field_old_invoice_date}</div><div>${field_old_invoice_number}</div>`
+      const items = `<div>${field_old_invoice_date}</div><div>${field_old_invoice_number}</div>`;
+
+      document.getElementById("invoice-list").innerHTML += items;
+
     })
-    document.getElementById("invoice-list").innerHTML = items;
-    
     
   }
 
