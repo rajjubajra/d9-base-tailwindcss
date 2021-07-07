@@ -126,12 +126,12 @@ window.onload = function(){
 
   const invoices = await response.json();
 
-  console.log(invoices);
+  console.log("INVOICE LIST",invoices);
 
   const { data: {attributes, relationships} } = invoices;
 
-  console.log(attributes);
-  console.log(relationships);
+  console.log("ATTR",attributes);
+  console.log("RELATION",relationships);
   
   //console.log(attributes.field_old_invoice_number);
 
@@ -225,11 +225,28 @@ window.onload = function(){
     const clientList = await response.json();
     console.log("CLIENT LIST",clientList);
 
-    /** Array distructuring **/
-    const {relationships} = clientList.data[0];
+    /** FIND taxonomyId 'tid' **/
+    //const {relationships} = clientList.data[0];
+    clientList.data.map(item=>{
+      const {relationships: {field_client_id:{data:{id}} }} = item;
+      const {attributes:{field_client_s_name, field_client_s_email, field_client_s_tel, field_client_s_address_line_1, field_client_s_address_line_2}}
+      if(tid === id){
 
-    const clientTid = relationships.field_client_id.data.id;
-    console.log("client TID",clientTid);
+        document.getElementById("client-name").innerHTML = field_client_s_name;
+        document.getElementById("address-line-1").innerHTML = field_client_s_address_line_1;
+        document.getElementById("address-line-2").innerHTML = field_client_s_address_line_2;
+
+        document.getElementById("address-tel").innerHTML = field_client_s_tel;
+        document.getElementById("address-email").innerHTML = field_client_s_email; 
+
+      }
+      
+    })
+
+
+
+    //const clientTid = relationships.field_client_id.data.id;
+    //console.log("client TID",clientTid);
 
 
 
