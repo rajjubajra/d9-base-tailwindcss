@@ -228,7 +228,7 @@ window.onload = function(){
     /** Array distructuring **/
     const {relationships} = clientList.data[0];
 
-    const clientTid = relationships;
+    const clientTid = relationships.field_client_id.data.id;
     console.log("client TID",clientTid);
 
 
