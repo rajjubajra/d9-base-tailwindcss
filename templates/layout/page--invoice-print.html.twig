@@ -190,13 +190,14 @@ window.onload = function(){
       /** nested array distructuring **/
       const {attributes} = item;
       let desc = attributes.field_description.value;
-      let qty = attributes.field_quantity < 1 ? ' - ' : attributes.field_quantity;
+      let qty = attributes.field_quantity;
+      let quantity = qty < 1 ? ' - ' : qty;
       let rate = qty < 1 ? ' - ' : attributes.field_rate;
       let amount = qty < 1 ? attributes.field_rate : qty * attributes.field_rate;
 
       let Items = `<tr>
         <td class="p-1">${desc}</td>
-        <td class="text-center">${qty}</td>
+        <td class="text-center">${quantity}</td>
         <td class="text-right pr-1">${rate}</td>
         <td class="text-right pr-1">${amount}</td>
       </tr>`;
