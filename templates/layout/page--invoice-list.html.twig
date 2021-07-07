@@ -20,6 +20,7 @@
       <div class="md:flex-1 p-4">
         <div id="react-container"></div>
         {{ page.content }}
+        <div id="invoice-list"></div>
       </div>{# /.layout-content #}
 
       {% if page.sidebar_first %}
@@ -65,6 +66,13 @@
     })    
     const invoices = await response.json();
     console.log(invoices);
+
+    invoices.data.map(item=>{
+      const {attributes:{field_old_invoice_number, field_old_invoice_date}} = item;
+      const items = `<div>${field_old_invoice_date}</div><div>${field_old_invoice_number}</div>`
+    })
+    document.getElementById("invoice-list").innerHTML = items;
+    
     
   }
 
