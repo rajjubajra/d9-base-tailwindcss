@@ -58,7 +58,7 @@
   
     const invoices = await response_invoice.json();
   
-    //console.log("INVOICE LIST",invoices);
+    console.log("INVOICE LIST",invoices);
 
     const invoiceArr = [];
 
@@ -86,10 +86,10 @@
     const paragraphArr = [];
 
     paragraphs.data.map(item=>{
-      const {attributes:{field_desctiption, field_rate, field_quantity, parent_id}} = item;
+      const {attributes:{field_description, field_rate, field_quantity, parent_id}} = item;
       paragraphArr.push({
         id: item.id, 
-        desc: field_desctiption, 
+        desc: field_description, 
         rate:field_rate, 
         qty: field_quantity, 
         parent_id: parent_id});
