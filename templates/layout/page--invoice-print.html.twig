@@ -255,18 +255,18 @@ window.onload = function(){
 
         document.getElementById("address-tel").innerHTML = field_client_s_tel;
         document.getElementById("address-email").innerHTML = field_client_s_email; 
+
+        
+        /** Client City Name **/
+        getClientCity(field_client_s_city.data.id);
       }
-
-   
-
-      
       
     })
 
     //const clientTid = relationships.field_client_id.data.id;
     //console.log("client TID",clientTid);
-    /** Client City Name **/
-    getClientCity(field_client_s_city.data.id);
+   
+    
   }
 
 
