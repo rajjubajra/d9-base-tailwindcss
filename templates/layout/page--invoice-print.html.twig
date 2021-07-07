@@ -155,7 +155,6 @@ window.onload = function(){
   /** INVOICE DETAILS **/
   getParagraphs(links.related.href)
 
-
   /** INVOICE CLIENT ADDRESS  **/
   getClientDetails(field_client_id_invoice.data.id);
 
@@ -265,13 +264,8 @@ window.onload = function(){
       
     })
 
-
-
     //const clientTid = relationships.field_client_id.data.id;
     //console.log("client TID",clientTid);
-
-
-
 
   }
 
@@ -290,7 +284,11 @@ window.onload = function(){
     })
     const cityNames = await response.json();
     console.log("city names",cityNames); 
-
+    cityNames.map(item=>{
+      if(item.id === tid){
+        return document.getElementById("address-city").innerHTML = item.attributes.name;
+      }
+    })
 
   }
 
