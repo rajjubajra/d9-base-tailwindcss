@@ -43,9 +43,10 @@
   
   
   
-    /** FETCH INVOICE **/
+  
     const getInvoices = async (uuid) => {
   
+    /** INVOICE NUMBER AND DATE **/  
     const urlInv = `/d9-base/jsonapi/node/invoice`;
   
     const response_invoice = await fetch(urlInv, {
@@ -57,8 +58,20 @@
   
     const invoices = await response_invoice.json();
   
-    console.log("INVOICE LIST",invoices);
+    //console.log("INVOICE LIST",invoices);
 
+    const invoiceArr = [];
+
+    invoices.data.map(item=>{
+      const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
+      invoiceArr.push({data:field_old_invoice_date, number: field_old_invoice_number});
+      const {relationships:{field_invoice_details:{data}}} = item;
+    })
+  
+    console.log(invoiceArr);
+
+
+    /** PARAGRAPHS: INVOICE DETAILS - DESC, QTY AND RATE **/
     const urlPara = `/d9-base/jsonapi/paragraph/invoice_fields`;
     const response_paragraph = await fetch(urlPara, {
       method: 'GET',
@@ -68,16 +81,24 @@
     })
     const paragraphs = await response_paragraph.json();
 
-    console.log(paragraphs);
+    //console.log(paragraphs);
 
-    const invoiceArr = [];
+    const paragraphArr = [];
 
-    invoices.data.map(item=>{
-      const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
-      invoiceArr.push({data:field_old_invoice_date, number: field_old_invoice_number})
+    paragraphs.data.map(item=>{
+      const {attributes:{field_desctiption, field_rate, field_quantity, parent_id}} = item;
+      paragraphArr.push({
+        id: item.id, 
+        desc: field_desctiption, 
+        rate:field_rate, 
+        qty: field_quantity, 
+        parent_id: parent_id});
     })
-  
-    console.log(invoiceArr);
+    
+
+    console.log("paraArray",paragraphArr);
+
+
     
     }
   
