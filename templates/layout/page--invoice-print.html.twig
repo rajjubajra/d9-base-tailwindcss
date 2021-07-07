@@ -145,7 +145,10 @@ window.onload = function(){
   /** nested array distructuring **/
   const {data: 
     {relationships:
-      {field_invoice_details:{links}, field_client_id_invoice}
+      {field_invoice_details:{links}, 
+        field_client_id_invoice,
+        field_bank_account,
+      }
     }
   } = invoices;
 
@@ -155,6 +158,9 @@ window.onload = function(){
 
   /** INVOICE CLIENT DETAILS **/
   getClientDetails(field_client_id_invoice.data.id);
+
+  /** BANK DETAILS **/
+  getBankDetails(field_bank_account.data.id);
 
 
   
@@ -258,6 +264,24 @@ window.onload = function(){
 
 
 
+
+  }
+
+
+  const getBankDetails = async (tid) => {
+    console.log(tid);
+
+    const url = `/d9-base/jsonapi/node/bank_account_details`;
+
+    const response = await fetch(url,{
+      method: 'GET',
+      headers:{
+        Accept: 'application/vnd.api+json'
+      }
+    })
+    const bankDetail = await response.json();
+
+    console.log("Bank Details",bankDetail);
 
   }
 
