@@ -259,6 +259,9 @@ window.onload = function(){
         
         /** Client City Name **/
         getClientCity(field_client_s_city.data.id);
+        /** Client City Name **/
+        getClientPostCode(field_client_s_post_code.data.id);
+
       }
       
     })
@@ -269,7 +272,7 @@ window.onload = function(){
     
   }
 
-
+  /** CITY NAME **/
   const getClientCity = async (tid) => {
 
     console.log("city tid", tid);
@@ -291,6 +294,31 @@ window.onload = function(){
     })
 
   }
+
+  /** POST CODE **/
+  const getClientPostCode = async (tid) => {
+
+    console.log("city tid", tid);
+
+    const url = `/d9-base/jsonapi/taxonomy_term/post_code`;
+
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        Accept: 'application/vid.api+json'
+      }
+    })
+    const postcodes = await response.json();
+    console.log("city names", postcodes); 
+    postcodes.data.map(item=>{
+      if(item.id === tid){
+        return document.getElementById("address-postcode").innerHTML = item.attributes.name;
+      }
+    })
+
+  }
+
+
 
 
   const getBankDetails = async (tid) => {
