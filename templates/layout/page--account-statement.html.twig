@@ -82,7 +82,7 @@
 
       invPara.data.map( elm =>{
         const {attributes:{field_description, field_quantity, field_rate}} = elm;
-        paragraphArr.push({id: elm.id, desc: field_description, qty: field_quantity, rate: field_rate});
+        paragraphArr.push({id: elm.id, desc: field_description.value, qty: field_quantity, rate: field_rate});
       });
 
       
