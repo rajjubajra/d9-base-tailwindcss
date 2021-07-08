@@ -78,9 +78,9 @@
      /** CREATE NEW ARRAY WITH Invoice Number, Date, Desc, Qty and amount **/
 
     
-    const arr = new Array();
+    const arr = [];
     console.log(arr);
-    const newArray = async(url, inv_num, inv_date) => {
+    const newArray = async (url, inv_num, inv_date) => {
 
       const response = await fetch(url,{
         method: 'GET',
