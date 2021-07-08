@@ -106,7 +106,7 @@
 
     const viewStatement = (data) => {
 
-      data.map(item=>{
+    return  data.map(item=>{
         const view = `
         <div class="p-2">${item.date}</div>
         <div class="p-2">${item.inv_number}</div>
@@ -115,8 +115,7 @@
         <div class="p-2">${item.rate}</div>
         `
         document.getElementById("view-statement").innerHTML += view
-      })
-      ;
+      });
 
     }
 
