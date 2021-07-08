@@ -41,12 +41,11 @@
     }
   }
   
-    const getInvoices = async (uuid) => {
+  const getInvoices = async (uuid) => {
   
 
     /** FETCH - INVOICE NUMBER AND DATE **/  
     const urlInv = `/d9-base/jsonapi/node/invoice`;
-  
     const response_invoice = await fetch(urlInv, {
       method: "GET",
       headers:{
@@ -81,12 +80,12 @@
         }
       })
       const invPara = await response_para.json();
-      invPara.data.map( item => {
+      invPara.data.map( element => {
         
-        const {attributes:{field_description, field_quantity, field_rate}} = item;
+        const {attributes:{field_description, field_quantity, field_rate}} = element;
 
         paragraphArr.push({
-          id: item.id, 
+          id: element.id, 
           desc: field_description.value, 
           qty: field_quantity, 
           rate: field_rate});
