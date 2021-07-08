@@ -60,7 +60,7 @@
     const invoiceArr = []
     const paragraphArr = [];
 
-    invoices.data.map( item =>{
+    invoices.data.map(item =>{
       const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
       const {relationships:{field_invoice_details:{data}}} = item;
       /** Add Invoice date and Invoice number **/
@@ -73,7 +73,8 @@
       const {relationships:{field_invoice_details:{links:{related}}}} = item;
       /** FETCH - PARAGRAPH **/
       const url = related.href;
-      const response_para = await fetch(url, {
+      console.log(url);
+      const response_para = await fetch(url,{
         method: 'GET',
         headers:{
           Accept: 'application/vnd.api+json'
@@ -96,6 +97,7 @@
     console.log("New Paragraph", paragraphArr);
     
     }
+  
   
   </script>
 
