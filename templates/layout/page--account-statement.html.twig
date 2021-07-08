@@ -68,17 +68,18 @@
       const {relationships:{field_invoice_details:{links:{related}}}} = item;
       /** FETCH - PARAGRAPH **/
       const url = related.href;
+      newArray(url, field_old_invoice_number, field_old_invoice_date);   
 
-      newArray(url, field_old_invoice_number, field_old_invoice_date);      
       })
     
     }
 
      /** CREATE NEW ARRAY WITH Invoice Number, Date, Desc, Qty and amount **/
 
+    const arr = [];
+    console.log("new Array ",arr);
+    
     const newArray = async(url, inv_num, inv_date) => {
-
-      const arr = [];
 
       const response = await fetch(url,{
         method: 'GET',
@@ -100,10 +101,9 @@
           rate: field_rate});
       });
       
-      console.log("NEW ARRAY",arr);
-
-
     }
+
+
 
   
   
