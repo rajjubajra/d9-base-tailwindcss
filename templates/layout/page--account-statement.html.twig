@@ -79,7 +79,14 @@
 
     
     const arr = [];
-    console.log(typeof(arr));
+    console.log(arr);
+
+    const result = Object.keys(arr).map(function(key) {
+      return [Number(key), obj[key]];
+    });
+
+    console.log(result);
+    
 
     const newArray = async (url, inv_num, inv_date) => {
 
