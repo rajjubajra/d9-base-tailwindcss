@@ -94,7 +94,7 @@
       console.log("new Arr", invDetails);
       invDetails.data.map( para =>{
         const {attributes:{field_description, field_quantity, field_rate}} = para
-        invoiceArr.push({ data:field_old_invoice_date, number: field_old_invoice_number, desc: field_description, qty: field_quantity, rate: field_rate})
+        invoiceArr.push({ data:field_old_invoice_date, number: field_old_invoice_number, desc: field_description.value, qty: field_quantity, rate: field_rate})
       })
       
       
