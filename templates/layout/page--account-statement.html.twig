@@ -64,7 +64,7 @@
 
     invoices.data.map( async item=>{
       const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
-      const {relationships:{field_invoice_details:{data:id}}} = item;
+      const {relationships:{field_invoice_details:{data:{id}}}} = item;
       /** Add Invoice date and Invoice number **/
       invoiceArr.push({id: id, data:field_old_invoice_date, number: field_old_invoice_number});
 
