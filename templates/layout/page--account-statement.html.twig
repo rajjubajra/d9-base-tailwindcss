@@ -92,10 +92,12 @@
 
       const invPara = await response.json();
       //console.log(" inv Paragraphs ",invPara);
-      invPara.data.foreach( element => {
+      invPara.data.forEach( (element) => {
         
         const {attributes:{field_description, field_quantity, field_rate}} = element;
-        //console.log("old date",field_old_invoice_date);
+        console.log("old date",field_old_invoice_date);
+        console.log("desc",field_description.value);
+        console.log("qty",field_quantity);
         arr.push({
           date: inv_date,
           inv_number: inv_num,
