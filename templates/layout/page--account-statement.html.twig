@@ -80,14 +80,16 @@
     invoices.data.map(item=>{
       const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
       invoiceArr.push({data:field_old_invoice_date, number: field_old_invoice_number});
-      const {relationships:{field_invoice_details:{data}}} = item;
-
-      let arr = [];
-      data.map(rid=>{
-        arr.push(rid.id);
+      const {relationships:{field_invoice_details:{links:{related}}}} = item;
+      const url = related.href;
+      const res = await fetch(url, {
+        method: 'GET',
+        headers:{
+          Accept: 'application/vnd.api+json'
+        }
       })
-      console.log("NEW ARRAY",arr);
-      
+      const invDetails = await res.json();
+      console.log("new Arr", invDetails);
       
       
     })
