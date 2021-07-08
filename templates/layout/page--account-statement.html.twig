@@ -77,7 +77,8 @@
      /** CREATE NEW ARRAY WITH Invoice Number, Date, Desc, Qty and amount **/
 
     
-
+    const arr = [];
+      console.log(arr);
     const newArray = async(url, inv_num, inv_date) => {
 
       const response = await fetch(url,{
@@ -87,8 +88,7 @@
         }
       })
       const invPara = await response.json();
-      const arr = [];
-      console.log(arr);
+      
       invPara.data.map( element => {
         
         const {attributes:{field_description, field_quantity, field_rate}} = element;
@@ -102,7 +102,6 @@
           rate: field_rate});
       });
 
-      viewStatement(arr);
       
     }
 
@@ -126,6 +125,7 @@
 
     }
 
+    viewStatement(arr);
     
 
     
