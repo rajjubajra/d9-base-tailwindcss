@@ -80,12 +80,7 @@
     
     const arr = [];
     console.log(arr);
-
-    const result = Object.keys(arr).map(function(key) {
-      return [Number(key), obj[key]];
-    });
-
-    console.log(result);
+    console.log(Object.values(arr));
     
 
     const newArray = async (url, inv_num, inv_date) => {
