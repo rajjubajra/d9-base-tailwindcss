@@ -81,18 +81,18 @@
 
       const invPara = await res.json();
   
-      const newParagraphsArr = [];
+      const newParagraphArr = [];
 
-      invPara.data.map( para =>{
-        const {attributes:{field_description, field_quantity, field_rate}} = para;
-        newParagraphsArr.push({id: para.id, desc: field_description, qty: field_quantity, rate: field_rate});
+      invPara.data.map( elm =>{
+        const {attributes:{field_description, field_quantity, field_rate}} = elm;
+        newParagraphArr.push({id: elm.id, desc: field_description, qty: field_quantity, rate: field_rate});
       });
 
       
     })
 
     console.log("NEW INVOICE ARR",invoiceArr);
-    console.log("New para Arr", newParagraphsArr);
+    console.log("New para Arr", newParagraphArr);
 
     
     
