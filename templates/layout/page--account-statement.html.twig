@@ -79,7 +79,8 @@
 
     
     const arr = [];
-    console.log(arr);
+    console.log(JSON.stringify(arr));
+    
     const newArray = async (url, inv_num, inv_date) => {
 
       const response = await fetch(url,{
@@ -88,7 +89,7 @@
           Accept: 'application/vnd.api+json'
         }
       })
-      
+
       const invPara = await response.json();
       //console.log(" inv Paragraphs ",invPara);
       invPara.data.map( element => {
