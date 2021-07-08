@@ -83,8 +83,10 @@
       const {relationships:{field_invoice_details:{data}}} = item;
 
       let arr = [];
-      arr.push(data.id);
-      console.log("Arr Data New",data);
+      data.map(rid=>{
+        arr.push(rid.id);
+      })
+      console.log("NEW ARRAY",arr);
       
       
       
