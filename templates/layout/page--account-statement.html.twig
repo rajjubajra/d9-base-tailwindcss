@@ -97,14 +97,17 @@
 
       const invDetails = await res.json();
       console.log("new Arr", invDetails);
+
       invDetails.data.map( para =>{
         const {attributes:{field_description, field_quantity, field_rate}} = para;
         let desc = field_description.value;
         let qty = field_quantity;
         let rate = field_rate;
+        
+invoiceArr.push({inv_num: invNum, inv_date: invDate, desc: desc, qty: qty, rate: rate});
       })
 
-      invoiceArr.push({inv_num: invNum, inv_date: invDate, desc: desc, qty: qty, rate: rate});
+      
 
       
       
