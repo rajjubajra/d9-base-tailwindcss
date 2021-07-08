@@ -61,31 +61,34 @@
     const invoiceArr = []
     const paragraphArr = [];
 
-    invoices.data.map( async item=>{
+    invoices.data.map( item =>{
       const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
       const {relationships:{field_invoice_details:{data}}} = item;
       /** Add Invoice date and Invoice number **/
-      invoiceArr.push({id: data, data:field_old_invoice_date, number: field_old_invoice_number});
+      invoiceArr.push({
+        id: data, 
+        data:field_old_invoice_date, 
+        number: field_old_invoice_number});
 
       /** PARAGRPAH DATA URL **/
       const {relationships:{field_invoice_details:{links:{related}}}} = item;
       /** FETCH - PARAGRAPH **/
       const url = related.href;
-      const res = await fetch(url, {
+      const respose_para = await fetch(url, {
         method: 'GET',
         headers:{
           Accept: 'application/vnd.api+json'
         }
       })
-
-      const invPara = await res.json();
-
-      invPara.data.map( elm =>{
-        const {attributes:{field_description, field_quantity, field_rate}} = elm;
-        paragraphArr.push({id: elm.id, desc: field_description.value, qty: field_quantity, rate: field_rate});
-      });
-
-      
+      const invPara = await respose_para.json();
+      invPara.data.map( item => {
+        const {attributes:{field_description, field_quantity, field_rate}} = item;
+        paragraphArr.push({
+          id: item.id, 
+          desc: field_description.value, 
+          qty: field_quantity, 
+          rate: field_rate});
+      });      
     })
 
     console.log("NEW INVOICE ARR",invoiceArr);
@@ -93,8 +96,6 @@
     
     }
   
-  
-
   </script>
 
 
