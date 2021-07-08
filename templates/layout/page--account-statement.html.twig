@@ -60,7 +60,7 @@
     const invoiceArr = []
     const paragraphArr = [];
 
-    invoices.data.map(item =>{
+    invoices.data.map(async item =>{
       const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
       const {relationships:{field_invoice_details:{data}}} = item;
       /** Add Invoice date and Invoice number **/
@@ -90,7 +90,8 @@
           desc: field_description.value, 
           qty: field_quantity, 
           rate: field_rate});
-      });      
+      });
+
     })
 
     console.log("NEW INVOICE ARR",invoiceArr);
