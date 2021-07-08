@@ -97,7 +97,7 @@
         
         const {attributes:{field_description, field_quantity, field_rate}} = element;
         //console.log("old date",field_old_invoice_date);
-        invoiceArr.push({
+        arr.push({
           date: inv_date,
           inv_number: inv_num,
           id: element.id, 
@@ -112,7 +112,7 @@
     /** view statement **/
     const viewStatement = (data) => {
 
-      console.log("view data",data.arr);
+      console.log("view data",data);
 
       data.map(item=>{
         console.log(item.date);
