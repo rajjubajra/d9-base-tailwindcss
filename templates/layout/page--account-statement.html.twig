@@ -74,15 +74,17 @@
       const {relationships:{field_invoice_details:{links:{related}}}} = item;
       /** FETCH - PARAGRAPH **/
       const url = related.href;
-      const respose_para = await fetch(url, {
+      const response_para = await fetch(url, {
         method: 'GET',
         headers:{
           Accept: 'application/vnd.api+json'
         }
       })
-      const invPara = await respose_para.json();
+      const invPara = await response_para.json();
       invPara.data.map( item => {
+        
         const {attributes:{field_description, field_quantity, field_rate}} = item;
+
         paragraphArr.push({
           id: item.id, 
           desc: field_description.value, 
