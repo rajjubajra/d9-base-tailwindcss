@@ -78,7 +78,7 @@
 
     const arr = [];
     console.log("new Array ",arr);
-    
+
     const newArray = async(url, inv_num, inv_date) => {
 
       const response = await fetch(url,{
@@ -94,7 +94,7 @@
         //console.log("old date",field_old_invoice_date);
         arr.push({
           data: inv_date,
-          inv_number: inv_date,
+          inv_number: inv_num,
           id: element.id, 
           desc: field_description.value, 
           qty: field_quantity, 
