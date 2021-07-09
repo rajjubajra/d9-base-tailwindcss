@@ -79,7 +79,7 @@
      /** CREATE NEW ARRAY WITH Invoice Number, Date, Desc, Qty and amount **/
     
     const arr = [{test:'abc'}];
-    console.log(arr);
+    console.log(arr, arr.length);
     
     const newArray = async (url, inv_num, inv_date) => {
 
@@ -111,7 +111,7 @@
     /** view statement **/
     const viewStatement = (data) => {
 
-      console.log("view data",data.arr);
+      console.log("view data",data);
 
       data.map(item=>{
         console.log(item.date);
