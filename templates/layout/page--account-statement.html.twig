@@ -66,12 +66,18 @@
       });
       const details = await response_details.json();
 
-      CreateStatementArr(details, field_old_invoice_number, field_invoice_date);
+      console.log(details);
+      details.data.forEach((item)=>{
+        const {attributes:{field_description:{value}, field_quantity, field_rate}} = item;
+        statementArr.push({date:field_invoice_date, num: field_old_invoice_number, desc: value});
+      })
 
     })
     
     const statementArr = [];
     console.log("STATEMENT ARR",statementArr);
+
+    
     const CreateStatementArr = (arr, num, date) => {
         console.log(arr, num, date);
         
