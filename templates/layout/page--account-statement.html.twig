@@ -59,7 +59,14 @@
       console.log(related.href);
       newArr.push({id: invoice.id, inv_num: field_old_invoice_number});
 
-
+      const response_details = await fetch(related.href, {
+        method: "GET",
+        headers:{
+          Accept: 'accplication/vnd.api+json'
+        }
+      })
+      const details = await response_details.json();
+      console.log("DETAILS",details);
 
     })
     
