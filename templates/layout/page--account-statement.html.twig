@@ -75,7 +75,7 @@
     const CreateStatementArr = (arr, num, date) => {
         console.log(arr, num, date);
         
-        arr.forEach((item)=>{
+        arr.data.forEach((item)=>{
           const {attributes:{field_description:{value}, field_quantity, field_rate}} = item
           statementArr.push({date: data, inv_num: num, desc: value, qty: field_quantity, rate: field_rate})
         });
