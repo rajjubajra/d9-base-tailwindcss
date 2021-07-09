@@ -50,11 +50,11 @@
         Accept: 'application/vnd.api+json'
       }
     });
-    const invoices = await response_invoice.json().data;
-    console.log(invoices);
+    const invoices = await response_invoice.json();
+    console.log(invoices.data);
     
 
-    invoices.forEach((invoice)=>{
+    invoices.data.forEach((invoice)=>{
       console.log(invoice);
     })
     
