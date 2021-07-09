@@ -71,6 +71,8 @@
       newArray(url, field_old_invoice_number, field_old_invoice_date);   
 
       })
+
+      console.log("ke garcha",field_old_invoice_date, field_old_invoice_number)
     
     }
 
@@ -90,11 +92,11 @@
 
       const invPara = await response.json();
       console.log(" inv Paragraphs ",invPara);
-      invPara.data.map( async element => {
+      invPara.data.map(element => {
         
         const {attributes:{field_description, field_quantity, field_rate}} = element;
         //console.log("old date",field_old_invoice_date);
-        await arr.push({
+        arr.push({
           date: inv_date,
           inv_number: inv_num,
           id: element.id, 
