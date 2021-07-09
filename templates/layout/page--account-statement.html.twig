@@ -49,90 +49,10 @@
         Accept: 'application/vnd.api+json'
       }
     });
+    const invoiceList = await response_invoice.json();
+    console.log("INVOICE LIST",invoiceList);
   
-    const invoices = await response_invoice.json();
-  
-    console.log("INVOICE LIST",invoices);
-
-    const invoiceArr = []
-    const paragraphArr = [];
-
-    console.log("InvoiceArr", invoiceArr);
-
-    invoices.data.map(item =>{
-      const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
-      const {relationships:{field_invoice_details:{data}}} = item;
-
-      /** PARAGRPAH DATA URL **/
-      const {relationships:{field_invoice_details:{links:{related}}}} = item;
-      /** FETCH - PARAGRAPH **/
-      const url = related.href;
-      invoiceArr.push({date: field_old_invoice_date, inv_num: field_old_invoice_number})
-      
-      newArray(url, field_old_invoice_number, field_old_invoice_date);
-
-      })
-
     
-    }
-
-     /** CREATE NEW ARRAY WITH Invoice Number, Date, Desc, Qty and amount **/
-    
-    const arr = [{test:'abc'}];
-    console.log(arr, arr.length);
-    
-    const newArray = async (url, inv_num, inv_date) => {
-
-      const response = await fetch(url,{
-        method: 'GET',
-        headers:{
-          Accept: 'application/vnd.api+json'
-        }
-      })
-
-      const invPara = await response.json();
-      console.log(" inv Paragraphs ",invPara);
-      invPara.data.map(element => {
-        
-        const {attributes:{field_description, field_quantity, field_rate}} = element;
-        //console.log("old date",field_old_invoice_date);
-        arr.push({
-          date: inv_date,
-          inv_number: inv_num,
-          id: element.id, 
-          desc: field_description.value, 
-          qty: field_quantity, 
-          rate: field_rate});
-      });
-
-
-      
-    }
-
-    /** view statement **/
-    const viewStatement = (data) => {
-
-      console.log("view data",data);
-
-      data.map(item=>{
-        console.log(item.date);
-        const view = `
-        <div class="p-2">${item.date}</div>
-        <div class="p-2">${item.inv_number}</div>
-        <div class="p-2">${item.desc}</div>
-        <div class="p-2">${item.qty}</div>
-        <div class="p-2">${item.rate}</div>
-        `
-        document.getElementById("view-statement").innerHTML += view;
-      });
-
-      
-      document.getElementById("view-statement").innerHTML = "statement";
-
-    }
-
-    viewStatement(arr);
-
   </script>
 
 
