@@ -55,11 +55,13 @@
     
 
     const newArr = [];
+    console.log("new Arr", newArr);
     invoices.data.forEach(async (invoice) => {
       const {attributes:{field_old_invoice_number, field_invoice_date}} = invoice;
       const {relationships:{field_invoice_details:{links:{related}}}} = invoice;
 
       newArr.push({num: field_old_invoice_number, date: field_invoice_date});
+      
 
       const response_details = await fetch(related.href,{
         method: "GET",
