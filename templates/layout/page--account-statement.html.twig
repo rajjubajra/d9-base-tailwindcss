@@ -30,7 +30,6 @@
 
 <script>
 
-
   window.onload = function(){
     try{
         getInvoices();
@@ -38,8 +37,6 @@
       console.log("Error: URL parameter not found or", err );
     }
   }
-  
-
 
   const getInvoices = async (uuid) => {
 
@@ -68,6 +65,8 @@
       const {relationships:{field_invoice_details:{links:{related}}}} = item;
       /** FETCH - PARAGRAPH **/
       const url = related.href;
+      invoiceArr.push({date: field_old_invoice_date, inv_num: field_old_invoice_number})
+
 
       newArray(url, field_old_invoice_number, field_old_invoice_date);   
 
@@ -76,12 +75,10 @@
     }
 
      /** CREATE NEW ARRAY WITH Invoice Number, Date, Desc, Qty and amount **/
-
     
     const arr = [];
     console.log(arr);
     
-
     const newArray = async (url, inv_num, inv_date) => {
 
       const response = await fetch(url,{
@@ -92,12 +89,12 @@
       })
 
       const invPara = await response.json();
-      //console.log(" inv Paragraphs ",invPara);
-      invPara.data.map( element => {
+      console.log(" inv Paragraphs ",invPara);
+      invPara.data.map( async element => {
         
         const {attributes:{field_description, field_quantity, field_rate}} = element;
         //console.log("old date",field_old_invoice_date);
-        arr.push({
+        await arr.push({
           date: inv_date,
           inv_number: inv_num,
           id: element.id, 
@@ -112,7 +109,7 @@
     /** view statement **/
     const viewStatement = (data) => {
 
-      console.log("view data",data);
+      console.log("view data",data.arr);
 
       data.map(item=>{
         console.log(item.date);
@@ -131,13 +128,8 @@
 
     }
 
-    viewStatement(arr);
-    
+    //viewStatement(arr);
 
-    
-
-  
-  
   </script>
 
 
