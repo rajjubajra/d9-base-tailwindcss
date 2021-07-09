@@ -56,7 +56,7 @@
 
     invoices.data.forEach(async (invoice) => {
       const {attributes:{field_old_invoice_number, field_invoice_date}} = invoice;
-      const {relationships:{field_invoice_details:{related}}} = invoice;
+      const {relationships:{field_invoice_details:{links:{related}}}} = invoice;
 
       const response_details = await fetch(related.href,{
         method: "GET",
