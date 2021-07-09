@@ -59,7 +59,7 @@
 
     console.log("InvoiceArr", invoiceArr);
 
-    invoices.data.map(async item =>{
+    invoices.data.map(item =>{
       const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
       const {relationships:{field_invoice_details:{data}}} = item;
 
@@ -69,7 +69,7 @@
       const url = related.href;
       invoiceArr.push({date: field_old_invoice_date, inv_num: field_old_invoice_number})
       
-      await newArray(url, field_old_invoice_number, field_old_invoice_date);
+      newArray(url, field_old_invoice_number, field_old_invoice_date);
 
       })
 
