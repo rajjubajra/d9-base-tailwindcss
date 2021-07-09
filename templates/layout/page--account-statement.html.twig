@@ -38,6 +38,7 @@
     }
   }
 
+  const newArr = [];
   const getInvoices = async (uuid) => {
 
     /** FETCH - INVOICE NUMBER AND DATE **/  
@@ -51,10 +52,14 @@
     });
     const invoiceList = await response_invoice.json();
     console.log("INVOICE LIST",invoiceList);
-    
+    invoiceList.map(item=>{
+      newArr.push({id: item.attributes.id, inv_num: item.attributes.field_old_invoice_number});
+    })
+
   }
   
-    
+  console.log("NEW ARRAY",newArr);
+  
   </script>
 
 
