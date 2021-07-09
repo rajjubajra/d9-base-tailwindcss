@@ -53,10 +53,14 @@
     const invoices = await response_invoice.json();
     console.log(invoices.data);
     
-
-    invoices.data.forEach((invoice)=>{
+    invoices.data.forEach(async (invoice)=>{
       const {attributes:{field_old_invoice_number, field_invoice_date}} = invoice;
+      const {relationships:{field_invoice_details:{links:{related}}}}
+      console.log(related.href);
       newArr.push({id: invoice.id, inv_num: field_old_invoice_number});
+
+
+
     })
     
     
