@@ -40,7 +40,9 @@
 
  
   const newArr = [];
-  
+
+  console.log("new Array",newArr);
+
   const getInvoices = async (uuid) => {
 
     /** FETCH - INVOICE NUMBER AND DATE **/  
@@ -55,39 +57,14 @@
     const invoices = await response_invoice.json();
     console.log(invoices.data);
     
-    console.log("new Arr", newArr);
-    invoices.data.forEach(async (invoice) => {
+    
+    invoices.data.forEach((invoice) => {
       const {attributes:{field_old_invoice_number, field_invoice_date}} = invoice;
       const {relationships:{field_invoice_details:{links:{related}}}} = invoice;
-
       newArr.push({num: field_old_invoice_number, date: field_invoice_date});
-      
-
-      const response_details = await fetch(related.href,{
-        method: "GET",
-        headers: {
-          Accept: 'application/vnd.api+json'
-        }
-      });
-      const details = await response_details.json();
-
-      
-
     })
     
-    const statementArr = [];
-    console.log("STATEMENT ARR",statementArr);
-
-
-    const CreateStatementArr = (arr, num, date) => {
-        console.log(arr, num, date);
-        
-        arr.data.forEach((item)=>{
-          const {attributes:{field_description:{value}, field_quantity, field_rate}} = item
-          statementArr.push({date: data, inv_num: num, desc: value, qty: field_quantity, rate: field_rate})
-        });
-        
-    }
+    
   }
   
   
