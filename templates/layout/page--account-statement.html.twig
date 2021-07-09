@@ -51,17 +51,13 @@
       }
     });
     const invoiceList = await response_invoice.json();
-    console.log("INVOICE LIST",invoiceList);
-    invoiceList.data.map(item=>{
-      newArr.push({id: item.attributes.id, inv_num: item.attributes.field_old_invoice_number});
-    })
+    console.log(invoiceList, typeof(invoiceList));
+    
 
   }
   
-  console.log("NEW ARRAY",newArr);
-  const nextArr = [];
-  nextArr.push(nextArr);
-  console.log(nextArr);
+  
+
 
   </script>
 
