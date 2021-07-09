@@ -39,6 +39,7 @@
   }
 
   const newArr = [];
+  const newPara = [];
   const getInvoices = async (uuid) => {
 
     /** FETCH - INVOICE NUMBER AND DATE **/  
@@ -54,7 +55,7 @@
     console.log(invoices.data);
     
     invoices.data.forEach(async (invoice)=>{
-      const {attributes:{field_old_invoice_number, field_invoice_date}} = invoice;
+      const {attributes:{field_old_invoice_number, field_old_invoice_date}} = invoice;
       const {relationships:{field_invoice_details:{links:{related}}}} = invoice;
       console.log(related.href);
       newArr.push({id: invoice.id, inv_num: field_old_invoice_number});
@@ -67,6 +68,9 @@
       })
       const details = await response_details.json();
       console.log("DETAILS",details);
+      details.data.forEach((item)=>{
+        newPara.push({id: invoice.id, inv_num: field_old_invoice_number, date: field_old_invoice_date, rate:item.attributes.field_rate})
+      })
 
     })
     
@@ -76,6 +80,8 @@
     
 
   }
+
+  console.log("New para",newPara);
   
   
 
