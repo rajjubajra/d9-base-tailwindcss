@@ -50,9 +50,14 @@
         Accept: 'application/vnd.api+json'
       }
     });
-    const invoiceList = await response_invoice;
+    const invoiceList = await response_invoice.json();
     console.log(invoiceList);
     
+    var result = invoiceList.keys(obj).map(function(key) {
+      return [Number(key), obj[key]];
+    });
+
+    console.log(result);
     
 
   }
