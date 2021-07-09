@@ -57,6 +57,8 @@
     const invoiceArr = []
     const paragraphArr = [];
 
+    console.log("InvoiceArr", invoiceArr);
+
     invoices.data.map(async item =>{
       const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
       const {relationships:{field_invoice_details:{data}}} = item;
@@ -66,13 +68,11 @@
       /** FETCH - PARAGRAPH **/
       const url = related.href;
       invoiceArr.push({date: field_old_invoice_date, inv_num: field_old_invoice_number})
-
-
-      newArray(url, field_old_invoice_number, field_old_invoice_date);   
+      
+      await newArray(url, field_old_invoice_number, field_old_invoice_date);
 
       })
 
-     
     
     }
 
