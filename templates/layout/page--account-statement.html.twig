@@ -39,6 +39,8 @@
   }
 
  
+  const newArr = [];
+  
   const getInvoices = async (uuid) => {
 
     /** FETCH - INVOICE NUMBER AND DATE **/  
@@ -53,8 +55,6 @@
     const invoices = await response_invoice.json();
     console.log(invoices.data);
     
-
-    const newArr = [];
     console.log("new Arr", newArr);
     invoices.data.forEach(async (invoice) => {
       const {attributes:{field_old_invoice_number, field_invoice_date}} = invoice;
@@ -71,11 +71,7 @@
       });
       const details = await response_details.json();
 
-      console.log(details);
-      details.data.forEach((item)=>{
-        const {attributes:{field_description:{value}, field_quantity, field_rate}} = item;
-        statementArr.push({date:field_invoice_date, num: field_old_invoice_number, desc: value});
-      })
+      
 
     })
     
