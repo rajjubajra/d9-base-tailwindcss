@@ -68,10 +68,9 @@
       })
       const details = await response_details.json();
       console.log("DETAILS",details);
-      details.data.forEach((item)=>{
+      details.data.forEach( async (item)=>{
         newPara.push({id: invoice.id, inv_num: field_old_invoice_number, date: field_old_invoice_date, rate:item.attributes.field_rate})
-      })
-
+      });
     })
     
     
