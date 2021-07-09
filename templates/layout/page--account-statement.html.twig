@@ -55,10 +55,12 @@
     
 
     invoices.data.forEach((invoice)=>{
-      console.log(invoice);
+      const {attributes:{id, field_old_invoice_number, field_invoice_date}} = invoice;
+      newArr.push({id: id, inv_num: field_old_invoice_number});
     })
     
     
+    console.log(newArr);
     
     
 
