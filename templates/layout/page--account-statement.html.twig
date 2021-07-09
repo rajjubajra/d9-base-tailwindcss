@@ -52,12 +52,10 @@
     });
     const invoiceList = await response_invoice.json();
     console.log(invoiceList);
+    console.log("PARSED",JSON.parse(invoiceList));
     
-    var result = invoiceList.keys(obj).map(function(key) {
-      return [Number(key), obj[key]];
-    });
-
-    console.log(result);
+    
+    
     
 
   }
