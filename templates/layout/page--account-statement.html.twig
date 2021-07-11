@@ -62,11 +62,10 @@
       const dataArr = []
       data.map(item => { dataArr.push(item.id) });
       console.log("data arr",dataArr);
-          
         invoices.included.map( inc => {
         const {attributes:{field_description:{value}, field_rate, field_quantity}} = inc;
           if(dataArr.includes(inc.id)){
-            invoiceNew.push({date: field_old_invoice_date, inv_num: field_old_invoice_number, desc: value, qty: field_quantity, rate: field_rate});
+            invoiceNew.push([],{date: field_old_invoice_date, inv_num: field_old_invoice_number, desc: value, qty: field_quantity, rate: field_rate});
           }      
         })
     })
