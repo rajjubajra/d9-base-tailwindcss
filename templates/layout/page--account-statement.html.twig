@@ -56,7 +56,7 @@
     console.log("INVOICE LIST",invoices);
 
 
-    invoices.data.map(inv =>{
+    invoices.data.forEach(inv =>{
       const {attributes:{field_old_invoice_date, field_old_invoice_number}} = inv;
       invoices.included.map( inc =>{
           const {attributes:{field_description:{value}, field_rate, field_quantity}} = inc;
