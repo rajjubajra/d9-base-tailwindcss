@@ -58,14 +58,13 @@
 
     invoices.data.forEach(inv =>{
       const {attributes:{field_old_invoice_date, field_old_invoice_number}} = inv;
-      const {relationships:{field_invoice_details:{data}}}
+      const {relationships:{field_invoice_details:{data}}} = inv;
       const dataArr = []
       dataArr.push(data.id);
-      invoices.included.map( inc =>{
+      invoices.included.map( inc => {
           const {attributes:{field_description:{value}, field_rate, field_quantity}} = inc;
           dataArr.includes(inc.id)
           invoiceNew.push({data: field_old_invoice_data, inv_num: field_old_invoice_number, desc: value, qty: field_quantity, rate: field_rate});
-          
       })
     })
   }
