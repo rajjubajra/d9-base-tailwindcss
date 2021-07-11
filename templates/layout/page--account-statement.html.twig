@@ -40,10 +40,10 @@
 
   const newArr = [];
   const newPara = [];
-  const getInvoices = async (uuid) => {
+  const getInvoices = async () => {
 
     /** FETCH - INVOICE NUMBER AND DATE **/  
-    const urlInv = `/d9-base/jsonapi/node/invoice`;
+    const urlInv = `/d9-base/jsonapi/node/invoice?include=field_invoice_details`;
 
     const response_invoice = await fetch(urlInv, {
       method: "GET",
@@ -54,39 +54,9 @@
     const invoices = await response_invoice.json();
     console.log(invoices.data);
     
-    invoices.data.forEach(async (invoice)=>{
-      const {attributes:{field_old_invoice_number, field_old_invoice_date}} = invoice;
-      const {relationships:{field_invoice_details:{links:{related}}}} = invoice;
-      console.log(related.href);
-      newArr.push({id: invoice.id, inv_num: field_old_invoice_number});
-
-      const response_details = await fetch(related.href, {
-        method: "GET",
-        headers:{
-          Accept: 'accplication/vnd.api+json'
-        }
-      })
-      const details = await response_details.json();
-      console.log("DETAILS",details);
-      details.data.forEach( async (item)=>{
-        newPara.push({id: invoice.id, inv_num: field_old_invoice_number, date: field_old_invoice_date, rate:item.attributes.field_rate})
-      });
-    })
-    
-    
-    console.log(newArr);
-    console.log("NEW PARA",newPara);
-    
-    
-
   }
 
-  console.log("New para",newPara);
-  
-  
-
-
-  </script>
+</script>
 
 
 
