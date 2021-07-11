@@ -38,6 +38,7 @@
     }
   }
 
+
   const invoiceNew = [];
 
   const getInvoices = async () => {
@@ -54,21 +55,20 @@
     });
     const invoices = await response_invoice.json();
     console.log("INVOICE LIST",invoices);
-
-
-    invoices.data.forEach(inv =>{
-      const {attributes:{field_old_invoice_date, field_old_invoice_number}} = inv;
-      const {relationships:{field_invoice_details:{data}}} = inv;
-      const dataArr = []
-      data.map(item => { dataArr.push(item.id) });
-      console.log("data arr",dataArr);
-        invoices.included.map( inc => {
-        const {attributes:{field_description:{value}, field_rate, field_quantity}} = inc;
-          if(dataArr.includes(inc.id)){
-            invoiceNew.push([],{date: field_old_invoice_date, inv_num: field_old_invoice_number, desc: value, qty: field_quantity, rate: field_rate});
-          }      
-        })
+    invoices.forEach( (item) =>{
+      const {relationships:{field_invoice_details:{data}}} = item;
+      const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
+      const newData = [];
+      data.map(item=> newData.push(item.id));
+      
+      invoices.included.forEach((inc)=>{
+        const {attributes:{field_description:{value}, field_quantity, field_rate}} = inc;
+        if(newData.includes(inc.id)){
+          invoiceNew.push({date: field_old_invoice_date, num: field_old_invoice_number, desc: value, qty: field_quantity, rate: field_rate});
+        }
+      })
     })
+
   }
 
   console.log("New Invoice data",invoiceNew);
