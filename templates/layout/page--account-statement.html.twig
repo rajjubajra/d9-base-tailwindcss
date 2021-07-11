@@ -55,7 +55,7 @@
     });
     const invoices = await response_invoice.json();
     console.log("INVOICE LIST",invoices);
-    invoices.forEach( (item) =>{
+    invoices.data.forEach( (item) =>{
       const {relationships:{field_invoice_details:{data}}} = item;
       const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
       const newData = [];
