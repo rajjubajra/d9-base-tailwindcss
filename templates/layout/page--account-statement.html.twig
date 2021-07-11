@@ -55,6 +55,10 @@
     });
     const invoices = await response_invoice.json();
     console.log("INVOICE LIST",invoices);
+    invoices.data.push.apply(invoices.data, invoices.include);
+    console.log("invoice data new",invoices.data);
+
+    /**
     invoices.data.forEach( (item) =>{
       const {relationships:{field_invoice_details:{data}}} = item;
       const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
@@ -68,6 +72,7 @@
         }
       })
     })
+    **/
 
   }
 
