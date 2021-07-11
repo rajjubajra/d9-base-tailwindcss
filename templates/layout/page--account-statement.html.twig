@@ -44,6 +44,7 @@
 
     /** FETCH - INVOICE NUMBER AND DATE **/  
     const urlInv = `/d9-base/jsonapi/node/invoice?include=field_invoice_details`;
+    console.log(urlInv);
 
     const response_invoice = await fetch(urlInv, {
       method: "GET",
