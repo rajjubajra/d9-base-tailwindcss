@@ -59,16 +59,16 @@
     console.log("INVOICE LIST",invoices);
   
     
-    invoicesNew = invoices.data.map( (item) =>{
+    invoices.data.forEach( (item) =>{
       const {relationships:{field_invoice_details:{data}}} = item;
       const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
       const newData = [];
       data.map(item=> newData.push(item.id));
       
-      invoices.included.map((inc)=>{
+      invoices.included.forEach((inc)=>{
         const {attributes:{field_description:{value}, field_quantity, field_rate}} = inc;
         if(newData.includes(inc.id)){
-          return {date: field_old_invoice_date, num: field_old_invoice_number, desc: value, qty: field_quantity, rate: field_rate};
+          invoiceNew.push([{date: field_old_invoice_date, num: field_old_invoice_number, desc: value, qty: field_quantity, rate: field_rate}]);
         }
       })
     })
