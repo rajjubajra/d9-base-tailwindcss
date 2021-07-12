@@ -59,7 +59,7 @@
     console.log("INVOICE LIST",invoices);
     invoices.data.push.apply(invoices.data, invoices.include);
 
-    invoiceNew = await invoices.data.concat(invoices.included);
+    invoiceNew = [...invoices.data, ...invoices.included];
 
   
     /**
