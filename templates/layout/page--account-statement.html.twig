@@ -33,6 +33,9 @@
   window.onload = function(){
     try{
         getInvoices();
+        invoiceNew.map(item =>{
+          return console.log("Items",item);
+        })
     }catch(err){
       console.log("Error: URL parameter not found or", err );
     }
@@ -42,9 +45,7 @@
   const invoiceNew = [];
   console.log("INVOICE NEW",invoiceNew);
 
-  invoiceNew.map(item =>{
-    return console.log("Items",item);
-  })
+  
 
 
   const getInvoices = async () => {
