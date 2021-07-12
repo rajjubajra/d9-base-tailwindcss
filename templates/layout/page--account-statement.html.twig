@@ -63,6 +63,7 @@
       const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
       const newData = [];
       data.map(item=> newData.push(item.id));
+      console.log(data);
       
       invoices.included.map((inc)=>{
         const {attributes:{field_description:{value}, field_quantity, field_rate}} = inc;
