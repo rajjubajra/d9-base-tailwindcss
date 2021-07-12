@@ -57,7 +57,7 @@
     });
     const invoices = await response_invoice.json();
     console.log("INVOICE LIST",invoices);
-    invoices.data.push.apply(invoices.data, invoices.include);
+    //invoices.data.push.apply(invoices.data, invoices.include);
 
     invoiceNew = [...invoices.data, ...invoices.included];
 
