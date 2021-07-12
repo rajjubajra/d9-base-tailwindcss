@@ -42,6 +42,11 @@
   const invoiceNew = [];
   console.log("INVOICE NEW",invoiceNew);
 
+  invoiceNew.map(item =>{
+    return console.log("Items",item);
+  })
+
+
   const getInvoices = async () => {
 
     /** FETCH - INVOICE NUMBER AND DATE **/  
@@ -74,10 +79,7 @@
 
   }
   
-  invoiceNew.map(item =>{
-    return console.log("Items",item);
-  })
-
+  
   
 
 </script>
