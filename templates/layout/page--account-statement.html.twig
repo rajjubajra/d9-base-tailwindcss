@@ -33,22 +33,16 @@
   window.onload = function(){
     try{
         getInvoices();
-        invoiceNew.map(item =>{
-          return console.log("Items",item);
-        })
     }catch(err){
       console.log("Error: URL parameter not found or", err );
     }
   }
 
-
-  const invoiceNew = [];
-  console.log("INVOICE NEW",invoiceNew);
-
-  
-
-
   const getInvoices = async () => {
+
+    const invoiceNew = [];
+    console.log("INVOICE NEW",invoiceNew);
+
 
     /** FETCH - INVOICE NUMBER AND DATE **/  
     const urlInv = `/d9-base/jsonapi/node/invoice?include=field_invoice_details`;
@@ -78,8 +72,17 @@
       })
     })
 
+    viewData(invoiceNew);
+
+
   }
-  
+
+  const viewData = (data) =>{
+    data.map(item =>{
+      return console.log("Items",item);
+    })
+  }
+   
   
   
 
