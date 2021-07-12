@@ -59,7 +59,8 @@
     console.log("INVOICE LIST",invoices);
     invoices.data.push.apply(invoices.data, invoices.include);
 
-    invoiceNew = invoices.data.contact(invoices.included);
+    invoiceNew = invoices.data.concat(invoices.included);
+    
   
     /**
     invoices.data.forEach( (item) =>{
