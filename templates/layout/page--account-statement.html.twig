@@ -79,7 +79,14 @@
 
   const viewData = (data) =>{
     data.map(item =>{
-      return document.getElementById("view-statement").innerHTML += item.num
+      let items = `<div class="flex">
+        <div>${item.date}</div>
+        <div>${item.num}</div>
+        <div>${item.desc}</div>
+        <div>${item.qty}</div>
+        <div>${item.rate}</div>
+      </div>`
+      return document.getElementById("view-statement").innerHTML += items;
     })
   }
 
