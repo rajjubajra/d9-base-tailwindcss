@@ -40,6 +40,8 @@
 
 
   const invoiceNew = [];
+  console.log(invoiceNew);
+
 
   const getInvoices = async () => {
 
@@ -56,8 +58,9 @@
     const invoices = await response_invoice.json();
     console.log("INVOICE LIST",invoices);
     invoices.data.push.apply(invoices.data, invoices.include);
-    console.log("invoice data new",invoices.data);
 
+    invoiceNew = invoices.data.contact(invoices.included);
+  
     /**
     invoices.data.forEach( (item) =>{
       const {relationships:{field_invoice_details:{data}}} = item;
@@ -76,9 +79,7 @@
 
   }
 
-  console.log("New Invoice data",invoiceNew, invoiceNew.length);
-  const newArr = invoiceNew.filter((a) => a);
-  console.log("new arr",newArr);
+  
 
 </script>
 
