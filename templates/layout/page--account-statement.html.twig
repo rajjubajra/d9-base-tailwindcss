@@ -76,7 +76,7 @@
       invoices.included.map((inc)=>{
         const {attributes:{field_description:{value}, field_quantity, field_rate}} = inc;
         if(newData.includes(inc.id)){
-          invoiceNew.push({date: field_old_invoice_date, num: field_old_invoice_number, desc: value, qty: field_quantity, rate: field_rate});
+          invoiceNew.push({date: new Date(field_old_invoice_date), num: field_old_invoice_number, desc: value, qty: field_quantity, rate: field_rate});
         }
       })
     })
@@ -90,7 +90,9 @@
 
     
     /** sort data by date **/
-    const data_sorted = data.sort((a, b) => {console.log("SORT A", a.date), console.log("SORT B",b.date), console.log(typeof(a.date))});
+    const data_sorted = data.sort((a, b) => {
+
+    });
 
 
     /** for cumulative amount **/
@@ -100,7 +102,9 @@
     
       let qty = item.qty === null ? ' - ' : item.qty;
       let amount = item.qty === null ? item.rate : item.qty * item.rate;
+
       amtArr.push(amount);
+      
       console.log("AMT ARR",amtArr);
 
       let amount_cum = amtArr.reduce((accum, elem)=>{return accum + elem});
