@@ -90,9 +90,7 @@
 
     
     /** sort data by date **/
-    const data_sorted = data.sort((a, b) => {
-
-    });
+    const data_sorted = data.sort((a, b) => {b.date - a.date});
 
 
     /** for cumulative amount **/
@@ -100,6 +98,7 @@
 
     data_sorted.map(item =>{
     
+      let date = new Date(item.date);
       let qty = item.qty === null ? ' - ' : item.qty;
       let amount = item.qty === null ? item.rate : item.qty * item.rate;
 
@@ -110,7 +109,7 @@
       let amount_cum = amtArr.reduce((accum, elem)=>{return accum + elem});
       
       let items = `<div class="flex flex-row text-xs">
-        <div class="p-1 m-1 w-28">${item.date}</div>
+        <div class="p-1 m-1 w-28">${date.getMonth} ${date.getDate}, ${date.getFullYear}</div>
         <div class="p-1 m-1 w-24">${item.num}</div>
         <div class="p-1 m-1 w-72">${item.desc}</div>
         <div class="p-1 m-1 w-24">${qty}</div>
