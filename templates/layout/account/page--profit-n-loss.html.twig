@@ -54,14 +54,14 @@
 
   const getInvoices = async (dateFrom, dateTo) => {
 
-    console.log(dateFrom, dateTo);
+    //console.log(dateFrom, dateTo);
 
     const invoiceNew = [];
     console.log("INVOICE NEW",invoiceNew);
 
 
     /** FETCH - INVOICE NUMBER AND DATE **/  
-    const urlInv = `/d9-base/jsonapi/node/invoice?include=field_invoice_details`;
+    const urlInv = `/d9-base/jsonapi/node/invoice?include=field_invoice_details&filter[created][since]=${dateFrom}&filter[created][until]=${dateTo}`;
     console.log(urlInv);
 
     const response_invoice = await fetch(urlInv, {
