@@ -62,7 +62,7 @@
       const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
       const newData = [];
       data.map(item=> newData.push(item.id));
-      console.log(data);
+      //console.log(data);
       
       invoices.included.map((inc)=>{
         const {attributes:{field_description:{value}, field_quantity, field_rate}} = inc;
@@ -84,8 +84,12 @@
       let amtArr = [];
       let qty = item.qty === null ? ' - ' : item.qty;
       let amount = item.qty === null ? item.rate : item.qty * item.rate;
+
       amtArr.push(amount);
+      console.log("amtArr",amtArr);
+
       let amount_cum = amtArr.reduce((accum, elem)=> {return accum + elem});
+      
 
       let items = `<div class="flex flex-row">
         <div class="p-1 m-1">${item.date}</div>
@@ -97,6 +101,7 @@
         <div class="p-1 m-1">${amount_cum}</div>
 
       </div>`
+
       return document.getElementById("view-statement").innerHTML += items;
     })
 
