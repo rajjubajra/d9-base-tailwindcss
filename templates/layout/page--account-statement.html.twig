@@ -81,14 +81,10 @@
 
     data.map(item =>{
 
-      let amtArr = [];
+      
       let qty = item.qty === null ? ' - ' : item.qty;
       let amount = item.qty === null ? item.rate : item.qty * item.rate;
-
-      amtArr.push(amount);
-      console.log("amtArr",amtArr);
-
-      let amount_cum = amtArr.reduce((accum, elem)=> {return accum + elem});
+      let amount_cum += amount;
       
 
       let items = `<div class="flex flex-row">
