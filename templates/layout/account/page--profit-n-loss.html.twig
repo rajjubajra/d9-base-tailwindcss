@@ -41,15 +41,20 @@
 
 <script>
 
+  const dateFrom = '06-04-2014';
+  const dateTo = '05-04-2015';
+
   window.onload = function(){
     try{
-        getInvoices();
+        getInvoices(dateFrom, dateTo);
     }catch(err){
       console.log("Error: URL parameter not found or", err );
     }
   }
 
-  const getInvoices = async () => {
+  const getInvoices = async (dateFrom, dateTo) => {
+
+    console.log(dateFrom, dateTo);
 
     const invoiceNew = [];
     console.log("INVOICE NEW",invoiceNew);
@@ -95,6 +100,23 @@
   const monthName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 
+  /** By month, sum of Invoice amount **/
+  const year = "2014_2015";
+
+  const inv_apr = [];
+  const inv_may = [];
+  const inv_jun = [];
+  const inv_jul = [];
+  const inv_aug = [];
+  const inv_sep = [];
+  const inv_oct = [];
+  const inv_nov = [];
+  const inv_dec = [];
+  const inv_jan = [];
+  const inv_feb = [];
+  const inv_mar = [];
+
+
   const viewData = (data) =>{
 
     
@@ -107,29 +129,26 @@
     console.log("DATA SORTED",data_sorted);
 
 
-    /** for cumulative amount **/
-    const amtArr = [];
-
     data_sorted.map(item =>{
-    
-      
-      let qty = item.qty === null ? ' - ' : item.qty;
-      let amount = item.qty === null ? item.rate : item.qty * item.rate;
-
-      amtArr.push(amount);
-      
-      console.log("AMT ARR",amtArr);
-
-      let amount_cum = amtArr.reduce((accum, elem)=>{return accum + elem});
+      const qty = item.qty === null ? 1 : item.qty;
+      const amount = item.rate * qty;
+      if(item.month === 4){ inv_apr.push(amount)}
+      if(item.month === 5){ inv_may.push(amount)}
+      if(item.month === 6){ inv_jun.push(amount)}
+      if(item.month === 7){ inv_jul.push(amount)}
+      if(item.month === 8){ inv_aug.push(amount)}
+      if(item.month === 9){ inv_sep.push(amount)}
+      if(item.month === 10){ inv_oct.push(amount)}
+      if(item.month === 11){ inv_nov.push(amount)}
+      if(item.month === 12){ inv_dec.push(amount)}
+      if(item.month === 1){ inv_jan.push(amount)}
+      if(item.month === 2){ inv_feb.push(amount)}
+      if(item.month === 3){ inv_mar.push(amount)}
       
       let items = `<div class="flex flex-row text-xs">
         <div class="p-1 m-1 w-28">${item.year} - ${monthName[item.month]}</div>
-        <div class="p-1 m-1 w-24">${item.num}</div>
-        <div class="p-1 m-1 w-72">${item.desc}</div>
-        <div class="p-1 m-1 w-24">${qty}</div>
-        <div class="p-1 m-1 w-24">${item.rate}</div>
-        <div class="p-1 m-1 w-24">${amount}</div>
-        <div class="p-1 m-1 w-24">${amount_cum}</div>
+        <div class="p-1 m-1 w-28">${item.year}</div>
+        
       </div>`
 
       return document.getElementById("view-statement").innerHTML += items;
