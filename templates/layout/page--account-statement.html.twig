@@ -84,7 +84,7 @@
       
       let qty = item.qty === null ? ' - ' : item.qty;
       let amount = item.qty === null ? item.rate : item.qty * item.rate;
-      let amount_cum += amount;
+      let amount_cum = amount + amount;
       
 
       let items = `<div class="flex flex-row">
@@ -95,7 +95,6 @@
         <div class="p-1 m-1">${item.rate}</div>
         <div class="p-1 m-1">${amount}</div>
         <div class="p-1 m-1">${amount_cum}</div>
-
       </div>`
 
       return document.getElementById("view-statement").innerHTML += items;
