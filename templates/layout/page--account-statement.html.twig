@@ -89,7 +89,7 @@
       amtArr.push(amount);
       console.log("AMT ARR",amtArr);
 
-      let amount_cum = '';
+      let amount_cum = amtArr.reduce((accum, elem)=>{return accum + elem});
       
 
       let items = `<div class="flex flex-row">
