@@ -64,7 +64,7 @@
       }
     });
     const invoices = await response_invoice.json();
-    console.log("INVOICE LIST",invoices);
+    //console.log("INVOICE LIST",invoices);
   
     invoices.data.forEach( (item) =>{
       const {relationships:{field_invoice_details:{data}}} = item;
@@ -90,9 +90,10 @@
 
     const amtArr = [];
 
-    data.map(item =>{
+    const data_sorted = data.sort((a,b)=>{a.date - b.date});
 
-      
+    data_sorted.map(item =>{
+    
       let qty = item.qty === null ? ' - ' : item.qty;
       let amount = item.qty === null ? item.rate : item.qty * item.rate;
       amtArr.push(amount);
