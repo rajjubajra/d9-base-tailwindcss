@@ -80,7 +80,7 @@
         const year = new Date(field_old_invoice_date).getFullYear();
         const month = new Date(field_old_invoice_date).getMonth();
         if(newData.includes(inc.id)){
-          invoiceNew.push({year: year, month: month, num: field_old_invoice_number, desc: value, qty: field_quantity, rate: field_rate});
+          invoiceNew.push({year: year, month: month, date: field_old_invoice_date, num: field_old_invoice_number, desc: value, qty: field_quantity, rate: field_rate});
         }
       })
     })
