@@ -81,7 +81,7 @@
     data.map(item =>{
       let qty = item.qty === null ? ' - ' : item.qty;
       let amount = item.qty === null ? item.rate : item.qty * item.rate;
-      let amount_cum =+ amount;
+      let amount_cum = amount.reduce((item, ele) => {return item + elm} );
 
 
       let items = `<div class="flex flex-row">
