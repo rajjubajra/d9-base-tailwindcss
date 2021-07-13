@@ -90,7 +90,9 @@
 
     
     /** sort data by date **/
-    const data_sorted = data.sort((a, b) => {console.log(b.date), console.log(a.date), console.log(typeof(a.date))});
+    const data_sorted = data.sort((a, b) => {
+      return new Date(a.date).valueOf() - new Date(b.data).valueOf();
+    });
 
 
     /** for cumulative amount **/
