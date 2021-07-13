@@ -90,6 +90,11 @@
 
   }
 
+
+
+  const monthName = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+
   const viewData = (data) =>{
 
     
@@ -118,7 +123,7 @@
       let amount_cum = amtArr.reduce((accum, elem)=>{return accum + elem});
       
       let items = `<div class="flex flex-row text-xs">
-        <div class="p-1 m-1 w-28">${item.year} - ${item.month}</div>
+        <div class="p-1 m-1 w-28">${item.year} - ${monthName[item.month]}</div>
         <div class="p-1 m-1 w-24">${item.num}</div>
         <div class="p-1 m-1 w-72">${item.desc}</div>
         <div class="p-1 m-1 w-24">${qty}</div>
