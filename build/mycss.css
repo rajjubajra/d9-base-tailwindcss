@@ -15,8 +15,10 @@
   position: relative;
   z-index: 60;
 }
+
 @media print{
-  .no-print{
+  .no-print, .no-print *
+  {
     display: none !important;
   }
 }
