@@ -15,6 +15,11 @@
   position: relative;
   z-index: 60;
 }
+@media print{
+  .no-print{
+    display: none !important;
+  }
+}
 @media (min-width: 992px) {
   nav.main{
     background: #ffffff !important;
