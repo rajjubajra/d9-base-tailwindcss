@@ -118,9 +118,9 @@
         <div class="p-1 m-1 w-24">${item.num}</div>
         <div class="p-1 m-1 w-72">${item.desc}</div>
         <div class="p-1 m-1 w-24">${qty}</div>
-        <div class="p-1 m-1 w-24">${item.rate}</div>
-        <div class="p-1 m-1 w-24">${amount}</div>
-        <div class="p-1 m-1 w-24">${amount_cum}</div>
+        <div class="p-1 m-1 w-24">${item.rate.toFixed(2)}</div>
+        <div class="p-1 m-1 w-24">${amount.toFixed(2)}</div>
+        <div class="p-1 m-1 w-24">${amount_cum.toFixed(2)}</div>
       </div>`
 
       return document.getElementById("view-statement").innerHTML += items;
