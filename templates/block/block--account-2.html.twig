@@ -48,6 +48,14 @@
   const viewMenu = (menu) => {
 
     console.log("menu in view",menu);
+    menu.length > 0 && 
+    menu.map(item=>{
+      const { attributes:{description}, attributes:{route:{url}} } = item;
+
+      return <div>
+        <div>{description}</div>
+      </div>
+    })
 
 
   }
