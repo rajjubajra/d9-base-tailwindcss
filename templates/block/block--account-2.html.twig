@@ -1,3 +1,4 @@
+{#
 <div{{ attributes }}>
   {{ title_prefix }}
   {% if label %}
@@ -8,6 +9,10 @@
     {{ content }}
   {% endblock %}
 </div>
+#}
+
+<div id="account-menu"></div>
+
 
 <script>
 
@@ -51,10 +56,9 @@
     menu.length > 0 && 
     menu.map(item=>{
       const { attributes:{description}, attributes:{route:{url}} } = item;
+      const menuItems = `<div>${description}</div>`
 
-      return <div>
-        <div>{description}</div>
-      </div>
+      return document.getElementById("account-menu").innerHTML += menuItems;
     })
 
 
