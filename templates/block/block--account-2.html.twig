@@ -39,7 +39,15 @@
       }
     });
     const menu = await response_menu.json();
-    console.log("INVOICE LIST", menu);
+    console.log("MENU LIST", menu);
+
+    viewMenu(menu.data);
+
+  }
+
+  const viewMenu = (menu) => {
+
+    console.log("menu in view",menu);
 
 
   }
