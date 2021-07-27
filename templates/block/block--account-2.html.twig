@@ -57,7 +57,7 @@
     menu.map(item=>{
       const { attributes:{description}, attributes:{url} } = item;
       
-      const menuItems = `<a href="${url}">${description}</a>`
+      const menuItems = `<a href="${url}" class="flex justify-center items-center h-32 w-32 border border-1">${description}</a>`
 
       return document.getElementById("account-menu").innerHTML += menuItems;
     })
