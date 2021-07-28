@@ -40,34 +40,34 @@
 
   window.onload = function(){
     try{
-        getInvoices();
+        getExpenses();
     }catch(err){
       console.log("Error: URL parameter not found or", err );
     }
   }
 
-  const getInvoices = async () => {
+  const getExpenses = async () => {
 
-    const invoiceNew = [];
-    console.log("INVOICE NEW",invoiceNew);
+    const expensesNew = [];
+    console.log("INVOICE NEW", expensesNew);
 
 
     /** FETCH - INVOICE NUMBER AND DATE **/  
-    const urlInv = `/d9-base/jsonapi/node/expenses?include=field_expense_details`;
-    console.log(urlInv);
+    const urlExp = `/d9-base/jsonapi/node/expenses?include=field_expense_details`;
+    console.log(urlExp);
 
-    const response_invoice = await fetch(urlInv, {
+    const response_expenses = await fetch(urlExp, {
       method: "GET",
       headers:{
         Accept: 'application/vnd.api+json'
       }
     });
-    const invoices = await response_invoice.json();
-    //console.log("INVOICE LIST",invoices);
+    const expenses = await response_expenses.json();
+    console.log("INVOICE LIST",expenses);
   
-    invoices.data.forEach( (item) =>{
-      const {relationships:{field_invoice_details:{data}}} = item;
-      const {attributes:{field_old_invoice_date, field_old_invoice_number}} = item;
+    /**
+    expenses.data.forEach( (item) =>{
+      const {relationships:{field_expense_details:{data}}} = item;
       const newData = [];
       data.map(item=> newData.push(item.id));
       //console.log(data);
@@ -79,8 +79,8 @@
         }
       })
     })
-
-    viewData(invoiceNew);
+   **/
+   // viewData(invoiceNew);
 
 
   }
