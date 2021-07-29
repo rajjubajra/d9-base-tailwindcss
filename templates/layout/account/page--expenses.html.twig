@@ -105,14 +105,17 @@
     
       let dt = new Date(item.date);
 
+      console.log("date?",dt);
+
       let amount = item.cost
       let month = dt.getMonth();
       let year = dt.getFullYear();
       let year_month = year + '-' + month;
+      
 
       amtArr.push(amount);
       
-      console.log("AMT ARR",amtArr);
+      console.log("AMT ARR",amtArr, "month", month, "year", year);
 
       let amount_cum = amtArr.reduce((accum, elem)=>{return accum + elem});
       
