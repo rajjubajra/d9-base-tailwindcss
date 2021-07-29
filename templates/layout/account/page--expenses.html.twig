@@ -74,7 +74,7 @@
       //console.log(data);
       
       expenses.included.map((inc)=>{
-        const {attributes:{field_description:{value}, field_cost}} = inc;
+        const {attributes:{field_descrtiption:{value}, field_cost}} = inc;
         //if same id in "newData" array then push to "expenseNew" array
         if(newData.includes(inc.id)){
           expenseNew.push({date: field_expense_date, desc: value, cost: field_cost});
