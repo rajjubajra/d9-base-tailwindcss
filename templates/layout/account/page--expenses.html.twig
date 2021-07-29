@@ -68,7 +68,9 @@
       const {relationships:{field_expense_details:{data}}} = item;
       const {attributes:{field_expense_date},attributes:{drupal_internal_nid}} = item;
       let dt = new Date(field_expense_date);
-      let year_month = `${dt.getFullYear()}-${dt.getMonth()}`;
+      let dtMs = dt.getTime();
+      let newDt = new Date(dtMs);
+      let year_month = `${newDt.getFullYear()}-${newDt.getMonth()}`;
       
       const newData = [];
       data.map(item=> newData.push(item.id));
