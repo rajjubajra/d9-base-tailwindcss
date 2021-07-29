@@ -13,6 +13,7 @@
       <h1 class="text-2xl">Account Statement</h1>
       <div class="flex flex-row text-xs uppercase">
         <div class="p-1 m-1 w-28">Date</div>
+        <div class="p-1 m-1 w-28">Year-Month</div>
         <div class="p-1 m-1 w-24">Inv Number</div>
         <div class="p-1 m-1 w-72">Description</div>
         <div class="p-1 m-1 w-24">Quantity</div>
@@ -50,12 +51,12 @@
   const getInvoices = async () => {
 
     const invoiceNew = [];
-    console.log("INVOICE NEW",invoiceNew);
+    //console.log("INVOICE NEW",invoiceNew);
 
 
     /** FETCH - INVOICE NUMBER AND DATE **/  
     const urlInv = `/d9-base/jsonapi/node/invoice?include=field_invoice_details`;
-    console.log(urlInv);
+    //console.log(urlInv);
 
     const response_invoice = await fetch(urlInv, {
       method: "GET",
@@ -76,7 +77,9 @@
       invoices.included.map((inc)=>{
         const {attributes:{field_description:{value}, field_quantity, field_rate}} = inc;
         if(newData.includes(inc.id)){
-          invoiceNew.push({date: field_old_invoice_date, num: field_old_invoice_number, desc: value, qty: field_quantity, rate: field_rate});
+          invoiceNew.push({date: field_old_invoice_date, 
+            yearMonth: field_old_invoice_date.subString(0,7),
+            num: field_old_invoice_number, desc: value, qty: field_quantity, rate: field_rate});
         }
       })
     })
@@ -95,7 +98,7 @@
     });
 
 
-    console.log("DATA SORTED",data_sorted);
+   // console.log("DATA SORTED",data_sorted);
 
 
     /** for cumulative amount **/
@@ -109,12 +112,13 @@
 
       amtArr.push(amount);
       
-      console.log("AMT ARR",amtArr);
+      //console.log("AMT ARR",amtArr);
 
       let amount_cum = amtArr.reduce((accum, elem)=>{return accum + elem});
       
       let items = `<div class="flex flex-row text-xs">
         <div class="p-1 m-1 w-28">${item.date}</div>
+        <div class="p-1 m-1 w-28">${item.yearMonth}</div>
         <div class="p-1 m-1 w-24">${item.num}</div>
         <div class="p-1 m-1 w-72">${item.desc}</div>
         <div class="p-1 m-1 w-24">${qty}</div>
