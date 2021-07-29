@@ -47,12 +47,12 @@
   const getExpenses = async () => {
 
     const expensesNew = [];
-    console.log("INVOICE NEW", expensesNew);
+   // console.log("INVOICE NEW", expensesNew);
 
 
     /** FETCH - INVOICE NUMBER AND DATE **/  
     const urlExp = `/d9-base/jsonapi/node/expenses?include=field_expense_details`;
-    console.log(urlExp);
+    //console.log(urlExp);
 
     const response_expenses = await fetch(urlExp, {
       method: "GET",
@@ -61,7 +61,7 @@
       }
     });
     const expenses = await response_expenses.json();
-    console.log("INVOICE LIST",expenses);
+    //console.log("INVOICE LIST",expenses);
   
     
     expenses.data.forEach( (item) =>{
@@ -94,7 +94,7 @@
     });
 
 
-    console.log("DATA SORTED",data_sorted);
+   // console.log("DATA SORTED",data_sorted);
 
 
     /** for cumulative amount **/
