@@ -67,6 +67,8 @@
     expenses.data.forEach( (item) =>{
       const {relationships:{field_expense_details:{data}}} = item;
       const {attributes:{field_expense_date},attributes:{drupal_internal_nid}} = item;
+      let dt = new Date(field_expense_date);
+      let year_month = dt.getFullYear() + '-' + dt.getMonth();
       const newData = [];
       data.map(item=> newData.push(item.id));
       //console.log(data);
@@ -75,7 +77,7 @@
         const {attributes:{field_descrtiption:{value}, field_cost}} = inc;
         //if same id in "newData" array then push to "expenseNew" array
         if(newData.includes(inc.id)){
-          expensesNew.push({date: field_expense_date, desc: value, cost: field_cost});
+          expensesNew.push({date: field_expense_date, year_month: year_month, desc: value, cost: field_cost});
         }
       })
     })
@@ -102,27 +104,19 @@
 
 
     data_sorted.map(item =>{
-    
-      let dt = new Date(item.date);
 
-      console.log("date?",dt);
-
+      //for cummulative cost
       let amount = item.cost
-      let month = dt.getUTCMonth();
-      let year = dt.getFullYear();
-      let year_month = year + '-' + month;
-      
-
       amtArr.push(amount);
       
-      console.log("AMT ARR",amtArr, "month", month, "year", year);
+      //console.log("AMT ARR",amtArr);
 
       let amount_cum = amtArr.reduce((accum, elem)=>{return accum + elem});
       
       
       let items = `<div class="flex flex-row text-xs">
         <div class="p-1 m-1 w-28">${item.date}</div>
-        <div class="p-1 m-1 w-28">${year_month}</div>
+        <div class="p-1 m-1 w-28">${item.year_month}</div>
         <div class="p-1 m-1 w-72">${item.desc}</div>
         <div class="p-1 m-1 w-24">${item.cost.toFixed(2)}</div>
         <div class="p-1 m-1 w-24">${amount_cum.toFixed(2)}</div>
