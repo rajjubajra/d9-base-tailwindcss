@@ -77,7 +77,7 @@
         const {attributes:{field_descrtiption:{value}, field_cost}} = inc;
         //if same id in "newData" array then push to "expenseNew" array
         if(newData.includes(inc.id)){
-          expenseNew.push({date: field_expense_date, desc: value, cost: field_cost});
+          expensesNew.push({date: field_expense_date, desc: value, cost: field_cost});
         }
       })
     })
