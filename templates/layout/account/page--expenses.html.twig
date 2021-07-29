@@ -33,7 +33,7 @@
 
 </div>{# /.layout-container #}
 
-{# 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  #}
+
 
 
 <script>
@@ -65,21 +65,23 @@
     const expenses = await response_expenses.json();
     console.log("INVOICE LIST",expenses);
   
-    /**
+    
     expenses.data.forEach( (item) =>{
       const {relationships:{field_expense_details:{data}}} = item;
+      const {attributes:{field_expense_date},attributes:{drupal_internal_nid}} = item;
       const newData = [];
       data.map(item=> newData.push(item.id));
       //console.log(data);
       
-      invoices.included.map((inc)=>{
-        const {attributes:{field_description:{value}, field_quantity, field_rate}} = inc;
+      expenses.included.map((inc)=>{
+        const {attributes:{field_description:{value}, field_cost}} = inc;
+        //if same id in "newData" array then push to "expenseNew" array
         if(newData.includes(inc.id)){
-          invoiceNew.push({date: field_old_invoice_date, num: field_old_invoice_number, desc: value, qty: field_quantity, rate: field_rate});
+          expenseNew.push({date: field_expense_date, desc: value, cost: field_cost});
         }
       })
     })
-   **/
+  
    // viewData(invoiceNew);
 
 
@@ -102,9 +104,7 @@
 
     data_sorted.map(item =>{
     
-      
-      let qty = item.qty === null ? ' - ' : item.qty;
-      let amount = item.qty === null ? item.rate : item.qty * item.rate;
+      let amount = item.cost
 
       amtArr.push(amount);
       
@@ -114,11 +114,8 @@
       
       let items = `<div class="flex flex-row text-xs">
         <div class="p-1 m-1 w-28">${item.date}</div>
-        <div class="p-1 m-1 w-24">${item.num}</div>
         <div class="p-1 m-1 w-72">${item.desc}</div>
-        <div class="p-1 m-1 w-24">${qty}</div>
-        <div class="p-1 m-1 w-24">${item.rate.toFixed(2)}</div>
-        <div class="p-1 m-1 w-24">${amount.toFixed(2)}</div>
+        <div class="p-1 m-1 w-24">${item.cost.toFixed(2)}</div>
         <div class="p-1 m-1 w-24">${amount_cum.toFixed(2)}</div>
       </div>`
 
